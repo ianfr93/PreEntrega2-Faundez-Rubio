@@ -44,22 +44,15 @@ html, body {
     top: 0;
     left: 0; 
 }
-.register-login .register-login-h1 {
-    color: #43425D;
-    text-align: center;
-    font-size: 35px;
-    letter-spacing: 10px;
-    margin-bottom: 15px;
-   text-transform: capitalize;
+.register-login-p {
+  text-align: center;
+  font-size: 18px;
 }
 
-.register-login .register-login-p {
-    color: #2f2f3e;
-    font-size: 25px;
-    font-weight:bold;
-    margin-bottom: 50px; 
-    margin-top: 70px;
-    font-family:gilroy-semibold;
+.register-login-p h1 {
+  font-size: 24px;
+  color: #333; /* Cambia el color a tu preferencia */
+  font-weight: bold;
 }
 
 .register-login .form-group {
