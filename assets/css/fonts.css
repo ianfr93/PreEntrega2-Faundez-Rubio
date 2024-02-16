@@ -1,125 +1,114 @@
-
-/*--------------------------------------------------------------------- 
-import Fonts 
----------------------------------------------------------------------*/
 @font-face {
-    font-family:"adineue-PRO-Bold";
-    src: url("../fonts/adineue-PRO-Bold.ttf") format("truetype");
-    }
-@font-face {
-font-family:"CormorantInfant-bold";
-src: url("../fonts/CormorantInfant-Bold.ttf");
-}
-@font-face {
-font-family:"CormorantInfant-light";
-src: url("../fonts/CormorantInfant-Light.ttf") format("truetype");
-}
-@font-face {
-font-family:"CormorantInfant-medium";
-src: url("../fonts/CormorantInfant-Medium.ttf") format("truetype");
+    font-family: "Gilroy-light";
+    src: url("../Fonts/Gilroy-Light.ttf") format("truetype");
 }
 
 @font-face {
-font-family:"CormorantInfant-regular";
-src: url("../fonts/CormorantInfant-Regular.ttf") format("truetype");
+    font-family: "Gilroy-Regular";
+    src: url("../Fonts/Gilroy-Regular.ttf") format("truetype");
 }
 
 @font-face {
-font-family:"CormorantInfant-semibold";
-src: url("../fonts/CormorantInfant-SemiBold.ttf") format("truetype");
-}
-@font-face {
-font-family:"JosefinSans-bold";
-src: url("../fonts/JosefinSans-Bold.ttf") format("truetype");
-}
-@font-face {
-font-family:"JosefinSans-extralight";
-src: url("../fonts/JosefinSans-ExtraLight.ttf") format("truetype");
-}
-@font-face {
-font-family:"JosefinSans-light";
-src: url("../fonts/JosefinSans-Light.ttf") format("truetype");
+    font-family: "Gilroy-Medium";
+    src: url("../Fonts/Gilroy-Medium.ttf");
 }
 
 @font-face {
-font-family:"JosefinSans-medium";
-src: url("../fonts/JosefinSans-Medium.ttf") format("truetype");
-}
-@font-face {
-font-family:"JosefinSans-regular";
-src: url("../fonts/JosefinSans-Regular.ttf") format("truetype");
+    font-family: "Gilroy-Semibold";
+    src: url("../Fonts/Gilroy-SemiBold.ttf") format("truetype");
 }
 
 @font-face {
-    font-family:"JosefinSans-semibold";
-    src: url("../fonts/JosefinSans-SemiBold.ttf") format("truetype");
-    }
-    
+    font-family: "Gilroy-Bold";
+    src: url("../Fonts/Gilroy-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Gilroy-Extrabold";
+    src: url("../Fonts/Gilroy-ExtraBold.ttf") format("truetype");
+}
 
 
-span{
+@font-face {
+    font-family: "Gilroy-SemiBoldItalic";
+    src: url("../Fonts/Gilroy-SemiBoldItalic.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Gilroy-Thin";
+    src: url("../Fonts/Gilroy-Thin.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Gilroy-RegularItalic";
+    src: url("../Fonts/Gilroy-RegularItalic.ttf") format("truetype");
+}
+
+
+span {
     color: #fff;
     font-size: 18px;
-    font-family:"JosefinSans-medium";
-}
-
-h1{
-font-family:"adineue-PRO";
-color:#fff;
-font-size: 50px;
-
+    font-family: "Gilroy-Semibold";
 
 }
 
-h2{
-    font-family:"adineue-PRO";
-    font-size: 40px;
+h1 {
+    font-family: "Gilroy-Semibold";
+    color: #fff;
+    font-size: 50px;
+
 
 }
 
-h3{
-    font-family:"adineue-PRO";
-font-size: 30px;
+h2 {
+    font-family: "Gilroy-Semibold";
+    font-size: 35px;
+
+}
+
+h3 {
+    font-family: "Gilroy-Medium";
+    font-size: 30px;
 }
 
 h4 {
-    font-family:"adineue-PRO";
-font-size: 20px;
+    font-family: "Gilroy-Semibold";
+    font-size: 20px;
 
 }
-h5{
-    font-family:"adineue-PRO";
-font-size: 18px;
+
+h5 {
+    font-family: "Gilroy-Regular";
+    font-size: 18px;
 }
 
-h6{
-    font-family:"adineue-PRO";
-font-size: 13px;
+h6 {
+    font-family: "Gilroy-SemiBoldItalic";
+    font-size: 13px;
 }
 
-p{
-font-family: "CormorantInfant-semibold";
-color: #fff;
-font-size: 20px;
+p {
+    font-family: "Gilroy-Regular";
+    color: #fff;
+   
 
 }
 
 a {
-font-family: "JosefinSans-regular";
+    font-family: "Gilroy-Medium";
 }
 
-.btn{
-    font-family: "JosefinSans-semibold";
+.btn {
+    font-family: "Gilroy-Semibold";
 }
 
 
 
-.button{
-    font-family: "JosefinSans-semibold";
+.button {
+    font-family: "Gilroy-Semibold";
 }
 
-li a{
-font-family: "JosefinSans-medium";
-font-size:18px;
+li a {
+    font-family: "Gilroy-medium";
+    font-size: 18px;
 }
-
