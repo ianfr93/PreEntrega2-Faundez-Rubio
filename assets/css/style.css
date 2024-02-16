@@ -285,7 +285,7 @@ html, body {
 
 @media screen and (max-width: 320px) {
   .register-login .form-center {
-    top: 60px; 
+    top: -120px; 
    } 
 
    .col-lg.form-center {
@@ -294,7 +294,7 @@ html, body {
 }
 
 .container-form img {
-  width: 300px; /* Ajusta el tamaño del logo según tus necesidades */
+  width: 180px; /* Ajusta el tamaño del logo según tus necesidades */
   margin: 0 auto; /* Centra la imagen horizontalmente */
   display: block; /* Asegura que el margen automático funcione correctamente */
 }
