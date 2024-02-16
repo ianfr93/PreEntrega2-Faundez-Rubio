@@ -46,18 +46,14 @@
 
 
 span {
-    color: #fff;
     font-size: 18px;
     font-family: "Gilroy-Semibold";
 
 }
 
 h1 {
-    font-family: "Gilroy-Semibold";
-    color: #2C5D70;
-    font-size: 30px;
-
-
+    font-family: "Gilroy-medium";
+    font-size: 25px;
 }
 
 h2 {

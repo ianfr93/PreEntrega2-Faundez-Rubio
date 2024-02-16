@@ -49,6 +49,12 @@ html, body {
   font-size: 18px;
 }
 
+.register-login-p, h1 {
+  
+  color: #2C5D70;
+  font-weight:bolder;
+}
+
 
 
 .register-login .form-group {
@@ -253,10 +259,21 @@ html, body {
   margin: 0 auto; /* Centra la imagen horizontalmente */
   display: block; /* Asegura que el margen automático funcione correctamente */
 }
+.register-login-p, h1  {
+  font-size: 16px !important;
+  color: #ffffff !important;
+  font-weight:bolder;
+}
 
 }
 
 @media screen and (max-width: 480px) {
+
+  .register-login-p, h1  {
+    font-size: 16px !important;
+    color: #ffffff !important;
+    font-weight:bolder;
+  }
   .register-login .image--points {
     background-size: 200%;
     background-position: bottom; 
@@ -282,6 +299,11 @@ html, body {
    .col-lg.form-center {
     flex-direction: row;
     justify-content: flex-end; /* Alinea el formulario hacia la derecha en pantallas grandes */
+}
+.register-login-p, h1 {
+  font-size: 14px !important;
+  color: #ffffff;
+  font-weight:bolder;
 }
 
 .container-form img {
