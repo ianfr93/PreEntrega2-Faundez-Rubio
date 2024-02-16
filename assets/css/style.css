@@ -23,7 +23,8 @@ body {
     position: relative; 
 }
 .register-login .image--points {
-  background-image: url(../img/inicio\ de\ sesión/img-1.jpg);
+
+  background-image: linear-gradient(rgba(33, 59, 151, 0.335), rgba(11, 61, 119, 0.555)),url(../img/inicio\ de\ sesión/img-1.webp);
     background-size: cover; 
     background-position: center; 
     width: 100%;
