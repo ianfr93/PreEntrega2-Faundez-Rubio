@@ -15,23 +15,32 @@ function autenticarUsuario() {
 
   let usuarioValido = usuarios.find(user => user.usuario === nombreUsuario && user.contraseña === contraseña);
 
-  if (!usuarioValido) {
-    alert(`Nombre de usuario o contraseña incorrectos. Intentos restantes: ${intentosRestantes}`);
-    intentosRestantes--;
+  // Obtén el elemento del mensaje
+  let mensajeElement = document.getElementById("mensaje");
 
-    if (intentosRestantes <= 0) {
-      alert("¡Se han agotado los intentos! Reinicie la sesión para intentar nuevamente.");
-      intentosRestantes = 4;
-      resetForm();
-    }
+  if (!usuarioValido) {
+      // Muestra mensaje de error
+      mensajeElement.innerHTML = `Nombre de usuario o contraseña incorrectos. Intentos restantes: ${intentosRestantes}`;
+      mensajeElement.className = "alert alert-danger";
+      mensajeElement.style.display = "block";
+      intentosRestantes--;
+
+      if (intentosRestantes <= 0) {
+          mensajeElement.innerHTML = "¡Se han agotado los intentos! Reinicie la sesión para intentar nuevamente.";
+          resetForm();
+      }
   } else {
-    alert(`¡Bienvenido, ${nombreUsuario}! Has iniciado sesión exitosamente.`);
-    resetForm();
-    // Puedes redirigir al usuario a otra página o realizar otras acciones necesarias después del inicio de sesión exitoso
+      // Muestra mensaje de éxito
+      mensajeElement.innerHTML = `¡Bienvenido, ${nombreUsuario}! Has iniciado sesión exitosamente.`;
+      mensajeElement.className = "alert alert-success";
+      mensajeElement.style.display = "block";
+      resetForm();
+      // Puedes redirigir al usuario a otra página o realizar otras acciones necesarias después del inicio de sesión exitoso
   }
 }
 
 function resetForm() {
   document.getElementById("loginForm").reset();
+  // Oculta el mensaje después de reiniciar el formulario
+  document.getElementById("mensaje").style.display = "none";
 }
-// Comprueba  si  el  usuario y la contraseña es correcta
