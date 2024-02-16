@@ -1,33 +1,10 @@
-
-// Mensaje principal
-alert("HOLA! :) :) :) , Bienvenido a Super WEBPOS para continuar debe iniciar sesión")
-
-// menu de inicio de sesion
-let usuarios = [{
-    usuario: "usuario1",
-    contraseña: "contraseña1"
-  },
-
-  {
-    usuario: "usuario2",
-    contraseña: "contraseña2"
-  },
-  {
-    usuario: "usuario3",
-    contraseña: "contraseña3"
-  },
-  {
-    usuario: "usuario4",
-    contraseña: "contraseña4"
-  },
-  {
-    usuario: "usuario5",
-    contraseña: "contraseña5"
-  },
-  {
-    usuario: "usuario6",
-    contraseña: "contraseña6"
-  }
+let usuarios = [
+  { usuario: "usuario1", contraseña: "contraseña1" },
+  { usuario: "usuario2", contraseña: "contraseña2" },
+  { usuario: "usuario3", contraseña: "contraseña3" },
+  { usuario: "usuario4", contraseña: "contraseña4" },
+  { usuario: "usuario5", contraseña: "contraseña5" },
+  { usuario: "usuario6", contraseña: "contraseña6" }
 ];
 
 let nombreUsuario;
@@ -38,28 +15,24 @@ function autenticarUsuario() {
   let contraseña = prompt("Ingrese su contraseña");
   let usuarioValido = usuarios.find(user => user.usuario === nombreUsuario && user.contraseña === contraseña);
 
-  // Si los datos son incorrectos
   if (!usuarioValido) {
     alert(`Nombre de usuario o contraseña incorrectos. Intentos restantes: ${intentosRestantes}`);
-
-    // Reducira el número de intentos restantes
     intentosRestantes--;
 
-    // va ir a Verificar si quedan intentos
     if (intentosRestantes > 0) {
       autenticarUsuario();
     } else {
-      // Mostrar mensaje de alerta cuando se agoten los intentos
       alert("¡Se han agotado los intentos! Reinicie la sesión para intentar nuevamente.");
-      // Reiniciar intentos y volver a solicitar inicio de sesión
       intentosRestantes = 4;
-      autenticarUsuario();
     }
+  } else {
+    alert(`¡Bienvenido, ${nombreUsuario}! Has iniciado sesión exitosamente.`);
+    // Aquí podrías redirigir al usuario a otra página o realizar otras acciones necesarias después del inicio de sesión exitoso
   }
 }
 
-// va a Llamar a la función de autenticación al cargar la página
-autenticarUsuario();
+// autenticarUsuario();
+
 
 //VARIABLES
 let Selecione_Caja;
