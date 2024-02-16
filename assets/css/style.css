@@ -187,7 +187,7 @@ body {
   }
   
   .container-form img {
-      width: 300px; /* Ajusta el tamaño del logo según tus necesidades */
+      width: 510px; /* Ajusta el tamaño del logo según tus necesidades */
       margin: 0 auto; /* Centra la imagen horizontalmente */
       display: block; /* Asegura que el margen automático funcione correctamente */
   }
