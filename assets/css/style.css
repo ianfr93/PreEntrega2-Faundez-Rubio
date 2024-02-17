@@ -50,7 +50,7 @@ html, body {
 }
 
 .register-login-p, h1 {
-  
+  font-size: 22px !important;
   color: #2C5D70;
   font-weight:bolder;
 }
@@ -295,7 +295,32 @@ html, body {
   .register-login .form-center {
     top: -120px; 
    } 
+   .form-control {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
 
+   .form-group {
+    margin-bottom: 20px;
+    margin-top: 60px;
+  }
+   .form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+    margin-top: 10px;
+   
+  }
+  #loginForm {
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 40px;
+  }
    .col-lg.form-center {
     flex-direction: row;
     justify-content: flex-end; /* Alinea el formulario hacia la derecha en pantallas grandes */
