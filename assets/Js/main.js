@@ -37,7 +37,8 @@ function autenticarUsuario() {
     resetForm();
     
     // Redirige al usuario al dashboard después del inicio de sesión exitoso
-    window.location.href = 'dashboard.html';
+    window.location.href = 'pages/dashboard.html';
+
   }
 }
 
