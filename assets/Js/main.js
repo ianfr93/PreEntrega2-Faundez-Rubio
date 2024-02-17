@@ -9,7 +9,9 @@ let usuarios = [
 
 let intentosRestantes = 4;
 
-function autenticarUsuario() {
+function autenticarUsuario(event) {
+  event.preventDefault();  // Prevenir el comportamiento predeterminado del formulario
+
   let nombreUsuario = document.getElementById("username").value;
   let contraseña = document.getElementById("password").value;
 
@@ -30,15 +32,9 @@ function autenticarUsuario() {
       resetForm();
     }
   } else {
-    // Muestra mensaje de éxito
-    mensajeElement.innerHTML = `¡Bienvenido, ${nombreUsuario}! Has iniciado sesión exitosamente.`;
-    mensajeElement.className = "alert alert-success";
-    mensajeElement.style.display = "block";
-    resetForm();
-
     // Redirige al usuario al dashboard solo si los datos son válidos
     window.location.href = './pages/dashboard.html';
   }
 }
 
-
+document.getElementById("acceso").addEventListener("click", autenticarUsuario);
