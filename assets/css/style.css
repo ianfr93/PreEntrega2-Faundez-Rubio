@@ -209,6 +209,11 @@ html, body {
 
 @media screen and (max-width: 991px) {
 
+  .container-form img {
+    content: url('../img/logo/logo-blanco.png'); /* Ruta de la imagen alternativa para pantallas pequeñas */
+    /* Ajusta el tamaño según tus necesidades */
+  }
+
   .form-group {
     margin-bottom: 0px; /* Ajusta la separación entre grupos */
     margin-top: 10px; /* Ajusta la separación desde arriba */
