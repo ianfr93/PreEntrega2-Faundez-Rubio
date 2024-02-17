@@ -35,9 +35,9 @@ function autenticarUsuario() {
     mensajeElement.className = "alert alert-success";
     mensajeElement.style.display = "block";
     resetForm();
-    
-    // Redirige al usuario al dashboard después del inicio de sesión exitoso
-    window.location.href = 'pages/dashboard.html';
+
+    // Redirige al usuario al dashboard solo si los datos son válidos
+    window.location.href = './pages/dashboard.html';
   }
 }
 

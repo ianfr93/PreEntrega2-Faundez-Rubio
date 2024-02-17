@@ -40,7 +40,7 @@
                     <img src="./assets/img/logo/logo-principal.png" alt="">
                  
                     <p class="register-login-p"><h1>¡Bienvenido!, por favor ingresa tus credenciales</h1></p>
-                    <form action="login.php" method="POST" name="loginForm" id="loginForm">
+                    <form action="./pages/dashboard.html" method="POST" name="loginForm" id="loginForm">
                         <div class="form-group">
                             <input type="text" id="username" name="username" class="form-control" required>
                             <label for="username" class="form-label">Nombre de Usuario</label>
@@ -59,8 +59,8 @@
                             <a href="#" class="forgot__password--link">¿Olvidó su contraseña?</a>
                         </div>
                         <div class="d-flex justify-content-lg-between">
-                            <button type="button" class="btn btn-login align-self-center" onclick="autenticarUsuario()" id="acceso">Entrar</button>
-
+                            <!-- Cambia el tipo de botón de "button" a "submit" y agrega el atributo "form" -->
+                            <button type="submit" class="btn btn-login align-self-center" onclick="autenticarUsuario()" id="acceso">Entrar</button>
                         </div>
                         <a href="#" class="register-link--haveaccount">¿No tienes una cuenta? Registrate</a>
                     </form>
