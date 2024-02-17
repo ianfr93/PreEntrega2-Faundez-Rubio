@@ -380,3 +380,15 @@ html, body {
     display: block; 
   }
 }
+.error-message {
+  color: white;
+  background-color: #2C5D70;
+  border-radius: 0px;
+  padding: 10px;
+  margin-top: 0px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
