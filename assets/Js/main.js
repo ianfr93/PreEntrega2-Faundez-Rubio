@@ -38,7 +38,6 @@ function autenticarUsuario() {
     
     // Redirige al usuario al dashboard después del inicio de sesión exitoso
     window.location.href = 'pages/dashboard.html';
-
   }
 }
 
