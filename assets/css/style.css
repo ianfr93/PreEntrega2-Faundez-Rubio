@@ -198,7 +198,9 @@ html, body {
       width: 470px; 
       margin: 0 auto; 
       display: block; 
+      margin-top: -10px;
   }
+
 
 
 @media screen and (min-width: 1400px) {
