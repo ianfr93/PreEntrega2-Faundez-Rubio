@@ -191,13 +191,13 @@ html, body {
       margin: 2em auto;
     }
     .container-form {
-      text-align: center; /* Centra el contenido del contenedor */
+      text-align: center; 
   }
   
   .container-form img {
-      width: 470px; /* Ajusta el tamaño del logo según tus necesidades */
-      margin: 0 auto; /* Centra la imagen horizontalmente */
-      display: block; /* Asegura que el margen automático funcione correctamente */
+      width: 470px; 
+      margin: 0 auto; 
+      display: block; 
   }
 
 
@@ -210,20 +210,20 @@ html, body {
 @media screen and (max-width: 991px) {
 
   .container-form img {
-    content: url('../img/logo/logo-blanco.png'); /* Ruta de la imagen alternativa para pantallas pequeñas */
-    /* Ajusta el tamaño según tus necesidades */
+    content: url('../img/logo/logo-blanco.png'); 
+
   }
 
   .form-group {
-    margin-bottom: 0px; /* Ajusta la separación entre grupos */
-    margin-top: 10px; /* Ajusta la separación desde arriba */
+    margin-bottom: 0px; 
+    margin-top: 10px; 
   }
 
   .form-label {
     display: block;
     margin-bottom: 5px;
     font-size: 16px;
-    margin-top: 10px; /* Ajusta la separación desde arriba */
+    margin-top: 10px; 
   }
 
   #loginForm {
@@ -274,13 +274,13 @@ html, body {
 
    .col-lg.form-center {
     flex-direction: row;
-    justify-content: flex-end; /* Alinea el formulario hacia la derecha en pantallas grandes */
+    justify-content: flex-end; 
 }
 
 .container-form img {
-  width: 300px; /* Ajusta el tamaño del logo según tus necesidades */
-  margin: 0 auto; /* Centra la imagen horizontalmente */
-  display: block; /* Asegura que el margen automático funcione correctamente */
+  width: 300px; 
+  margin: 0 auto; 
+  display: block; 
 }
 .register-login-p, h1  {
   font-size: 16px !important;
@@ -292,15 +292,15 @@ html, body {
 
 @media screen and (max-width: 480px) {
   .form-group {
-    margin-bottom: 0px; /* Ajusta la separación entre grupos */
-    margin-top: 10px; /* Ajusta la separación desde arriba */
+    margin-bottom: 0px; 
+    margin-top: 10px; 
   }
 
   .form-label {
     display: block;
     margin-bottom: 5px;
     font-size: 16px;
-    margin-top: 10px; /* Ajusta la separación desde arriba */
+    margin-top: 10px; 
   }
 
   #loginForm {
@@ -324,9 +324,9 @@ html, body {
     margin-left: auto; 
    } 
    .container-form img {
-    width: 300px; /* Ajusta el tamaño del logo según tus necesidades */
-    margin: 0 auto; /* Centra la imagen horizontalmente */
-    display: block; /* Asegura que el margen automático funcione correctamente */
+    width: 300px; 
+    margin: 0 auto; 
+    display: block; 
   }
 }
 
@@ -346,15 +346,15 @@ html, body {
   }
 
   .form-group {
-    margin-bottom: 0px; /* Ajusta la separación entre grupos */
-    margin-top: 10px; /* Ajusta la separación desde arriba */
+    margin-bottom: 0px; 
+    margin-top: 10px; 
   }
 
   .form-label {
     display: block;
     margin-bottom: 5px;
     font-size: 16px;
-    margin-top: 10px; /* Ajusta la separación desde arriba */
+    margin-top: 10px;
   }
 
   #loginForm {
@@ -365,7 +365,7 @@ html, body {
 
   .col-lg.form-center {
     flex-direction: row;
-    justify-content: flex-end; /* Alinea el formulario hacia la derecha en pantallas grandes */
+    justify-content: flex-end; 
   }
 
   .register-login-p, h1 {
@@ -375,8 +375,8 @@ html, body {
   }
 
   .container-form img {
-    width: 180px; /* Ajusta el tamaño del logo según tus necesidades */
-    margin: 0 auto; /* Centra la imagen horizontalmente */
-    display: block; /* Asegura que el margen automático funcione correctamente */
+    width: 180px; 
+    margin: 0 auto;
+    display: block; 
   }
 }
