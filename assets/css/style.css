@@ -208,6 +208,24 @@ html, body {
 }
 
 @media screen and (max-width: 992px) {
+
+  .form-group {
+    margin-bottom: 0px; /* Ajusta la separación entre grupos */
+    margin-top: 10px; /* Ajusta la separación desde arriba */
+  }
+
+  .form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+    margin-top: 10px; /* Ajusta la separación desde arriba */
+  }
+
+  #loginForm {
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 90px;
+  }
   .register-login {
     height: auto; 
    }     
@@ -268,7 +286,23 @@ html, body {
 }
 
 @media screen and (max-width: 480px) {
+  .form-group {
+    margin-bottom: 0px; /* Ajusta la separación entre grupos */
+    margin-top: 10px; /* Ajusta la separación desde arriba */
+  }
 
+  .form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+    margin-top: 10px; /* Ajusta la separación desde arriba */
+  }
+
+  #loginForm {
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 90px;
+  }
   .register-login-p, h1  {
     font-size: 16px !important;
     color: #ffffff !important;
@@ -294,8 +328,9 @@ html, body {
 @media screen and (max-width: 320px) {
   .register-login .form-center {
     top: -120px; 
-   } 
-   .form-control {
+  } 
+
+  .form-control {
     width: 100%;
     padding: 10px;
     margin-top: 5px;
@@ -305,35 +340,38 @@ html, body {
     border-radius: 4px;
   }
 
-   .form-group {
-    margin-bottom: 20px;
-    margin-top: 60px;
+  .form-group {
+    margin-bottom: 0px; /* Ajusta la separación entre grupos */
+    margin-top: 10px; /* Ajusta la separación desde arriba */
   }
-   .form-label {
+
+  .form-label {
     display: block;
     margin-bottom: 5px;
     font-size: 16px;
-    margin-top: 10px;
-   
+    margin-top: 10px; /* Ajusta la separación desde arriba */
   }
+
   #loginForm {
     max-width: 400px;
     margin: 0 auto;
     margin-top: 40px;
   }
-   .col-lg.form-center {
+
+  .col-lg.form-center {
     flex-direction: row;
     justify-content: flex-end; /* Alinea el formulario hacia la derecha en pantallas grandes */
-}
-.register-login-p, h1 {
-  font-size: 14px !important;
-  color: #ffffff;
-  font-weight:bolder;
-}
+  }
 
-.container-form img {
-  width: 180px; /* Ajusta el tamaño del logo según tus necesidades */
-  margin: 0 auto; /* Centra la imagen horizontalmente */
-  display: block; /* Asegura que el margen automático funcione correctamente */
-}
+  .register-login-p, h1 {
+    font-size: 14px !important;
+    color: #ffffff;
+    font-weight: bolder;
+  }
+
+  .container-form img {
+    width: 180px; /* Ajusta el tamaño del logo según tus necesidades */
+    margin: 0 auto; /* Centra la imagen horizontalmente */
+    display: block; /* Asegura que el margen automático funcione correctamente */
+  }
 }
