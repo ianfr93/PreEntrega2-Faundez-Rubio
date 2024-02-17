@@ -207,7 +207,7 @@ html, body {
    } 
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 991px) {
 
   .form-group {
     margin-bottom: 0px; /* Ajusta la separación entre grupos */
