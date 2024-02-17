@@ -21,13 +21,14 @@ function autenticarUsuario(event) {
   let mensajeElement = document.getElementById("mensaje");
 
   if (!usuarioValido) {
-    // Muestra mensaje de error
-    mensajeElement.innerHTML = `Nombre de usuario o contraseña incorrectos. Intentos restantes: ${intentosRestantes}`;
-    mensajeElement.className = "alert alert-danger";
-    mensajeElement.style.display = "block";
+    // Decrementa los intentos restantes antes de mostrar el mensaje de error
     intentosRestantes--;
 
-    if (intentosRestantes <= 0) {
+    if (intentosRestantes > 0) {
+      mensajeElement.innerHTML = `Nombre de usuario o contraseña incorrectos. Intentos restantes: ${intentosRestantes}`;
+      mensajeElement.className = "alert alert-danger";
+      mensajeElement.style.display = "block";
+    } else {
       mensajeElement.innerHTML = "¡Se han agotado los intentos! Reinicie la sesión para intentar nuevamente.";
       resetForm();
     }
@@ -38,3 +39,5 @@ function autenticarUsuario(event) {
 }
 
 document.getElementById("acceso").addEventListener("click", autenticarUsuario);
+
+
