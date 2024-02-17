@@ -19,29 +19,26 @@ function autenticarUsuario() {
   let mensajeElement = document.getElementById("mensaje");
 
   if (!usuarioValido) {
-      // Muestra mensaje de error
-      mensajeElement.innerHTML = `Nombre de usuario o contraseña incorrectos. Intentos restantes: ${intentosRestantes}`;
-      mensajeElement.className = "alert alert-danger";
-      mensajeElement.style.display = "block";
-      intentosRestantes--;
+    // Muestra mensaje de error
+    mensajeElement.innerHTML = `Nombre de usuario o contraseña incorrectos. Intentos restantes: ${intentosRestantes}`;
+    mensajeElement.className = "alert alert-danger";
+    mensajeElement.style.display = "block";
+    intentosRestantes--;
 
-      if (intentosRestantes <= 0) {
-          mensajeElement.innerHTML = "¡Se han agotado los intentos! Reinicie la sesión para intentar nuevamente.";
-          resetForm();
-      }
-  } else {
-      // Muestra mensaje de éxito
-      mensajeElement.innerHTML = `¡Bienvenido, ${nombreUsuario}! Has iniciado sesión exitosamente.`;
-      mensajeElement.className = "alert alert-success";
-      mensajeElement.style.display = "block";
+    if (intentosRestantes <= 0) {
+      mensajeElement.innerHTML = "¡Se han agotado los intentos! Reinicie la sesión para intentar nuevamente.";
       resetForm();
-      // Puedes redirigir al usuario a otra página o realizar otras acciones necesarias después del inicio de sesión exitoso
+    }
+  } else {
+    // Muestra mensaje de éxito
+    mensajeElement.innerHTML = `¡Bienvenido, ${nombreUsuario}! Has iniciado sesión exitosamente.`;
+    mensajeElement.className = "alert alert-success";
+    mensajeElement.style.display = "block";
+    resetForm();
+    
+    // Redirige al usuario al dashboard después del inicio de sesión exitoso
+    window.location.href = 'dashboard.html';
   }
 }
 
-function resetForm() {
-  document.getElementById("loginForm").reset();
-  // Oculta el mensaje después de reiniciar el formulario
-  document.getElementById("mensaje").style.display = "none";
-}
 
