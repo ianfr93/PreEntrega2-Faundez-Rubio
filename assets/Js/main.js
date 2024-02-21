@@ -1,6 +1,6 @@
 
 // Mensaje principal
-alert("HOLA! :) :) :) , Bienvenido a Super WEBPOS para continuar debe iniciar sesión")
+alert("HOLA! :) :) :) , Bienvenido a Megatron POS Web para continuar debe iniciar sesión")
 
 // menu de inicio de sesion
 let usuarios = [{
