@@ -254,16 +254,7 @@ if (cerrarPrograma) {
   console.log(`Dirección: ${usuarios[indexUsuarioAutenticado].perfil.direccion}`);
   console.log("----------------------------------");
 
-   // Mostrar información de perfiles en la consola
-   console.log("Información de Perfiles de Usuarios:");
-   usuarios.forEach(usuario => {
-     console.log(`Usuario: ${usuario.usuario}`);
-     console.log(`Nombre: ${usuario.perfil.nombre}`);
-     console.log(`Edad: ${usuario.perfil.edad}`);
-     console.log(`Correo: ${usuario.perfil.correo}`);
-     console.log(`Dirección: ${usuario.perfil.direccion}`);
-     console.log("----------------------------------");
-   });
+
 
   // Aca Mostramos un mensaje de despedida solo si el usuario elige cerrar el programa
   alert('Gracias por tu compra. ¡Hasta luego!');
