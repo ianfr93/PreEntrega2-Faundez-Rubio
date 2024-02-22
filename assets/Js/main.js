@@ -160,7 +160,7 @@ function cargar_productos() {
 
 
 // Cuando Comienzo con el programa
-alert("Esto es Super WebPOS Ventas para continuar presione aceptar");
+alert("Esto es Megatron WebPOS Ventas para continuar presione aceptar");
 
 // Solicitara datos al cliente
 pedir_datos_cliente();
