@@ -207,16 +207,25 @@ alert("Esto es Super WebPOS Ventas para continuar presione aceptar");
 // Solicitara datos al cliente
 pedir_datos_cliente();
 
+let historialCompras = [];
+
 do {
   // Solicitara cliente al usuarios
   cargar_productos();
 
   // Solicitara la cantidad del producto
-  cantidad = parseInt(prompt("¿cúantas cantidades del " + producto + " desea llevar?"));
+  cantidad = parseInt(prompt("¿Cúantas cantidades del " + producto + " desea llevar?"));
 
   console.log(producto);
   console.log(precio);
   console.log(cantidad);
+
+  // Almacena la información de cada compra en el historial
+  historialCompras.push({
+    producto: productoSeleccionado,
+    precio: precio,
+    cantidad: cantidad
+  });
 
   // Sumo al total de la compra
   total_compra = total_compra + precio * cantidad;
@@ -247,14 +256,24 @@ if (!cerrarPrograma) {
 
 // Cuando damos a cerrar y sale el mensaje de despedida
 if (cerrarPrograma) {
-  console.log(`Último registro de compra para ${nombreUsuario}:`);
+
+  console.log(`Historial de compras para ${nombreUsuario}:`);
+  historialCompras.forEach(compra => {
+    console.log(`Producto: ${compra.producto}`);
+    console.log(`Precio: $${compra.precio.toFixed(2)}`);
+    console.log(`Cantidad: ${compra.cantidad}`);
+    console.log("----------------------------------");
+
+ 
   console.log(`Información del perfil para ${nombreUsuario}:`);
   console.log(`Nombre: ${usuarios[indexUsuarioAutenticado].perfil.nombre}`);
   console.log(`Edad: ${usuarios[indexUsuarioAutenticado].perfil.edad}`);
   console.log(`Correo: ${usuarios[indexUsuarioAutenticado].perfil.correo}`);
   console.log(`Dirección: ${usuarios[indexUsuarioAutenticado].perfil.direccion}`);
   console.log("----------------------------------");
+});
 
+// Cuando damos a cerrar y sale el mensaje de despedida
 
 
   // Aca Mostramos un mensaje de despedida solo si el usuario elige cerrar el programa
