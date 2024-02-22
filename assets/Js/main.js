@@ -63,13 +63,13 @@ let usuarios = [
       direccion: "Avenida Central, Ciudad"
     }
   }
-  // ... (otros usuarios)
+  // ... (usuarios existentes)
 ];
 
 let nombreUsuario;
 let intentosRestantes = 4;
 let Selecione_Caja;
-let producto;
+let productoSeleccionado;
 let precio;
 let total_compra = 0;
 let salir;
@@ -121,12 +121,14 @@ function seleccionarCaja() {
         alert('Opción incorrecta. Digite nuevamente para abrir una caja valida');
         error = 1;
     }
-  } while (error == 1);
+  } while (error === 1);
 
   return Selecione_Caja;
 }
 
-function cargarProductos() {
+//FUNCIONES
+function cargar_productos() {
+  //EJECUCION
   do {
     error = 0;
     producto = parseInt(prompt("Ingrese el código de producto que quiere llevar" + "\n" +
@@ -180,19 +182,11 @@ function cargarProductos() {
     precio: precio
   };
 }
-
 // Luego de la función seleccionarCaja, puedes llamar a la función para cargar productos
 cargarProductos();
 
 do {
-  cargarProductos();
-  cantidad = parseInt(prompt("¿Cúantas cantidades del " + producto + " desea llevar?"));
-
-  console.log(producto);
-  console.log(precio);
-  console.log(cantidad);
-
-  total_compra = total_compra + precio * cantidad;
+  // ... (código existente)
 
   salir = prompt('Desea agregar otro producto en el carrito de compras? Escriba SI/NO');
 
@@ -200,7 +194,7 @@ do {
     alert('Error: La respuesta debe ser SI o NO. Por favor, vuelva a intentarlo.');
   }
 
-} while (salir.toUpperCase() != 'NO');
+} while (salir.toUpperCase() !== 'NO');
 
 const iva = total_compra * 0.19;
 const total_con_iva = total_compra + iva;
@@ -230,5 +224,23 @@ if (cerrarPrograma) {
   // Después de mostrar el perfil, puedes llamar a la función para mostrar la pantalla de inicio (home)
   mostrarPerfilUsuario();
 
+  // Después de mostrar el perfil, puedes dar la opción de regresar a la pantalla de inicio (home)
+  regresarHome = prompt('¿Desea regresar a la pantalla de inicio (home)? Escriba SI/NO');
+
+  if (regresarHome.toUpperCase() === 'SI') {
+    // Llama a la función para mostrar la pantalla de inicio (home)
+    // Puedes agregar más lógica aquí según tus necesidades
+  }
+
   alert('Gracias por tu compra. ¡Hasta luego!');
+}
+
+// Función para mostrar el perfil del usuario
+function mostrarPerfil() {
+  const usuarioActual = usuarios.find(user => user.usuario === nombreUsuario);
+  console.log('Perfil de Usuario:');
+  console.log(`Nombre: ${usuarioActual.perfil.nombre}`);
+  console.log(`Edad: ${usuarioActual.perfil.edad}`);
+  console.log(`Correo: ${usuarioActual.perfil.correo}`);
+  console.log(`Dirección: ${usuarioActual.perfil.direccion}`);
 }
