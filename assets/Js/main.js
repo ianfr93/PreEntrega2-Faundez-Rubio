@@ -123,11 +123,12 @@ function seleccionarCaja() {
     }
   } while (error === 1);
 
-  return Selecione_Caja;
+  // Después de seleccionar la caja, puedes llamar a la función para cargar productos
+  cargarProductos();
 }
 
 //FUNCIONES
-function cargar_productos() {
+function cargarProductos() {
   //EJECUCION
   do {
     error = 0;
@@ -141,32 +142,32 @@ function cargar_productos() {
 
     switch (producto) {
       case 1:
-        alert('Tú producto se agrego de manera exitosa');
+        alert('Tú producto se agregó de manera exitosa');
         precio = 4000;
         productoSeleccionado = "Aceite Belmont 1lt";
         break;
       case 2:
-        alert('Tú producto se agrego de manera exitosa');
+        alert('Tú producto se agregó de manera exitosa');
         precio = 3000;
         productoSeleccionado = "coca cola 3lts";
         break;
       case 3:
-        alert('Tú producto se agrego de manera exitosa');
+        alert('Tú producto se agregó de manera exitosa');
         precio = 2850;
         productoSeleccionado = "lavalozas quix 1lt";
         break;
       case 4:
-        alert('Tú producto se agrego de manera exitosa');
+        alert('Tú producto se agregó de manera exitosa');
         precio = 1200;
         productoSeleccionado = "leche soprole chocolate 1lt";
         break;
       case 5:
-        alert('Tú producto se agrego de manera exitosa');
+        alert('Tú producto se agregó de manera exitosa');
         precio = 850;
         productoSeleccionado = "galletas oreo chocolate";
         break;
       case 6:
-        alert('Tú producto se agrego de manera exitosa');
+        alert('Tú producto se agregó de manera exitosa');
         precio = 1600;
         productoSeleccionado = "arroz miraflores granel";
         break;
@@ -175,15 +176,13 @@ function cargar_productos() {
         alert('Opción incorrecta. Digite nuevamente para poder continuar con su compra');
         error = 1;
     }
-  } while (error == 1);
+  } while (error === 1);
 
   return {
     producto: productoSeleccionado,
     precio: precio
   };
 }
-// Luego de la función seleccionarCaja, puedes llamar a la función para cargar productos
-cargarProductos();
 
 do {
   // ... (código existente)
