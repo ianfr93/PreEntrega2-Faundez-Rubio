@@ -67,11 +67,18 @@ let usuarios = [
 
 let nombreUsuario;
 let intentosRestantes = 4;
+let indexUsuarioAutenticado; // Variable para almacenar el índice del usuario autenticado
 
 function autenticarUsuario() {
   nombreUsuario = prompt("Ingrese su nombre de usuario");
   let contraseña = prompt("Ingrese su contraseña");
-  let usuarioValido = usuarios.find(user => user.usuario === nombreUsuario && user.contraseña === contraseña);
+  let usuarioValido = usuarios.find((user, index) => {
+    if (user.usuario === nombreUsuario && user.contraseña === contraseña) {
+      indexUsuarioAutenticado = index; // Almacena el índice del usuario autenticado
+      return true;
+    }
+    return false;
+  });
 
   // Si los datos son incorrectos
   if (!usuarioValido) {
@@ -245,6 +252,17 @@ if (cerrarPrograma) {
   console.log(`Precio: $${precio.toFixed(2)}`);
   console.log(`Cantidad: ${cantidad}`);
   console.log(`Total con IVA: $${total_con_iva.toFixed(2)}`);
+
+   // Mostrar información de perfiles en la consola
+   console.log("Información de Perfiles de Usuarios:");
+   usuarios.forEach(usuario => {
+     console.log(`Usuario: ${usuario.usuario}`);
+     console.log(`Nombre: ${usuario.perfil.nombre}`);
+     console.log(`Edad: ${usuario.perfil.edad}`);
+     console.log(`Correo: ${usuario.perfil.correo}`);
+     console.log(`Dirección: ${usuario.perfil.direccion}`);
+     console.log("----------------------------------");
+   });
 
   // Aca Mostramos un mensaje de despedida solo si el usuario elige cerrar el programa
   alert('Gracias por tu compra. ¡Hasta luego!');
