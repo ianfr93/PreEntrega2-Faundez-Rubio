@@ -247,11 +247,12 @@ if (!cerrarPrograma) {
 
 // Cuando damos a cerrar y sale el mensaje de despedida
 if (cerrarPrograma) {
-  console.log(`Último registro de compra para ${nombreUsuario}:`);
-  console.log(`Producto: ${productoSeleccionado}`);
-  console.log(`Precio: $${precio.toFixed(2)}`);
-  console.log(`Cantidad: ${cantidad}`);
-  console.log(`Total con IVA: $${total_con_iva.toFixed(2)}`);
+  console.log(`Información del perfil para ${nombreUsuario}:`);
+  console.log(`Nombre: ${usuarios[indexUsuarioAutenticado].perfil.nombre}`);
+  console.log(`Edad: ${usuarios[indexUsuarioAutenticado].perfil.edad}`);
+  console.log(`Correo: ${usuarios[indexUsuarioAutenticado].perfil.correo}`);
+  console.log(`Dirección: ${usuarios[indexUsuarioAutenticado].perfil.direccion}`);
+  console.log("----------------------------------");
 
    // Mostrar información de perfiles en la consola
    console.log("Información de Perfiles de Usuarios:");
