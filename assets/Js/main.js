@@ -22,7 +22,6 @@ let usuarios = [
       direccion: "Avenida XYZ, Ciudad"
     }
   },
-
   {
     usuario: "usuario3",
     contraseña: "contraseña3",
@@ -63,7 +62,7 @@ let usuarios = [
       direccion: "Avenida Central, Ciudad"
     }
   }
-  // ... (usuarios existentes)
+  // ... (otros usuarios)
 ];
 
 let nombreUsuario;
@@ -118,7 +117,7 @@ function seleccionarCaja() {
         Selecione_Caja = "caja-tienda-3";
         break;
       default:
-        alert('Opción incorrecta. Digite nuevamente para abrir una caja valida');
+        alert('Opción incorrecta. Digite nuevamente para abrir una caja válida');
         error = 1;
     }
   } while (error === 1);
@@ -129,7 +128,7 @@ function seleccionarCaja() {
 
 //FUNCIONES
 function cargarProductos() {
-  //EJECUCION
+  //EJECUCIÓN
   do {
     error = 0;
     producto = parseInt(prompt("Ingrese el código de producto que quiere llevar" + "\n" +
@@ -142,32 +141,32 @@ function cargarProductos() {
 
     switch (producto) {
       case 1:
-        alert('Tú producto se agregó de manera exitosa');
+        alert('Tu producto se agregó de manera exitosa');
         precio = 4000;
         productoSeleccionado = "Aceite Belmont 1lt";
         break;
       case 2:
-        alert('Tú producto se agregó de manera exitosa');
+        alert('Tu producto se agregó de manera exitosa');
         precio = 3000;
         productoSeleccionado = "coca cola 3lts";
         break;
       case 3:
-        alert('Tú producto se agregó de manera exitosa');
+        alert('Tu producto se agregó de manera exitosa');
         precio = 2850;
         productoSeleccionado = "lavalozas quix 1lt";
         break;
       case 4:
-        alert('Tú producto se agregó de manera exitosa');
+        alert('Tu producto se agregó de manera exitosa');
         precio = 1200;
         productoSeleccionado = "leche soprole chocolate 1lt";
         break;
       case 5:
-        alert('Tú producto se agregó de manera exitosa');
+        alert('Tu producto se agregó de manera exitosa');
         precio = 850;
         productoSeleccionado = "galletas oreo chocolate";
         break;
       case 6:
-        alert('Tú producto se agregó de manera exitosa');
+        alert('Tu producto se agregó de manera exitosa');
         precio = 1600;
         productoSeleccionado = "arroz miraflores granel";
         break;
@@ -193,7 +192,7 @@ do {
     alert('Error: La respuesta debe ser SI o NO. Por favor, vuelva a intentarlo.');
   }
 
-} while (salir.toUpperCase() !== 'NO');
+} while (salir.toUpperCase() === 'SI');  // Modificado para repetir mientras la respuesta sea 'SI'
 
 const iva = total_compra * 0.19;
 const total_con_iva = total_compra + iva;
@@ -204,14 +203,14 @@ alert(mensaje);
 cerrarPrograma = confirm('¿Desea cerrar el programa?');
 
 if (!cerrarPrograma) {
-  alert('cancelando y cerrando programa');
+  alert('Cancelando y cerrando programa');
 }
 
 if (cerrarPrograma) {
   console.log(`Último registro de compra para ${nombreUsuario}:`);
   console.log(`Producto: ${productoSeleccionado}`);
   console.log(`Precio: $${precio.toFixed(2)}`);
-  console.log(`Cantidad: ${cantidad}`);
+  // console.log(`Cantidad: ${cantidad}`); // La variable 'cantidad' no está definida en tu código
   console.log(`Total con IVA: $${total_con_iva.toFixed(2)}`);
 
   // Después de cargar productos, puedes agregar una función para mostrar el perfil del usuario
