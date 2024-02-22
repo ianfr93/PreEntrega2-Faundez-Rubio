@@ -88,9 +88,6 @@ function autenticarUsuario() {
 
 autenticarUsuario();
 
-// Resto del código...
-
-// Función para mostrar el perfil del usuario
 function mostrarPerfil() {
   let usuarioActual = usuarios.find(user => user.usuario === nombreUsuario);
 
@@ -107,7 +104,99 @@ function mostrarPerfil() {
   }
 }
 
-// Solicitara datos al cliente
+let Selecione_Caja;
+let producto;
+let precio;
+let total_compra = 0;
+let salir;
+let error;
+
+function pedir_datos_cliente() {
+  do {
+    error = 0;
+    Selecione_Caja = prompt('Seleccione un tipo de caja para continuar' + '\n' +
+      '1-caja-tienda-1' + '\n' +
+      '2-caja-tienda-2' + '\n' +
+      '3-caja-tienda-3');
+
+    switch (Selecione_Caja) {
+      case '1':
+        Selecione_Caja = "caja-tienda-1";
+        break;
+      case '2':
+        Selecione_Caja = "caja-tienda-2";
+        break;
+      case '3':
+        Selecione_Caja = "caja-tienda-3";
+        break;
+      default:
+        alert('Opción incorrecta. Digite nuevamente para abrir una caja valida');
+        error = 1;
+    }
+  } while (error == 1);
+
+  return Selecione_Caja;
+}
+
+let productoSeleccionado;
+
+function cargar_productos() {
+  do {
+    error = 0;
+    producto = parseInt(prompt("Ingrese el código de producto que quiere llevar" + "\n" +
+      "1-Aceite Belmont 1lt" + "\n" +
+      "2-coca cola 3lts" + "\n" +
+      "3-lavalozas quix 1lt" + "\n" +
+      "4-leche soprole chocolate 1lt" + "\n" +
+      "5-galletas oreo chocolate" + "\n" +
+      "6-arroz miraflores granel"));
+
+    switch (producto) {
+      case 1:
+        alert('Tú producto se agrego de manera exitosa');
+        precio = 4000;
+        productoSeleccionado = "Aceite Belmont 1lt";
+        break;
+      case 2:
+        alert('Tú producto se agrego de manera exitosa');
+        precio = 3000;
+        productoSeleccionado = "coca cola 3lts";
+        break;
+      case 3:
+        alert('Tú producto se agrego de manera exitosa');
+        precio = 2850;
+        productoSeleccionado = "lavalozas quix 1lt";
+        break;
+      case 4:
+        alert('Tú producto se agrego de manera exitosa');
+        precio = 1200;
+        productoSeleccionado = "leche soprole chocolate 1lt";
+        break;
+      case 5:
+        alert('Tú producto se agrego de manera exitosa');
+        precio = 850;
+        productoSeleccionado = "galletas oreo chocolate";
+        break;
+      case 6:
+        alert('Tú producto se agrego de manera exitosa');
+        precio = 1600;
+        productoSeleccionado = "arroz miraflores granel";
+        break;
+
+      default:
+        alert('Opción incorrecta. Digite nuevamente para poder continuar con su compra');
+        error = 1;
+    }
+  } while (error == 1);
+
+  return {
+    producto: productoSeleccionado,
+    precio: precio
+  };
+}
+
+alert("Esto es Megatron WebPOS Ventas para continuar presione aceptar");
+
 pedir_datos_cliente();
 
 do {
@@ -134,15 +223,12 @@ const total_con_iva = total_compra + iva;
 const mensaje = `${nombreUsuario.toUpperCase()}, el total de tu compra (con IVA) fue de $${total_con_iva.toFixed(2)}`;
 alert(mensaje);
 
-// le va a Preguntar al usuario si desea cerrar el programa
 cerrarPrograma = confirm('¿Desea cerrar el programa?');
 
-// Si el usuario elige cancelar, se devuelve al home
 if (!cerrarPrograma) {
   alert('cancelando y cerrando programa');
 }
 
-// Cuando damos a cerrar y sale el mensaje de despedida
 if (cerrarPrograma) {
   console.log(`Último registro de compra para ${nombreUsuario}:`);
   console.log(`Producto: ${productoSeleccionado}`);
@@ -150,7 +236,7 @@ if (cerrarPrograma) {
   console.log(`Cantidad: ${cantidad}`);
   console.log(`Total con IVA: $${total_con_iva.toFixed(2)}`);
 
-  mostrarPerfil(); // Muestra el perfil al cerrar el programa
+  mostrarPerfil();
 
   alert('Gracias por tu compra. ¡Hasta luego!');
 }
