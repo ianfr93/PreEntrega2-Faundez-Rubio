@@ -22,6 +22,7 @@ let usuarios = [
       direccion: "Avenida XYZ, Ciudad"
     }
   },
+
   {
     usuario: "usuario3",
     contraseña: "contraseña3",
@@ -62,10 +63,17 @@ let usuarios = [
       direccion: "Avenida Central, Ciudad"
     }
   }
+  // ... (otros usuarios)
 ];
 
 let nombreUsuario;
 let intentosRestantes = 4;
+let Selecione_Caja;
+let producto;
+let precio;
+let total_compra = 0;
+let salir;
+let error;
 
 function autenticarUsuario() {
   nombreUsuario = prompt("Ingrese su nombre de usuario");
@@ -86,32 +94,12 @@ function autenticarUsuario() {
   }
 }
 
+// Al inicio, después de autenticar al usuario, puedes llamar a la función que manejará la selección de la caja
 autenticarUsuario();
+seleccionarCaja();
 
-function mostrarPerfil() {
-  let usuarioActual = usuarios.find(user => user.usuario === nombreUsuario);
-
-  if (usuarioActual) {
-    alert(`
-      Perfil de ${nombreUsuario}:
-      Nombre: ${usuarioActual.perfil.nombre}
-      Edad: ${usuarioActual.perfil.edad}
-      Correo: ${usuarioActual.perfil.correo}
-      Dirección: ${usuarioActual.perfil.direccion}
-    `);
-  } else {
-    alert("Usuario no encontrado");
-  }
-}
-
-let Selecione_Caja;
-let producto;
-let precio;
-let total_compra = 0;
-let salir;
-let error;
-
-function pedir_datos_cliente() {
+// Después de la función autenticarUsuario, agrega esta nueva función para seleccionar la caja
+function seleccionarCaja() {
   do {
     error = 0;
     Selecione_Caja = prompt('Seleccione un tipo de caja para continuar' + '\n' +
@@ -138,9 +126,7 @@ function pedir_datos_cliente() {
   return Selecione_Caja;
 }
 
-let productoSeleccionado;
-
-function cargar_productos() {
+function cargarProductos() {
   do {
     error = 0;
     producto = parseInt(prompt("Ingrese el código de producto que quiere llevar" + "\n" +
@@ -195,13 +181,12 @@ function cargar_productos() {
   };
 }
 
-alert("Esto es Megatron WebPOS Ventas para continuar presione aceptar");
-
-pedir_datos_cliente();
+// Luego de la función seleccionarCaja, puedes llamar a la función para cargar productos
+cargarProductos();
 
 do {
-  cargar_productos();
-  cantidad = parseInt(prompt("¿cúantas cantidades del " + producto + " desea llevar?"));
+  cargarProductos();
+  cantidad = parseInt(prompt("¿Cúantas cantidades del " + producto + " desea llevar?"));
 
   console.log(producto);
   console.log(precio);
@@ -236,7 +221,14 @@ if (cerrarPrograma) {
   console.log(`Cantidad: ${cantidad}`);
   console.log(`Total con IVA: $${total_con_iva.toFixed(2)}`);
 
-  mostrarPerfil();
+  // Después de cargar productos, puedes agregar una función para mostrar el perfil del usuario
+  function mostrarPerfilUsuario() {
+    mostrarPerfil();
+    // Puedes agregar más lógica aquí según tus necesidades
+  }
+
+  // Después de mostrar el perfil, puedes llamar a la función para mostrar la pantalla de inicio (home)
+  mostrarPerfilUsuario();
 
   alert('Gracias por tu compra. ¡Hasta luego!');
 }
