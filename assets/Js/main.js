@@ -247,6 +247,7 @@ if (!cerrarPrograma) {
 
 // Cuando damos a cerrar y sale el mensaje de despedida
 if (cerrarPrograma) {
+  console.log(`Último registro de compra para ${nombreUsuario}:`);
   console.log(`Información del perfil para ${nombreUsuario}:`);
   console.log(`Nombre: ${usuarios[indexUsuarioAutenticado].perfil.nombre}`);
   console.log(`Edad: ${usuarios[indexUsuarioAutenticado].perfil.edad}`);
