@@ -114,29 +114,7 @@ let error;
 //FUNCIONES
 function pedir_datos_cliente() {
 
-
-  // le va a Preguntar al usuario si desea ir al home o al perfil
-const opcionInicio = prompt('Elija una opción:\n1. Ir al Home\n2. Ir al Perfil de Usuario');
-
-// Dar opción al usuario de ir al home o al perfil
-do {
-  switch (opcionInicio) {
-    case '1':
-      // Opción de ir al Home, no se hace nada y el programa continúa
-      break;
-    case '2':
-      // Opción de ir al Perfil de Usuario
-      console.log(`Información del perfil para ${nombreUsuario}:`);
-      console.log(`Nombre: ${usuarios[indexUsuarioAutenticado].perfil.nombre}`);
-      console.log(`RUT: ${usuarios[indexUsuarioAutenticado].perfil.rut}`);
-      console.log(`Correo: ${usuarios[indexUsuarioAutenticado].perfil.correo}`);
-      console.log(`Dirección: ${usuarios[indexUsuarioAutenticado].perfil.direccion}`);
-      break;
-    default:
-      alert('Opción incorrecta. Por favor, elija nuevamente.');
-      opcionInicio = prompt('Elija una opción:\n1. Ir al Home\n2. Ir al Perfil de Usuario');
-  }
-} while (opcionInicio !== '1');
+  
 
   //EJECUCION
   do {
