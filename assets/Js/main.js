@@ -136,25 +136,27 @@ function pedirDatosCliente() {
 }
 
 let productoSeleccionado; // Declara la variable a nivel global para acceder a ella fuera del bucle
-// Mostrar el perfil después de autenticar al usuario
-mostrarPerfil();
 
-// Menú de opciones
-const opciones = ["Ir a mi perfil de usuario", "Ir al home"];
-const opcionSeleccionada = prompt(`Seleccione una opción:\n${opciones.join("\n")}`);
+// Función para mostrar el menú
+function mostrarMenu() {
+  let opcion = prompt('Selecciona una opción:\n1. Ir a mi perfil de usuario\n2. Ir al home');
 
-switch (opcionSeleccionada.toLowerCase()) {
-  case "ir a mi perfil de usuario":
-    // Acción para ir al perfil de usuario
-    mostrarPerfil();
-    break;
-  case "ir al home":
-    // Acción para ir al home (puedes agregar aquí las acciones que desees para el home)
-    alert("¡Bienvenido al home!");
-    break;
-  default:
-    alert("Opción no válida");
+  switch (opcion) {
+    case '1':
+      // Llamar a la función para mostrar el perfil
+      mostrarPerfil();
+      break;
+    case '2':
+      // Mensaje para ir al home
+      alert('Redirigiendo al home...');
+      break;
+    default:
+      // Mensaje de error para opción no válida
+      alert('Opción no válida');
+      break;
+  }
 }
+
 
 // Función para mostrar el perfil
 function mostrarPerfil() {
