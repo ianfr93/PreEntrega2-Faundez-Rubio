@@ -69,6 +69,7 @@ let nombreUsuario;
 let intentosRestantes = 4;
 let indexUsuarioAutenticado; // Variable para almacenar el índice del usuario autenticado
 
+// Función para autenticar al usuario
 function autenticarUsuario() {
   nombreUsuario = prompt("Ingrese su nombre de usuario");
   let contraseña = prompt("Ingrese su contraseña");
@@ -84,10 +85,10 @@ function autenticarUsuario() {
   if (!usuarioValido) {
     alert(`Nombre de usuario o contraseña incorrectos. Intentos restantes: ${intentosRestantes}`);
 
-    // Reducira el número de intentos restantes
+    // Reducir el número de intentos restantes
     intentosRestantes--;
 
-    // va ir a Verificar si quedan intentos
+    // Verificar si quedan intentos
     if (intentosRestantes > 0) {
       autenticarUsuario();
     } else {
@@ -103,8 +104,8 @@ function autenticarUsuario() {
 // Llamar a la función de autenticación al cargar la página
 autenticarUsuario();
 
-// FUNCIONES
-function mostrar_perfil() {
+// Función para mostrar el perfil
+function mostrarPerfil() {
   console.log(`Información del perfil para ${nombreUsuario}:`);
   console.log(`Nombre: ${usuarios[indexUsuarioAutenticado].perfil.nombre}`);
   console.log(`Rut: ${usuarios[indexUsuarioAutenticado].perfil.rut}`);
@@ -117,18 +118,26 @@ function mostrar_perfil() {
 
   if (!confirmarPerfil) {
     // Si los datos no son correctos, volver a mostrar el perfil
-    mostrar_perfil();
+    mostrarPerfil();
+  } else {
+    // Preguntar si desea guardar los cambios
+    const guardarCambios = confirm('¿Desea guardar los cambios en su perfil?');
+
+    if (guardarCambios) {
+      // Mostrar mensaje de éxito en la consola
+      console.log('Cambios guardados con éxito');
+    }
   }
 }
 
 // Mostrar el perfil después de autenticar al usuario
-mostrar_perfil();
+mostrarPerfil();
 
-// Solicitará datos al cliente
-let seleccionCaja = pedir_datos_cliente();
+// Solicitar datos al cliente
+let seleccionCaja = pedirDatosCliente();
 
-// FUNCIONES
-function pedir_datos_cliente() {
+// Función para pedir datos al cliente
+function pedirDatosCliente() {
   //EJECUCIÓN
   do {
     error = 0;
@@ -148,7 +157,7 @@ function pedir_datos_cliente() {
         Selecione_Caja = "caja-tienda-3";
         break;
       default:
-        alert('Opción incorrecta. Digite nuevamente para abrir una caja valida');
+        alert('Opción incorrecta. Digite nuevamente para abrir una caja válida');
         error = 1;
     }
   } while (error == 1);
@@ -157,18 +166,19 @@ function pedir_datos_cliente() {
 }
 
 let productoSeleccionado; // Declara la variable a nivel global para acceder a ella fuera del bucle
-// FUNCIONES
-function cargar_productos() {
+
+// Función para cargar productos
+function cargarProductos() {
   //EJECUCIÓN
   do {
     error = 0;
     producto = parseInt(prompt("Ingrese el código de producto que quiere llevar" + "\n" +
       "1-Aceite Belmont 1lt" + "\n" +
-      "2-coca cola 3lts" + "\n" +
-      "3-lavalozas quix 1lt" + "\n" +
-      "4-leche soprole chocolate 1lt" + "\n" +
-      "5-galletas oreo chocolate" + "\n" +
-      "6-arroz miraflores granel"));
+      "2-Coca Cola 3lts" + "\n" +
+      "3-Lavalozas Quix 1lt" + "\n" +
+      "4-Leche Soprole Chocolate 1lt" + "\n" +
+      "5-Galletas Oreo Chocolate" + "\n" +
+      "6-Arroz Miraflores Granel"));
 
     switch (producto) {
       case 1:
@@ -179,27 +189,27 @@ function cargar_productos() {
       case 2:
         alert('Tu producto se agregó de manera exitosa');
         precio = 3000;
-        productoSeleccionado = "coca cola 3lts";
+        productoSeleccionado = "Coca Cola 3lts";
         break;
       case 3:
         alert('Tu producto se agregó de manera exitosa');
         precio = 2850;
-        productoSeleccionado = "lavalozas quix 1lt";
+        productoSeleccionado = "Lavalozas Quix 1lt";
         break;
       case 4:
         alert('Tu producto se agregó de manera exitosa');
         precio = 1200;
-        productoSeleccionado = "leche soprole chocolate 1lt";
+        productoSeleccionado = "Leche Soprole Chocolate 1lt";
         break;
       case 5:
         alert('Tu producto se agregó de manera exitosa');
         precio = 850;
-        productoSeleccionado = "galletas oreo chocolate";
+        productoSeleccionado = "Galletas Oreo Chocolate";
         break;
       case 6:
         alert('Tu producto se agregó de manera exitosa');
         precio = 1600;
-        productoSeleccionado = "arroz miraflores granel";
+        productoSeleccionado = "Arroz Miraflores Granel";
         break;
 
       default:
@@ -214,34 +224,35 @@ function cargar_productos() {
   };
 }
 
-// Cuando Comienzo con el programa
-alert("Esto es Megatron WebPOS Ventas para continuar presione aceptar");
+// Cuando comienza el programa
+alert("Esto es Megatron WebPOS Ventas. Para continuar, presione aceptar");
 
-// Solicitará datos al cliente
-pedir_datos_cliente();
+// Solicitar datos al cliente
+pedirDatosCliente();
 
 let historialCompras = [];
+let totalCompra = 0; // Agregué esta variable para sumar el total de la compra
 
 do {
-  // Solicitará cliente al usuarios
-  cargar_productos();
+  // Solicitar productos al cliente
+  cargarProductos();
 
-  // Solicitará la cantidad del producto
+  // Solicitar la cantidad del producto
   cantidad = parseInt(prompt("¿Cuántas cantidades del " + producto + " desea llevar?"));
 
   console.log(producto);
   console.log(precio);
   console.log(cantidad);
 
-  // Almacena la información de cada compra en el historial
+  // Almacenar la información de cada compra en el historial
   historialCompras.push({
     producto: productoSeleccionado,
     precio: precio,
     cantidad: cantidad
   });
 
-  // Sumo al total de la compra
-  total_compra = total_compra + precio * cantidad;
+  // Sumar al total de la compra
+  totalCompra = totalCompra + precio * cantidad;
 
   salir = prompt('¿Desea agregar otro producto al carrito de compras? Escriba SI/NO');
 
@@ -253,10 +264,10 @@ do {
 } while (salir.toUpperCase() !== 'NO');
 
 // Mostrar al cliente el total de su compra con IVA
-const iva = total_compra * 0.19;
-const total_con_iva = total_compra + iva;
+const iva = totalCompra * 0.19;
+const totalConIVA = totalCompra + iva;
 
-const mensaje = `${nombreUsuario.toUpperCase()}, el total de tu compra (con IVA) fue de $${total_con_iva.toFixed(2)}`;
+const mensaje = `${nombreUsuario.toUpperCase()}, el total de tu compra (con IVA) fue de $${totalConIVA.toFixed(2)}`;
 alert(mensaje);
 
 // Preguntar al usuario si desea cerrar el programa
@@ -275,13 +286,6 @@ if (!cerrarPrograma) {
     console.log(`Cantidad: ${compra.cantidad}`);
     console.log("----------------------------------");
   });
-
-  console.log(`Información del perfil para ${nombreUsuario}:`);
-  console.log(`Nombre: ${usuarios[indexUsuarioAutenticado].perfil.nombre}`);
-  console.log(`Rut: ${usuarios[indexUsuarioAutenticado].perfil.rut}`);
-  console.log(`Correo: ${usuarios[indexUsuarioAutenticado].perfil.correo}`);
-  console.log(`Dirección: ${usuarios[indexUsuarioAutenticado].perfil.direccion}`);
-  console.log("----------------------------------");
 
   // Mostrar mensaje de despedida solo si el usuario elige cerrar el programa
   alert('¡Gracias por tu compra! ¡Hasta luego!');
