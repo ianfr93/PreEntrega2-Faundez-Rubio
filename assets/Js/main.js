@@ -103,9 +103,6 @@ function autenticarUsuario() {
 // Llamar a la función de autenticación al cargar la página
 autenticarUsuario();
 
-// Mostrar el perfil después de autenticar al usuario
-mostrarPerfil();
-
 // Solicitar datos al cliente
 let seleccionCaja = pedirDatosCliente();
 
@@ -139,6 +136,8 @@ function pedirDatosCliente() {
 }
 
 let productoSeleccionado; // Declara la variable a nivel global para acceder a ella fuera del bucle
+// Mostrar el perfil después de autenticar al usuario
+mostrarPerfil();
 
 // Menú de opciones
 const opciones = ["Ir a mi perfil de usuario", "Ir al home"];
