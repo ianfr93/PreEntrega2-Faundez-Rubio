@@ -113,7 +113,6 @@ let error;
 
 //FUNCIONES
 function pedir_datos_cliente() {
-
   
 
   //EJECUCION
