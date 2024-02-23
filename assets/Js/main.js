@@ -139,28 +139,44 @@ function pedirDatosCliente() {
 
 let productoSeleccionado; // Declara la variable a nivel global para acceder a ella fuera del bucle
 
-// Después de la autenticación, llamar a la función mostrarMenu()
+// Llamar a la función para mostrar el menú
 mostrarMenu();
 
 // Función para mostrar el menú
 function mostrarMenu() {
-  let opcion = prompt('Selecciona una opción:\n1. Ir a mi perfil de usuario\n2. Ir al home');
+  let error = false;
 
-  switch (opcion) {
-    case '1':
-      // Llamar a la función para mostrar el perfil
-      mostrarPerfil();
-      break;
-    case '2':
-      // Redirigir a la sección de cargar productos
-      alert("Esto es Megatron WebPOS Ventas. Para continuar, presione aceptar");
-      break;
-    default:
-      // Mensaje de error para opción no válida
-      alert('Opción no válida');
-      break;
-  }
+  do {
+    if (error) {
+      alert('Opción incorrecta. Digite nuevamente para continuar en el sistema');
+    }
+
+    let opcion = prompt('Selecciona una opción:\n1. Ir a mi perfil de usuario\n2. Ir al home');
+
+    switch (opcion) {
+      case '1':
+        // Llamar a la función para mostrar el perfil
+        mostrarPerfil();
+        error = false; // Restablecer el indicador de error si la opción es válida
+        break;
+      case '2':
+        // Redirigir a la sección de cargar productos
+        alert("Esto es Megatron WebPOS Ventas. Para continuar, presione aceptar");
+        error = false; // Restablecer el indicador de error si la opción es válida
+        break;
+      default:
+        error = true; // Establecer el indicador de error si la opción no es válida
+        break;
+    }
+  } while (error); // Repetir el bucle si hay un error
 }
+
+// Función para mostrar el perfil
+function mostrarPerfil() {
+  // Implementa la lógica para mostrar el perfil aquí
+  alert('Mostrar perfil de usuario');
+}
+
 
 // Función para mostrar el perfil
 function mostrarPerfil() {
