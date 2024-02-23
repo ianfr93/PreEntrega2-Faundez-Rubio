@@ -100,22 +100,36 @@ function autenticarUsuario() {
   }
 }
 
-// va a Llamar a la función de autenticación al cargar la página
+// Llamar a la función de autenticación al cargar la página
 autenticarUsuario();
 
-//VARIABLES
-let Selecione_Caja;
-let producto;
-let precio;
-let total_compra = 0;
-let salir;
-let error;
+// FUNCIONES
+function mostrar_perfil() {
+  console.log(`Información del perfil para ${nombreUsuario}:`);
+  console.log(`Nombre: ${usuarios[indexUsuarioAutenticado].perfil.nombre}`);
+  console.log(`Rut: ${usuarios[indexUsuarioAutenticado].perfil.rut}`);
+  console.log(`Correo: ${usuarios[indexUsuarioAutenticado].perfil.correo}`);
+  console.log(`Dirección: ${usuarios[indexUsuarioAutenticado].perfil.direccion}`);
+  console.log("----------------------------------");
 
-//FUNCIONES
+  // Confirmar si los datos son correctos
+  const confirmarPerfil = confirm('¿Son correctos los datos de tu perfil?');
+
+  if (!confirmarPerfil) {
+    // Si los datos no son correctos, volver a mostrar el perfil
+    mostrar_perfil();
+  }
+}
+
+// Mostrar el perfil después de autenticar al usuario
+mostrar_perfil();
+
+// Solicitará datos al cliente
+let seleccionCaja = pedir_datos_cliente();
+
+// FUNCIONES
 function pedir_datos_cliente() {
-  
-
-  //EJECUCION
+  //EJECUCIÓN
   do {
     error = 0;
     Selecione_Caja = prompt('Seleccione un tipo de caja para continuar' + '\n' +
@@ -143,9 +157,9 @@ function pedir_datos_cliente() {
 }
 
 let productoSeleccionado; // Declara la variable a nivel global para acceder a ella fuera del bucle
-//FUNCIONES
+// FUNCIONES
 function cargar_productos() {
-  //EJECUCION
+  //EJECUCIÓN
   do {
     error = 0;
     producto = parseInt(prompt("Ingrese el código de producto que quiere llevar" + "\n" +
@@ -158,32 +172,32 @@ function cargar_productos() {
 
     switch (producto) {
       case 1:
-        alert('Tú producto se agrego de manera exitosa');
+        alert('Tu producto se agregó de manera exitosa');
         precio = 4000;
         productoSeleccionado = "Aceite Belmont 1lt";
         break;
       case 2:
-        alert('Tú producto se agrego de manera exitosa');
+        alert('Tu producto se agregó de manera exitosa');
         precio = 3000;
         productoSeleccionado = "coca cola 3lts";
         break;
       case 3:
-        alert('Tú producto se agrego de manera exitosa');
+        alert('Tu producto se agregó de manera exitosa');
         precio = 2850;
         productoSeleccionado = "lavalozas quix 1lt";
         break;
       case 4:
-        alert('Tú producto se agrego de manera exitosa');
+        alert('Tu producto se agregó de manera exitosa');
         precio = 1200;
         productoSeleccionado = "leche soprole chocolate 1lt";
         break;
       case 5:
-        alert('Tú producto se agrego de manera exitosa');
+        alert('Tu producto se agregó de manera exitosa');
         precio = 850;
         productoSeleccionado = "galletas oreo chocolate";
         break;
       case 6:
-        alert('Tú producto se agrego de manera exitosa');
+        alert('Tu producto se agregó de manera exitosa');
         precio = 1600;
         productoSeleccionado = "arroz miraflores granel";
         break;
@@ -200,22 +214,20 @@ function cargar_productos() {
   };
 }
 
-
-
 // Cuando Comienzo con el programa
 alert("Esto es Megatron WebPOS Ventas para continuar presione aceptar");
 
-// Solicitara datos al cliente
+// Solicitará datos al cliente
 pedir_datos_cliente();
 
 let historialCompras = [];
 
 do {
-  // Solicitara cliente al usuarios
+  // Solicitará cliente al usuarios
   cargar_productos();
 
-  // Solicitara la cantidad del producto
-  cantidad = parseInt(prompt("¿Cúantas cantidades del " + producto + " desea llevar?"));
+  // Solicitará la cantidad del producto
+  cantidad = parseInt(prompt("¿Cuántas cantidades del " + producto + " desea llevar?"));
 
   console.log(producto);
   console.log(precio);
@@ -231,14 +243,14 @@ do {
   // Sumo al total de la compra
   total_compra = total_compra + precio * cantidad;
 
-  salir = prompt('Desea agregar otro producto en el carrito de compras? Escriba SI/NO');
+  salir = prompt('¿Desea agregar otro producto al carrito de compras? Escriba SI/NO');
 
-  // Verificar si la respuesta es SI o NO de lo contrario arrojara un mensaje de error 
+  // Verificar si la respuesta es SI o NO, de lo contrario, mostrar mensaje de error
   if (salir.toUpperCase() !== 'SI' && salir.toUpperCase() !== 'NO') {
     alert('Error: La respuesta debe ser SI o NO. Por favor, vuelva a intentarlo.');
   }
 
-} while (salir.toUpperCase() != 'NO');
+} while (salir.toUpperCase() !== 'NO');
 
 // Mostrar al cliente el total de su compra con IVA
 const iva = total_compra * 0.19;
@@ -247,40 +259,30 @@ const total_con_iva = total_compra + iva;
 const mensaje = `${nombreUsuario.toUpperCase()}, el total de tu compra (con IVA) fue de $${total_con_iva.toFixed(2)}`;
 alert(mensaje);
 
-// le va a Preguntar al usuario si desea cerrar el programa
+// Preguntar al usuario si desea cerrar el programa
 cerrarPrograma = confirm('¿Desea cerrar el programa?');
 
-// Si el usuario elige cancelar, se devuelve al home
+// Si el usuario elige cancelar, mostrar mensaje de cancelación
 if (!cerrarPrograma) {
-  alert('cancelando y cerrando programa');
-}
-
-// Cuando damos a cerrar y sale el mensaje de despedida
-if (cerrarPrograma) {
-
+  alert('Cancelando y cerrando el programa');
+} else {
   // Mostrar todos los registros de compra en la consola
-console.log(`Historial de compras para ${nombreUsuario}:`);
-historialCompras.forEach((compra, index) => {
-  console.log(`Compra ${index + 1}:`);
-  console.log(`Producto: ${compra.producto}`);
-  console.log(`Precio: $${compra.precio.toFixed(2)}`);
-  console.log(`Cantidad: ${compra.cantidad}`);
-  console.log("----------------------------------");
-});
+  console.log(`Historial de compras para ${nombreUsuario}:`);
+  historialCompras.forEach((compra, index) => {
+    console.log(`Compra ${index + 1}:`);
+    console.log(`Producto: ${compra.producto}`);
+    console.log(`Precio: $${compra.precio.toFixed(2)}`);
+    console.log(`Cantidad: ${compra.cantidad}`);
+    console.log("----------------------------------");
+  });
 
   console.log(`Información del perfil para ${nombreUsuario}:`);
   console.log(`Nombre: ${usuarios[indexUsuarioAutenticado].perfil.nombre}`);
-  console.log(`rut: ${usuarios[indexUsuarioAutenticado].perfil.rut}`);
+  console.log(`Rut: ${usuarios[indexUsuarioAutenticado].perfil.rut}`);
   console.log(`Correo: ${usuarios[indexUsuarioAutenticado].perfil.correo}`);
   console.log(`Dirección: ${usuarios[indexUsuarioAutenticado].perfil.direccion}`);
   console.log("----------------------------------");
 
-
-
-// Cuando damos a cerrar y sale el mensaje de despedida
-
-
-  // Aca Mostramos un mensaje de despedida solo si el usuario elige cerrar el programa
-  alert('Gracias por tu compra. ¡Hasta luego!');
-
+  // Mostrar mensaje de despedida solo si el usuario elige cerrar el programa
+  alert('¡Gracias por tu compra! ¡Hasta luego!');
 }
