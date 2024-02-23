@@ -105,9 +105,9 @@ autenticarUsuario();
 
 // Solicitar datos al cliente
 let seleccionCaja = pedirDatosCliente();
-
 // Función para pedir datos al cliente
 function pedirDatosCliente() {
+  let error; // Declarar la variable error
   //EJECUCIÓN
   do {
     error = 0;
@@ -135,9 +135,14 @@ function pedirDatosCliente() {
   return Selecione_Caja; // Devuelve la selección de caja
 }
 
+ 
+
 let productoSeleccionado; // Declara la variable a nivel global para acceder a ella fuera del bucle
 
 // Función para mostrar el menú
+
+// Después de la autenticación, llamar a la función mostrarMenu()
+mostrarMenu();
 function mostrarMenu() {
   let opcion = prompt('Selecciona una opción:\n1. Ir a mi perfil de usuario\n2. Ir al home');
 
