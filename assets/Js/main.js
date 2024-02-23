@@ -62,7 +62,7 @@ let usuarios = [
       direccion: "la florida 233"
     }
   }
-  // ... (otros usuarios)
+
 ];
 
 let nombreUsuario;
@@ -100,9 +100,25 @@ function autenticarUsuario() {
     }
   }
 }
-
 // Llamar a la función de autenticación al cargar la página
 autenticarUsuario();
+
+// Menú de opciones
+const opciones = ["Ir a mi perfil de usuario", "Ir al home"];
+const opcionSeleccionada = prompt(`Seleccione una opción:\n${opciones.join("\n")}`);
+
+switch (opcionSeleccionada.toLowerCase()) {
+  case "ir a mi perfil de usuario":
+    // Acción para ir al perfil de usuario
+    mostrarPerfil();
+    break;
+  case "ir al home":
+    // Acción para ir al home (puedes agregar aquí las acciones que desees para el home)
+    alert("¡Bienvenido al home!");
+    break;
+  default:
+    alert("Opción no válida");
+}
 
 // Función para mostrar el perfil
 function mostrarPerfil() {
