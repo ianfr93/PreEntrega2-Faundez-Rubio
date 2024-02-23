@@ -139,10 +139,10 @@ function pedirDatosCliente() {
 
 let productoSeleccionado; // Declara la variable a nivel global para acceder a ella fuera del bucle
 
-// Función para mostrar el menú
-
 // Después de la autenticación, llamar a la función mostrarMenu()
 mostrarMenu();
+
+// Función para mostrar el menú
 function mostrarMenu() {
   let opcion = prompt('Selecciona una opción:\n1. Ir a mi perfil de usuario\n2. Ir al home');
 
@@ -152,8 +152,8 @@ function mostrarMenu() {
       mostrarPerfil();
       break;
     case '2':
-      // Mensaje para ir al home
-      alert('Redirigiendo al home...');
+      // Redirigir a la sección de cargar productos
+      alert("Esto es Megatron WebPOS Ventas. Para continuar, presione aceptar");
       break;
     default:
       // Mensaje de error para opción no válida
@@ -161,7 +161,6 @@ function mostrarMenu() {
       break;
   }
 }
-
 
 // Función para mostrar el perfil
 function mostrarPerfil() {
@@ -172,22 +171,39 @@ function mostrarPerfil() {
   console.log(`Dirección: ${usuarios[indexUsuarioAutenticado].perfil.direccion}`);
   console.log("----------------------------------");
 
-  // Confirmar si los datos son correctos
-  const confirmarPerfil = confirm('¿Son correctos los datos de tu perfil?');
+  // Llamar a la función para gestionar cambios
+  gestionarCambios();
+}
 
-  if (!confirmarPerfil) {
-    // Si los datos no son correctos, volver a mostrar el perfil
-    mostrarPerfil();
+// Función para gestionar cambios en el perfil
+function gestionarCambios() {
+  // Preguntar si desea guardar los cambios
+  const guardarCambios = confirm('¿Desea guardar los datos de tu perfil?');
+
+  if (guardarCambios) {
+    // Mostrar mensaje de éxito en la consola
+    console.log('Datos guardados con éxito');
+
+    // Volver al menú de selección
+    mostrarMenu();
   } else {
-    // Preguntar si desea guardar los cambios
-    const guardarCambios = confirm('¿Desea guardar los cambios en su perfil?');
+    // Mostrar mensaje de éxito en la consola
+    console.log('Cambios descartados con éxito');
 
-    if (guardarCambios) {
-      // Mostrar mensaje de éxito en la consola
-      console.log('Cambios guardados con éxito');
-    }
+    // Redirigir a la sección mostrarMenu()
+    redirigirAMostrarMenu();
   }
 }
+
+// Función para redirigir a la sección mostrarMenu()
+function redirigirAMostrarMenu() {
+  // Lógica adicional de redirección si es necesario
+  // ...
+
+  // Llamar a la función mostrarMenu()
+  mostrarMenu();
+}
+
 
 // Función para cargar productos
 function cargarProductos() {
