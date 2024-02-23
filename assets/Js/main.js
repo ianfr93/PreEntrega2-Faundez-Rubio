@@ -202,7 +202,7 @@ function cargar_productos() {
 
 
 // Cuando Comienzo con el programa
-alert("Esto es Super WebPOS Ventas para continuar presione aceptar");
+alert("Esto es Megatron WebPOS Ventas para continuar presione aceptar");
 
 // Solicitara datos al cliente
 pedir_datos_cliente();
@@ -257,21 +257,20 @@ if (!cerrarPrograma) {
 // Cuando damos a cerrar y sale el mensaje de despedida
 if (cerrarPrograma) {
 
-  console.log(`Historial de compras para ${nombreUsuario}:`);
-  historialCompras.forEach(compra => {
-    console.log(`Producto: ${compra.producto}`);
-    console.log(`Precio: $${compra.precio.toFixed(2)}`);
-    console.log(`Cantidad: ${compra.cantidad}`);
-    console.log("----------------------------------");
+  // Mostrar solo el último registro de compra en la consola
+  const ultimaCompra = historialCompras[historialCompras.length - 1];
+  console.log(`Último registro de compra para ${nombreUsuario}:`);
+  console.log(`Producto: ${ultimaCompra.producto}`);
+  console.log(`Precio: $${ultimaCompra.precio.toFixed(2)}`);
+  console.log(`Cantidad: ${ultimaCompra.cantidad}`);
+  console.log("----------------------------------");
 
- 
   console.log(`Información del perfil para ${nombreUsuario}:`);
   console.log(`Nombre: ${usuarios[indexUsuarioAutenticado].perfil.nombre}`);
   console.log(`Edad: ${usuarios[indexUsuarioAutenticado].perfil.edad}`);
   console.log(`Correo: ${usuarios[indexUsuarioAutenticado].perfil.correo}`);
   console.log(`Dirección: ${usuarios[indexUsuarioAutenticado].perfil.direccion}`);
   console.log("----------------------------------");
-});
 
 // Cuando damos a cerrar y sale el mensaje de despedida
 
