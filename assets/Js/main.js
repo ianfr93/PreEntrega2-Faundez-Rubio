@@ -6,60 +6,60 @@ let usuarios = [
     usuario: "usuario1",
     contraseña: "contraseña1",
     perfil: {
-      nombre: "Nombre Usuario1",
-      edad: 25,
-      correo: "usuario1@example.com",
-      direccion: "Calle 123, Ciudad"
+      nombre: "Ian Faúndez Rubio",
+      rut: 18408203-9,
+      correo: "Ifaundez.a@hotmail.com",
+      direccion: "Emiliano Zapata 693"
     }
   },
   {
     usuario: "usuario2",
     contraseña: "contraseña2",
     perfil: {
-      nombre: "Nombre Usuario2",
-      edad: 30,
-      correo: "usuario2@example.com",
-      direccion: "Avenida XYZ, Ciudad"
+      nombre: "juan fernandez calvo",
+      rut: 13402203-9,
+      correo: "juanito.c@hotmail.com",
+      direccion: "Santiago,centro"
     }
   },
   {
     usuario: "usuario3",
     contraseña: "contraseña3",
     perfil: {
-      nombre: "Nombre Usuario3",
-      edad: 28,
-      correo: "usuario3@example.com",
-      direccion: "Plaza ABC, Ciudad"
+      nombre: "marcelo rios",
+      rut: 10708223-9,
+      correo: "Chinorrios@hotmail.com",
+      direccion: "lo barnechea las casas 45"
     }
   },
   {
     usuario: "usuario4",
     contraseña: "contraseña4",
     perfil: {
-      nombre: "Nombre Usuario4",
-      edad: 35,
-      correo: "usuario4@example.com",
-      direccion: "Calle Principal, Ciudad"
+      nombre: "gabriel prieto",
+      rut: 11408203-9,
+      correo: "Ifaundez.a@hotmail.com",
+      direccion: "Nuñoa 456"
     }
   },
   {
     usuario: "usuario5",
     contraseña: "contraseña5",
     perfil: {
-      nombre: "Nombre Usuario5",
-      edad: 22,
-      correo: "usuario5@example.com",
-      direccion: "Calle Secundaria, Ciudad"
+      nombre: "luis miguel",
+      rut: 11402303-9,
+      correo: "luismi.a@hotmail.com",
+      direccion: "coquimbo 345"
     }
   },
   {
     usuario: "usuario6",
     contraseña: "contraseña6",
     perfil: {
-      nombre: "Nombre Usuario6",
-      edad: 27,
-      correo: "usuario6@example.com",
-      direccion: "Avenida Central, Ciudad"
+      nombre: "nicolas massu",
+      rut: 13408103-1,
+      correo: "nicolas.massu@hotmail.com",
+      direccion: "la florida 233"
     }
   }
   // ... (otros usuarios)
@@ -257,20 +257,24 @@ if (!cerrarPrograma) {
 // Cuando damos a cerrar y sale el mensaje de despedida
 if (cerrarPrograma) {
 
-  // Mostrar solo el último registro de compra en la consola
-  const ultimaCompra = historialCompras[historialCompras.length - 1];
-  console.log(`Último registro de compra para ${nombreUsuario}:`);
-  console.log(`Producto: ${ultimaCompra.producto}`);
-  console.log(`Precio: $${ultimaCompra.precio.toFixed(2)}`);
-  console.log(`Cantidad: ${ultimaCompra.cantidad}`);
+  // Mostrar todos los registros de compra en la consola
+console.log(`Historial de compras para ${nombreUsuario}:`);
+historialCompras.forEach((compra, index) => {
+  console.log(`Compra ${index + 1}:`);
+  console.log(`Producto: ${compra.producto}`);
+  console.log(`Precio: $${compra.precio.toFixed(2)}`);
+  console.log(`Cantidad: ${compra.cantidad}`);
   console.log("----------------------------------");
+});
 
   console.log(`Información del perfil para ${nombreUsuario}:`);
   console.log(`Nombre: ${usuarios[indexUsuarioAutenticado].perfil.nombre}`);
-  console.log(`Edad: ${usuarios[indexUsuarioAutenticado].perfil.edad}`);
+  console.log(`rut: ${usuarios[indexUsuarioAutenticado].perfil.rut}`);
   console.log(`Correo: ${usuarios[indexUsuarioAutenticado].perfil.correo}`);
   console.log(`Dirección: ${usuarios[indexUsuarioAutenticado].perfil.direccion}`);
   console.log("----------------------------------");
+
+
 
 // Cuando damos a cerrar y sale el mensaje de despedida
 
