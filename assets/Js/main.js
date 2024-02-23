@@ -103,6 +103,43 @@ function autenticarUsuario() {
 // Llamar a la función de autenticación al cargar la página
 autenticarUsuario();
 
+// Mostrar el perfil después de autenticar al usuario
+mostrarPerfil();
+
+// Solicitar datos al cliente
+let seleccionCaja = pedirDatosCliente();
+
+// Función para pedir datos al cliente
+function pedirDatosCliente() {
+  //EJECUCIÓN
+  do {
+    error = 0;
+    Selecione_Caja = prompt('Seleccione un tipo de caja para continuar' + '\n' +
+      '1-caja-tienda-1' + '\n' +
+      '2-caja-tienda-2' + '\n' +
+      '3-caja-tienda-3');
+
+    switch (Selecione_Caja) {
+      case '1':
+        Selecione_Caja = "caja-tienda-1";
+        break;
+      case '2':
+        Selecione_Caja = "caja-tienda-2";
+        break;
+      case '3':
+        Selecione_Caja = "caja-tienda-3";
+        break;
+      default:
+        alert('Opción incorrecta. Digite nuevamente para abrir una caja válida');
+        error = 1;
+    }
+  } while (error == 1);
+
+  return Selecione_Caja; // Devuelve la selección de caja
+}
+
+let productoSeleccionado; // Declara la variable a nivel global para acceder a ella fuera del bucle
+
 // Menú de opciones
 const opciones = ["Ir a mi perfil de usuario", "Ir al home"];
 const opcionSeleccionada = prompt(`Seleccione una opción:\n${opciones.join("\n")}`);
@@ -145,43 +182,6 @@ function mostrarPerfil() {
     }
   }
 }
-
-// Mostrar el perfil después de autenticar al usuario
-mostrarPerfil();
-
-// Solicitar datos al cliente
-let seleccionCaja = pedirDatosCliente();
-
-// Función para pedir datos al cliente
-function pedirDatosCliente() {
-  //EJECUCIÓN
-  do {
-    error = 0;
-    Selecione_Caja = prompt('Seleccione un tipo de caja para continuar' + '\n' +
-      '1-caja-tienda-1' + '\n' +
-      '2-caja-tienda-2' + '\n' +
-      '3-caja-tienda-3');
-
-    switch (Selecione_Caja) {
-      case '1':
-        Selecione_Caja = "caja-tienda-1";
-        break;
-      case '2':
-        Selecione_Caja = "caja-tienda-2";
-        break;
-      case '3':
-        Selecione_Caja = "caja-tienda-3";
-        break;
-      default:
-        alert('Opción incorrecta. Digite nuevamente para abrir una caja válida');
-        error = 1;
-    }
-  } while (error == 1);
-
-  return Selecione_Caja; // Devuelve la selección de caja
-}
-
-let productoSeleccionado; // Declara la variable a nivel global para acceder a ella fuera del bucle
 
 // Función para cargar productos
 function cargarProductos() {
