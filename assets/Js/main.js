@@ -1,7 +1,7 @@
-// Mensaje principal
-alert("HOLA! :) :) :) , Bienvenido a Megatron POS Web para continuar debe iniciar sesión");
+alert("HOLA! :) :) :) , Bienvenido a Megatron POS Web. Para continuar, inicie sesión");
 
-let usuarios = [{
+let usuarios = [
+  {
     usuario: "usuario1",
     contraseña: "contraseña1",
     perfil: {
@@ -16,7 +16,7 @@ let usuarios = [{
     contraseña: "contraseña2",
     perfil: {
       nombre: "juan fernandez calvo",
-      rut: 13402203 - 9,
+      rut: "13402203-9",
       correo: "juanito.c@hotmail.com",
       direccion: "Santiago,centro"
     }
@@ -26,7 +26,7 @@ let usuarios = [{
     contraseña: "contraseña3",
     perfil: {
       nombre: "marcelo rios",
-      rut: 10708223 - 9,
+      rut: "10708223-9",
       correo: "Chinorrios@hotmail.com",
       direccion: "lo barnechea las casas 45"
     }
@@ -36,7 +36,7 @@ let usuarios = [{
     contraseña: "contraseña4",
     perfil: {
       nombre: "gabriel prieto",
-      rut: 11408203 - 9,
+      rut: "11408203-9",
       correo: "Ifaundez.a@hotmail.com",
       direccion: "Nuñoa 456"
     }
@@ -46,7 +46,7 @@ let usuarios = [{
     contraseña: "contraseña5",
     perfil: {
       nombre: "luis miguel",
-      rut: 11402303 - 9,
+      rut: "11402303-9",
       correo: "luismi.a@hotmail.com",
       direccion: "coquimbo 345"
     }
@@ -56,17 +56,17 @@ let usuarios = [{
     contraseña: "contraseña6",
     perfil: {
       nombre: "nicolas massu",
-      rut: 13408103 - 1,
+      rut: "13408103-1",
       correo: "nicolas.massu@hotmail.com",
       direccion: "la florida 233"
     }
   }
-
 ];
 
 let nombreUsuario;
 let intentosRestantes = 4;
 let indexUsuarioAutenticado;
+let seleccionCaja;
 
 // Función para autenticar al usuario
 function autenticarUsuario() {
@@ -80,63 +80,57 @@ function autenticarUsuario() {
     return false;
   });
 
-  // Si los datos son incorrectos
   if (!usuarioValido) {
     alert(`Nombre de usuario o contraseña incorrectos. Intentos restantes: ${intentosRestantes}`);
-
-    // Reducir el número de intentos restantes
     intentosRestantes--;
 
-    // Verificar si quedan intentos
     if (intentosRestantes > 0) {
       autenticarUsuario();
     } else {
-      // Mostrar mensaje de alerta cuando se agoten los intentos
       alert("¡Se han agotado los intentos! Reinicie la sesión para intentar nuevamente.");
-      // Reiniciar intentos y volver a solicitar inicio de sesión
       intentosRestantes = 4;
       autenticarUsuario();
     }
   }
 }
+
 // Llamar a la función de autenticación al cargar la página
 autenticarUsuario();
 
 // Mostrar mensaje de bienvenida después de la autenticación
 alert("Esto es Megatron WebPOS Ventas. Para continuar, presione aceptar");
 
-// Solicitar datos al cliente
-let seleccionCaja = pedirDatosCliente();
+// Solicitar datos al cliente y seleccionar caja
+pedirDatosCliente();
 
 // Función para pedir datos al cliente
 function pedirDatosCliente() {
   let error;
   do {
     error = 0;
-    Selecione_Caja = prompt('Seleccione un tipo de caja para continuar' + '\n' +
+    seleccionCaja = prompt('Seleccione un tipo de caja para continuar' + '\n' +
       '1-caja-tienda-1' + '\n' +
       '2-caja-tienda-2' + '\n' +
       '3-caja-tienda-3');
 
-    switch (Selecione_Caja) {
+    switch (seleccionCaja) {
       case '1':
-        Selecione_Caja = "caja-tienda-1";
+        seleccionCaja = "caja-tienda-1";
         break;
       case '2':
-        Selecione_Caja = "caja-tienda-2";
+        seleccionCaja = "caja-tienda-2";
         break;
       case '3':
-        Selecione_Caja = "caja-tienda-3";
+        seleccionCaja = "caja-tienda-3";
         break;
       default:
         alert('Opción incorrecta. Digite nuevamente para abrir una caja válida');
         error = 1;
     }
-  } while (error == 1);
+  } while (error === 1);
 }
 
-
-// Llamar a la función para mostrar el menú
+// Mostrar el menú principal
 mostrarMenu();
 
 // Función para mostrar el menú
@@ -152,19 +146,16 @@ function mostrarMenu() {
 
     switch (opcion) {
       case '1':
-        // Llamar a la función para mostrar el perfil
         mostrarPerfil();
         break;
       case '2':
-        // Llamar a la función para cargar productos
         cargarProductos();
         break;
-      
       default:
-        error = true; // Establecer el indicador de error si la opción no es válida
+        error = true;
         break;
     }
-  } while (true);
+  } while (!error);
 }
 
 // Función para mostrar el perfil
@@ -271,6 +262,8 @@ pedirDatosCliente();
 
 let historialCompras = [];
 let totalCompra = 0;
+let salir;
+
 do {
   cargarProductos();
 
@@ -294,8 +287,6 @@ do {
     alert('Error: La respuesta debe ser SI o NO. Por favor, vuelva a intentarlo.');
   }
 
-  cargarProductos();
-
 } while (salir.toUpperCase() !== 'NO');
 
 const iva = totalCompra * 0.19;
@@ -304,7 +295,7 @@ const totalConIVA = totalCompra + iva;
 const mensaje = `${nombreUsuario.toUpperCase()}, el total de tu compra (con IVA) fue de $${totalConIVA.toFixed(2)}`;
 alert(mensaje);
 
-cerrarPrograma = confirm('¿Desea cerrar el programa?');
+let cerrarPrograma = confirm('¿Desea cerrar el programa?');
 
 if (!cerrarPrograma) {
   alert('Cancelando y cerrando el programa');
