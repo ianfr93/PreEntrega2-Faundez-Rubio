@@ -269,9 +269,6 @@ function cargarProductos() {
 
 
 
-// Solicitar datos al cliente
-pedirDatosCliente();
-
 let historialCompras = [];
 let totalCompra = 0; // Agregué esta variable para sumar el total de la compra
 
@@ -303,7 +300,8 @@ do {
     alert('Error: La respuesta debe ser SI o NO. Por favor, vuelva a intentarlo.');
   }
 
-
+  // Llamar a la función para cargar productos (o realizar otras acciones según tu lógica)
+  cargarProductos();
 
 } while (salir.toUpperCase() !== 'NO');
 
