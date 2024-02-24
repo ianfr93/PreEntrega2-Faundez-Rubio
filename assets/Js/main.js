@@ -102,6 +102,9 @@ function autenticarUsuario() {
 // Llamar a la función de autenticación al cargar la página
 autenticarUsuario();
 
+// Mostrar mensaje de bienvenida después de la autenticación
+alert("Esto es Megatron WebPOS Ventas. Para continuar, presione aceptar");
+
 // Solicitar datos al cliente
 let seleccionCaja = pedirDatosCliente();
 
@@ -132,10 +135,6 @@ function pedirDatosCliente() {
   } while (error == 1);
 }
 
-
-
-// Después de autenticar y seleccionar la caja, mostrar el mensaje principal
-alert("Esto es Megatron WebPOS Ventas. Para continuar, presione aceptar");
 
 // Llamar a la función para mostrar el menú
 mostrarMenu();
