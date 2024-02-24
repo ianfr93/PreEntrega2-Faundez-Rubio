@@ -284,8 +284,8 @@ let historialCompras = [];
 let totalCompra = 0; // Agregué esta variable para sumar el total de la compra
 
 do {
-  // Solicitar productos al cliente
-  cargarProductos();
+// Solicitar productos al cliente
+productoSeleccionado = cargarProductos();
 
   // Solicitar la cantidad del producto
   cantidad = parseInt(prompt("¿Cuántas cantidades del " + producto + " desea llevar?"));
