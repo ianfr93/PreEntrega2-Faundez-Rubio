@@ -205,7 +205,7 @@ function cargarProductos() {
   let error;
   do {
     error = 0;
-    producto = parseInt(prompt("Ingrese el código de producto que quiere llevar" + "\n" +
+    let producto = parseInt(prompt("Ingrese el código de producto que quiere llevar" + "\n" +
       "1-Aceite Belmont 1lt" + "\n" +
       "2-Coca Cola 3lts" + "\n" +
       "3-Lavalozas Quix 1lt" + "\n" +
@@ -257,57 +257,59 @@ function cargarProductos() {
   };
 }
 
-// Solicitar datos al cliente
-pedirDatosCliente();
+// Función para realizar la compra
+function realizarCompra() {
+  let historialCompras = [];
+  let totalCompra = 0;
+  let salir;
 
-let historialCompras = [];
-let totalCompra = 0;
-let salir;
+  do {
+    const productoInfo = cargarProductos();
 
-do {
-  cargarProductos();
+    let cantidad = parseInt(prompt(`¿Cuántas cantidades del ${productoInfo.producto} desea llevar?`));
 
-  let cantidad = parseInt(prompt("¿Cuántas cantidades del " + producto + " desea llevar?"));
+    console.log(productoInfo.producto);
+    console.log(productoInfo.precio);
+    console.log(cantidad);
 
-  console.log(producto);
-  console.log(precio);
-  console.log(cantidad);
+    historialCompras.push({
+      producto: productoInfo.producto,
+      precio: productoInfo.precio,
+      cantidad: cantidad
+    });
 
-  historialCompras.push({
-    producto: productoSeleccionado,
-    precio: precio,
-    cantidad: cantidad
-  });
+    totalCompra = totalCompra + productoInfo.precio * cantidad;
 
-  totalCompra = totalCompra + precio * cantidad;
+    salir = prompt('¿Desea agregar otro producto al carrito de compras? Escriba SI/NO');
 
-  salir = prompt('¿Desea agregar otro producto al carrito de compras? Escriba SI/NO');
+    if (salir.toUpperCase() !== 'SI' && salir.toUpperCase() !== 'NO') {
+      alert('Error: La respuesta debe ser SI o NO. Por favor, vuelva a intentarlo.');
+    }
+  } while (salir.toUpperCase() !== 'NO');
 
-  if (salir.toUpperCase() !== 'SI' && salir.toUpperCase() !== 'NO') {
-    alert('Error: La respuesta debe ser SI o NO. Por favor, vuelva a intentarlo.');
+  const iva = totalCompra * 0.19;
+  const totalConIVA = totalCompra + iva;
+
+  const mensaje = `${nombreUsuario.toUpperCase()}, el total de tu compra (con IVA) fue de $${totalConIVA.toFixed(2)}`;
+  alert(mensaje);
+
+  let cerrarPrograma = confirm('¿Desea cerrar el programa?');
+
+  if (!cerrarPrograma) {
+    alert('Cancelando y cerrando el programa');
+  } else {
+    console.log(`Historial de compras para ${nombreUsuario}:`);
+    historialCompras.forEach((compra, index) => {
+      console.log(`Compra ${index + 1}:`);
+      console.log(`Producto: ${compra.producto}`);
+      console.log(`Precio: $${compra.precio.toFixed(2)}`);
+      console.log(`Cantidad: ${compra.cantidad}`);
+      console.log("----------------------------------");
+    });
+
+    alert('¡Gracias por tu compra! ¡Hasta luego!');
   }
-
-} while (salir.toUpperCase() !== 'NO');
-
-const iva = totalCompra * 0.19;
-const totalConIVA = totalCompra + iva;
-
-const mensaje = `${nombreUsuario.toUpperCase()}, el total de tu compra (con IVA) fue de $${totalConIVA.toFixed(2)}`;
-alert(mensaje);
-
-let cerrarPrograma = confirm('¿Desea cerrar el programa?');
-
-if (!cerrarPrograma) {
-  alert('Cancelando y cerrando el programa');
-} else {
-  console.log(`Historial de compras para ${nombreUsuario}:`);
-  historialCompras.forEach((compra, index) => {
-    console.log(`Compra ${index + 1}:`);
-    console.log(`Producto: ${compra.producto}`);
-    console.log(`Precio: $${compra.precio.toFixed(2)}`);
-    console.log(`Cantidad: ${compra.cantidad}`);
-    console.log("----------------------------------");
-  });
-
-  alert('¡Gracias por tu compra! ¡Hasta luego!');
 }
+
+// Llamamos a la función para realizar la compra
+realizarCompra();
