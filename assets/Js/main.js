@@ -1,13 +1,12 @@
 // Mensaje principal
 alert("HOLA! :) :) :) , Bienvenido a Megatron POS Web para continuar debe iniciar sesión");
 
-let usuarios = [
-  {
+let usuarios = [{
     usuario: "usuario1",
     contraseña: "contraseña1",
     perfil: {
       nombre: "Ian Faúndez Rubio",
-      rut: 18408203-9,
+      rut: 18408203 - 9,
       correo: "Ifaundez.a@hotmail.com",
       direccion: "Emiliano Zapata 693"
     }
@@ -17,7 +16,7 @@ let usuarios = [
     contraseña: "contraseña2",
     perfil: {
       nombre: "juan fernandez calvo",
-      rut: 13402203-9,
+      rut: 13402203 - 9,
       correo: "juanito.c@hotmail.com",
       direccion: "Santiago,centro"
     }
@@ -27,7 +26,7 @@ let usuarios = [
     contraseña: "contraseña3",
     perfil: {
       nombre: "marcelo rios",
-      rut: 10708223-9,
+      rut: 10708223 - 9,
       correo: "Chinorrios@hotmail.com",
       direccion: "lo barnechea las casas 45"
     }
@@ -37,7 +36,7 @@ let usuarios = [
     contraseña: "contraseña4",
     perfil: {
       nombre: "gabriel prieto",
-      rut: 11408203-9,
+      rut: 11408203 - 9,
       correo: "Ifaundez.a@hotmail.com",
       direccion: "Nuñoa 456"
     }
@@ -47,7 +46,7 @@ let usuarios = [
     contraseña: "contraseña5",
     perfil: {
       nombre: "luis miguel",
-      rut: 11402303-9,
+      rut: 11402303 - 9,
       correo: "luismi.a@hotmail.com",
       direccion: "coquimbo 345"
     }
@@ -57,7 +56,7 @@ let usuarios = [
     contraseña: "contraseña6",
     perfil: {
       nombre: "nicolas massu",
-      rut: 13408103-1,
+      rut: 13408103 - 1,
       correo: "nicolas.massu@hotmail.com",
       direccion: "la florida 233"
     }
@@ -135,9 +134,10 @@ function pedirDatosCliente() {
   return Selecione_Caja; // Devuelve la selección de caja
 }
 
- 
-
 let productoSeleccionado; // Declara la variable a nivel global para acceder a ella fuera del bucle
+
+// Después de autenticar y seleccionar la caja, mostrar el mensaje principal
+alert("Esto es Megatron WebPOS Ventas. Para continuar, presione aceptar");
 
 // Llamar a la función para mostrar el menú
 mostrarMenu();
@@ -278,8 +278,7 @@ function cargarProductos() {
   };
 }
 
-// Cuando comienza el programa
-alert("Esto es Megatron WebPOS Ventas. Para continuar, presione aceptar");
+
 
 // Solicitar datos al cliente
 pedirDatosCliente();
