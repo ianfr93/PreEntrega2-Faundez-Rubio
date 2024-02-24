@@ -6,7 +6,7 @@ let usuarios = [{
     contraseña: "contraseña1",
     perfil: {
       nombre: "Ian Faúndez Rubio",
-      rut: 18408203 - 9,
+      rut: "18408203-9",
       correo: "Ifaundez.a@hotmail.com",
       direccion: "Emiliano Zapata 693"
     }
@@ -66,7 +66,7 @@ let usuarios = [{
 
 let nombreUsuario;
 let intentosRestantes = 4;
-let indexUsuarioAutenticado; // Variable para almacenar el índice del usuario autenticado
+let indexUsuarioAutenticado;
 
 // Función para autenticar al usuario
 function autenticarUsuario() {
@@ -74,7 +74,7 @@ function autenticarUsuario() {
   let contraseña = prompt("Ingrese su contraseña");
   let usuarioValido = usuarios.find((user, index) => {
     if (user.usuario === nombreUsuario && user.contraseña === contraseña) {
-      indexUsuarioAutenticado = index; // Almacena el índice del usuario autenticado
+      indexUsuarioAutenticado = index;
       return true;
     }
     return false;
@@ -104,10 +104,10 @@ autenticarUsuario();
 
 // Solicitar datos al cliente
 let seleccionCaja = pedirDatosCliente();
+
 // Función para pedir datos al cliente
 function pedirDatosCliente() {
-  let error; // Declarar la variable error
-  //EJECUCIÓN
+  let error;
   do {
     error = 0;
     Selecione_Caja = prompt('Seleccione un tipo de caja para continuar' + '\n' +
@@ -131,10 +131,11 @@ function pedirDatosCliente() {
     }
   } while (error == 1);
 
-  return Selecione_Caja; // Devuelve la selección de caja
+  return Selecione_Caja;
 }
-
 let productoSeleccionado; // Declara la variable a nivel global para acceder a ella fuera del bucle
+let precio;
+let salir;
 
 // Después de autenticar y seleccionar la caja, mostrar el mensaje principal
 alert("Esto es Megatron WebPOS Ventas. Para continuar, presione aceptar");
@@ -151,32 +152,26 @@ function mostrarMenu() {
       alert('Opción incorrecta. Digite nuevamente para continuar en el sistema');
     }
 
-    let opcion = prompt('Selecciona una opción:\n1. Ir a mi perfil de usuario\n2. Ir al home');
+    let opcion = prompt('Selecciona una opción:\n1. Ir a mi perfil de usuario\n2. Ir al home\n3. Salir');
 
     switch (opcion) {
       case '1':
         // Llamar a la función para mostrar el perfil
         mostrarPerfil();
-        error = false; // Restablecer el indicador de error si la opción es válida
         break;
       case '2':
-        // Redirigir a la sección de cargar productos
-        alert("Esto es Megatron WebPOS Ventas. Para continuar, presione aceptar");
-        error = false; // Restablecer el indicador de error si la opción es válida
+        // Llamar a la función para cargar productos
+        cargarProductos();
         break;
+      case '3':
+        // Salir del programa
+        return;
       default:
         error = true; // Establecer el indicador de error si la opción no es válida
         break;
     }
-  } while (error); // Repetir el bucle si hay un error
+  } while (true);
 }
-
-// Función para mostrar el perfil
-function mostrarPerfil() {
-  // Implementa la lógica para mostrar el perfil aquí
-  alert('Mostrar perfil de usuario');
-}
-
 
 // Función para mostrar el perfil
 function mostrarPerfil() {
@@ -219,7 +214,6 @@ function redirigirAMostrarMenu() {
   // Llamar a la función mostrarMenu()
   mostrarMenu();
 }
-
 
 // Función para cargar productos
 function cargarProductos() {
@@ -313,6 +307,9 @@ do {
   if (salir.toUpperCase() !== 'SI' && salir.toUpperCase() !== 'NO') {
     alert('Error: La respuesta debe ser SI o NO. Por favor, vuelva a intentarlo.');
   }
+
+  // Llamar a la función para cargar productos (o realizar otras acciones según tu lógica)
+  cargarProductos();
 
 } while (salir.toUpperCase() !== 'NO');
 
