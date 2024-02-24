@@ -179,16 +179,17 @@ function gestionarCambios() {
   if (guardarCambios) {
     // Mostrar mensaje de éxito en la consola
     console.log('Datos guardados con éxito');
+
+    // Volver al menú de selección
+    mostrarMenu();
   } else {
     // Mostrar mensaje de éxito en la consola
     console.log('Cambios descartados con éxito');
-    // No es necesario llamar a mostrarMenu() aquí
+
+    // Redirigir a la sección mostrarMenu()
+    redirigirAMostrarMenu();
   }
-
-  // Redirigir a la sección mostrarMenu()
-  redirigirAMostrarMenu();
 }
-
 
 
 
