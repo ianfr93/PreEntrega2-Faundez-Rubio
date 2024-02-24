@@ -130,13 +130,70 @@ function pedirDatosCliente() {
         error = 1;
     }
   } while (error == 1);
-
-  return Selecione_Caja;
 }
-let productoSeleccionado; // Declara la variable a nivel global para acceder a ella fuera del bucle
-let precio;
-let salir;
 
+// Función para cargar productos
+// Función para cargar productos
+function cargarProductos() {
+  // Declaración de la variable productoSeleccionado
+  let productoSeleccionado;
+  let precio;
+  let error;
+
+  //EJECUCIÓN
+  do {
+    error = 0;
+    producto = parseInt(prompt("Ingrese el código de producto que quiere llevar" + "\n" +
+      "1-Aceite Belmont 1lt" + "\n" +
+      "2-Coca Cola 3lts" + "\n" +
+      "3-Lavalozas Quix 1lt" + "\n" +
+      "4-Leche Soprole Chocolate 1lt" + "\n" +
+      "5-Galletas Oreo Chocolate" + "\n" +
+      "6-Arroz Miraflores Granel"));
+
+    switch (producto) {
+      case 1:
+        alert('Tu producto se agregó de manera exitosa');
+        precio = 4000;
+        productoSeleccionado = "Aceite Belmont 1lt";
+        break;
+      case 2:
+        alert('Tu producto se agregó de manera exitosa');
+        precio = 3000;
+        productoSeleccionado = "Coca Cola 3lts";
+        break;
+      case 3:
+        alert('Tu producto se agregó de manera exitosa');
+        precio = 2850;
+        productoSeleccionado = "Lavalozas Quix 1lt";
+        break;
+      case 4:
+        alert('Tu producto se agregó de manera exitosa');
+        precio = 1200;
+        productoSeleccionado = "Leche Soprole Chocolate 1lt";
+        break;
+      case 5:
+        alert('Tu producto se agregó de manera exitosa');
+        precio = 850;
+        productoSeleccionado = "Galletas Oreo Chocolate";
+        break;
+      case 6:
+        alert('Tu producto se agregó de manera exitosa');
+        precio = 1600;
+        productoSeleccionado = "Arroz Miraflores Granel";
+        break;
+
+      default:
+        alert('Opción incorrecta. Digite nuevamente para poder continuar con su compra');
+        error = 1;
+    }
+  } while (error == 1);
+
+  return {
+    producto: productoSeleccionado,
+    precio: precio
+  };
+}
 // Después de autenticar y seleccionar la caja, mostrar el mensaje principal
 alert("Esto es Megatron WebPOS Ventas. Para continuar, presione aceptar");
 
