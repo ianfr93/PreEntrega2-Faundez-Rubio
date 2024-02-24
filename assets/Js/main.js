@@ -273,55 +273,46 @@ function cargarProductos() {
 pedirDatosCliente();
 
 let historialCompras = [];
-let totalCompra = 0; // Agregué esta variable para sumar el total de la compra
+let totalCompra = 0;
 
 do {
- 
+  cargarProductos();
 
-  // Solicitar la cantidad del producto
   let cantidad = parseInt(prompt("¿Cuántas cantidades del " + producto + " desea llevar?"));
 
   console.log(producto);
   console.log(precio);
   console.log(cantidad);
 
-  // Almacenar la información de cada compra en el historial
   historialCompras.push({
     producto: productoSeleccionado,
     precio: precio,
     cantidad: cantidad
   });
 
-  // Sumar al total de la compra
   totalCompra = totalCompra + precio * cantidad;
 
   salir = prompt('¿Desea agregar otro producto al carrito de compras? Escriba SI/NO');
 
-  // Verificar si la respuesta es SI o NO, de lo contrario, mostrar mensaje de error
   if (salir.toUpperCase() !== 'SI' && salir.toUpperCase() !== 'NO') {
     alert('Error: La respuesta debe ser SI o NO. Por favor, vuelva a intentarlo.');
   }
 
-  // Llamar a la función para cargar productos (o realizar otras acciones según tu lógica)
   cargarProductos();
 
 } while (salir.toUpperCase() !== 'NO');
 
-// Mostrar al cliente el total de su compra con IVA
 const iva = totalCompra * 0.19;
 const totalConIVA = totalCompra + iva;
 
 const mensaje = `${nombreUsuario.toUpperCase()}, el total de tu compra (con IVA) fue de $${totalConIVA.toFixed(2)}`;
 alert(mensaje);
 
-// Preguntar al usuario si desea cerrar el programa
 cerrarPrograma = confirm('¿Desea cerrar el programa?');
 
-// Si el usuario elige cancelar, mostrar mensaje de cancelación
 if (!cerrarPrograma) {
   alert('Cancelando y cerrando el programa');
 } else {
-  // Mostrar todos los registros de compra en la consola
   console.log(`Historial de compras para ${nombreUsuario}:`);
   historialCompras.forEach((compra, index) => {
     console.log(`Compra ${index + 1}:`);
@@ -331,6 +322,5 @@ if (!cerrarPrograma) {
     console.log("----------------------------------");
   });
 
-  // Mostrar mensaje de despedida solo si el usuario elige cerrar el programa
   alert('¡Gracias por tu compra! ¡Hasta luego!');
 }
