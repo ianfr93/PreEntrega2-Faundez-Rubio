@@ -99,8 +99,13 @@ function autenticarUsuario() {
     }
   }
 }
+
 // Llamar a la función de autenticación al cargar la página
 autenticarUsuario();
+
+// Cambiar el mensaje de bienvenida después de la autenticación
+alert(`¡Hola ${usuarios[indexUsuarioAutenticado].perfil.nombre}! Bienvenido a Megatron POS Web.`);
+
 
 
 
@@ -166,10 +171,6 @@ function gestionarCambios() {
     redirigirAMostrarMenu();
   }
 }
-
-
-// va a Llamar a la función de autenticación al cargar la página
-autenticarUsuario();
 
 //VARIABLES
 let Selecione_Caja;
