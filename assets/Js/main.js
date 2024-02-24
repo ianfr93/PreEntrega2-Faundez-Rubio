@@ -207,7 +207,7 @@ function redirigirAMostrarMenu() {
   // ...
 
   // Llamar a la función mostrarMenu()
-  mostrarMenu();
+  cargarProductos();
 }
 
 // Función para cargar productos
