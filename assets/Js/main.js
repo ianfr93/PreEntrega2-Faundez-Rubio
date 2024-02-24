@@ -207,7 +207,7 @@ function redirigirAMostrarMenu() {
   // ...
 
   // Llamar a la función mostrarMenu()
-  cargarProductos();
+  mostrarMenu();
 }
 
 // Función para cargar productos
@@ -303,8 +303,7 @@ do {
     alert('Error: La respuesta debe ser SI o NO. Por favor, vuelva a intentarlo.');
   }
 
-  // Llamar a la función para cargar productos (o realizar otras acciones según tu lógica)
-  cargarProductos();
+
 
 } while (salir.toUpperCase() !== 'NO');
 
