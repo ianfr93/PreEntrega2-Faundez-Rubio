@@ -2,6 +2,7 @@
 // Mensaje principal
 alert("HOLA! :) :) :) , Bienvenido a Super WEBPOS para continuar debe iniciar sesión")
 
+
 // menu de inicio de sesion
 let usuarios = [{
   usuario: "usuario1",
@@ -116,7 +117,7 @@ function mostrarMenu() {
         break;
       case '2':
         // Llamar a la función para cargar productos
-        cargarProductos();
+        cargar_Productos();
         break;
       case '3':
         // Salir del programa
@@ -274,7 +275,7 @@ let totalCompra = 0; // Agregué esta variable para sumar el total de la compra
 
 do {
   // Solicitar productos al cliente
-  cargarProductos();
+  cargar_Productos();
 
   // Solicitar la cantidad del producto
   cantidad = parseInt(prompt("¿Cuántas cantidades del " + producto + " desea llevar?"));
