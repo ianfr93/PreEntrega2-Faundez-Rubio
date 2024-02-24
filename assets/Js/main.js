@@ -212,7 +212,7 @@ function redirigirAMostrarMenu() {
 
 // Función para cargar productos
 function cargarProductos() {
-  //EJECUCIÓN
+  let error;
   do {
     error = 0;
     producto = parseInt(prompt("Ingrese el código de producto que quiere llevar" + "\n" +
@@ -267,14 +267,11 @@ function cargarProductos() {
   };
 }
 
-
-
 // Solicitar datos al cliente
 pedirDatosCliente();
 
 let historialCompras = [];
 let totalCompra = 0;
-
 do {
   cargarProductos();
 
