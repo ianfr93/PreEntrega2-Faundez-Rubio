@@ -1,69 +1,66 @@
-
 // Mensaje principal
-alert("HOLA! :) :) :) , Bienvenido a Super WEBPOS para continuar debe iniciar sesión")
+alert("HOLA! :) :) :) , Bienvenido a Megatron POS Web para continuar debe iniciar sesión");
 
-
-// menu de inicio de sesion
 let usuarios = [{
-  usuario: "usuario1",
-  contraseña: "contraseña1",
-  perfil: {
-    nombre: "Ian Faúndez Rubio",
-    rut: "18408203-9",
-    correo: "Ifaundez.a@hotmail.com",
-    direccion: "Emiliano Zapata 693"
+    usuario: "usuario1",
+    contraseña: "contraseña1",
+    perfil: {
+      nombre: "Ian Faúndez Rubio",
+      rut: "18408203-9",
+      correo: "Ifaundez.a@hotmail.com",
+      direccion: "Emiliano Zapata 693"
+    }
+  },
+  {
+    usuario: "usuario2",
+    contraseña: "contraseña2",
+    perfil: {
+      nombre: "juan fernandez calvo",
+      rut: 13402203 - 9,
+      correo: "juanito.c@hotmail.com",
+      direccion: "Santiago,centro"
+    }
+  },
+  {
+    usuario: "usuario3",
+    contraseña: "contraseña3",
+    perfil: {
+      nombre: "marcelo rios",
+      rut: 10708223 - 9,
+      correo: "Chinorrios@hotmail.com",
+      direccion: "lo barnechea las casas 45"
+    }
+  },
+  {
+    usuario: "usuario4",
+    contraseña: "contraseña4",
+    perfil: {
+      nombre: "gabriel prieto",
+      rut: 11408203 - 9,
+      correo: "Ifaundez.a@hotmail.com",
+      direccion: "Nuñoa 456"
+    }
+  },
+  {
+    usuario: "usuario5",
+    contraseña: "contraseña5",
+    perfil: {
+      nombre: "luis miguel",
+      rut: 11402303 - 9,
+      correo: "luismi.a@hotmail.com",
+      direccion: "coquimbo 345"
+    }
+  },
+  {
+    usuario: "usuario6",
+    contraseña: "contraseña6",
+    perfil: {
+      nombre: "nicolas massu",
+      rut: 13408103 - 1,
+      correo: "nicolas.massu@hotmail.com",
+      direccion: "la florida 233"
+    }
   }
-},
-{
-  usuario: "usuario2",
-  contraseña: "contraseña2",
-  perfil: {
-    nombre: "juan fernandez calvo",
-    rut: 13402203 - 9,
-    correo: "juanito.c@hotmail.com",
-    direccion: "Santiago,centro"
-  }
-},
-{
-  usuario: "usuario3",
-  contraseña: "contraseña3",
-  perfil: {
-    nombre: "marcelo rios",
-    rut: 10708223 - 9,
-    correo: "Chinorrios@hotmail.com",
-    direccion: "lo barnechea las casas 45"
-  }
-},
-{
-  usuario: "usuario4",
-  contraseña: "contraseña4",
-  perfil: {
-    nombre: "gabriel prieto",
-    rut: 11408203 - 9,
-    correo: "Ifaundez.a@hotmail.com",
-    direccion: "Nuñoa 456"
-  }
-},
-{
-  usuario: "usuario5",
-  contraseña: "contraseña5",
-  perfil: {
-    nombre: "luis miguel",
-    rut: 11402303 - 9,
-    correo: "luismi.a@hotmail.com",
-    direccion: "coquimbo 345"
-  }
-},
-{
-  usuario: "usuario6",
-  contraseña: "contraseña6",
-  perfil: {
-    nombre: "nicolas massu",
-    rut: 13408103 - 1,
-    correo: "nicolas.massu@hotmail.com",
-    direccion: "la florida 233"
-  }
-}
 
 ];
 
@@ -71,19 +68,26 @@ let nombreUsuario;
 let intentosRestantes = 4;
 let indexUsuarioAutenticado;
 
+// Función para autenticar al usuario
 function autenticarUsuario() {
   nombreUsuario = prompt("Ingrese su nombre de usuario");
   let contraseña = prompt("Ingrese su contraseña");
-  let usuarioValido = usuarios.find(user => user.usuario === nombreUsuario && user.contraseña === contraseña);
+  let usuarioValido = usuarios.find((user, index) => {
+    if (user.usuario === nombreUsuario && user.contraseña === contraseña) {
+      indexUsuarioAutenticado = index;
+      return true;
+    }
+    return false;
+  });
 
   // Si los datos son incorrectos
   if (!usuarioValido) {
     alert(`Nombre de usuario o contraseña incorrectos. Intentos restantes: ${intentosRestantes}`);
 
-    // Reducira el número de intentos restantes
+    // Reducir el número de intentos restantes
     intentosRestantes--;
 
-    // va ir a Verificar si quedan intentos
+    // Verificar si quedan intentos
     if (intentosRestantes > 0) {
       autenticarUsuario();
     } else {
@@ -95,9 +99,10 @@ function autenticarUsuario() {
     }
   }
 }
+// Llamar a la función de autenticación al cargar la página
+autenticarUsuario();
 
-// Llamar a la función para mostrar el menú
-mostrarMenu();
+
 
 // Función para mostrar el menú
 function mostrarMenu() {
@@ -206,7 +211,11 @@ function pedir_datos_cliente() {
 
 let productoSeleccionado; // Declara la variable a nivel global para acceder a ella fuera del bucle
 //FUNCIONES
-function cargar_productos() {
+function cargarProductos() {
+  let error;
+  let productoSeleccionado;
+  let precio;
+ 
   //EJECUCION
   do {
     error = 0;
@@ -275,7 +284,7 @@ let totalCompra = 0; // Agregué esta variable para sumar el total de la compra
 
 do {
   // Solicitar productos al cliente
-  cargar_Productos();
+  cargarProductos();
 
   // Solicitar la cantidad del producto
   cantidad = parseInt(prompt("¿Cuántas cantidades del " + producto + " desea llevar?"));
