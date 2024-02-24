@@ -4,34 +4,71 @@ alert("HOLA! :) :) :) , Bienvenido a Super WEBPOS para continuar debe iniciar se
 
 // menu de inicio de sesion
 let usuarios = [{
-    usuario: "usuario1",
-    contraseña: "contraseña1"
-  },
-
-  {
-    usuario: "usuario2",
-    contraseña: "contraseña2"
-  },
-  {
-    usuario: "usuario3",
-    contraseña: "contraseña3"
-  },
-  {
-    usuario: "usuario4",
-    contraseña: "contraseña4"
-  },
-  {
-    usuario: "usuario5",
-    contraseña: "contraseña5"
-  },
-  {
-    usuario: "usuario6",
-    contraseña: "contraseña6"
+  usuario: "usuario1",
+  contraseña: "contraseña1",
+  perfil: {
+    nombre: "Ian Faúndez Rubio",
+    rut: "18408203-9",
+    correo: "Ifaundez.a@hotmail.com",
+    direccion: "Emiliano Zapata 693"
   }
+},
+{
+  usuario: "usuario2",
+  contraseña: "contraseña2",
+  perfil: {
+    nombre: "juan fernandez calvo",
+    rut: 13402203 - 9,
+    correo: "juanito.c@hotmail.com",
+    direccion: "Santiago,centro"
+  }
+},
+{
+  usuario: "usuario3",
+  contraseña: "contraseña3",
+  perfil: {
+    nombre: "marcelo rios",
+    rut: 10708223 - 9,
+    correo: "Chinorrios@hotmail.com",
+    direccion: "lo barnechea las casas 45"
+  }
+},
+{
+  usuario: "usuario4",
+  contraseña: "contraseña4",
+  perfil: {
+    nombre: "gabriel prieto",
+    rut: 11408203 - 9,
+    correo: "Ifaundez.a@hotmail.com",
+    direccion: "Nuñoa 456"
+  }
+},
+{
+  usuario: "usuario5",
+  contraseña: "contraseña5",
+  perfil: {
+    nombre: "luis miguel",
+    rut: 11402303 - 9,
+    correo: "luismi.a@hotmail.com",
+    direccion: "coquimbo 345"
+  }
+},
+{
+  usuario: "usuario6",
+  contraseña: "contraseña6",
+  perfil: {
+    nombre: "nicolas massu",
+    rut: 13408103 - 1,
+    correo: "nicolas.massu@hotmail.com",
+    direccion: "la florida 233"
+  }
+}
+
 ];
 
 let nombreUsuario;
 let intentosRestantes = 4;
+let indexUsuarioAutenticado;
 
 function autenticarUsuario() {
   nombreUsuario = prompt("Ingrese su nombre de usuario");
@@ -57,6 +94,73 @@ function autenticarUsuario() {
     }
   }
 }
+
+// Llamar a la función para mostrar el menú
+mostrarMenu();
+
+// Función para mostrar el menú
+function mostrarMenu() {
+  let error = false;
+
+  do {
+    if (error) {
+      alert('Opción incorrecta. Digite nuevamente para continuar en el sistema');
+    }
+
+    let opcion = prompt('Selecciona una opción:\n1. Ir a mi perfil de usuario\n2. Ir al home\n3. Salir');
+
+    switch (opcion) {
+      case '1':
+        // Llamar a la función para mostrar el perfil
+        mostrarPerfil();
+        break;
+      case '2':
+        // Llamar a la función para cargar productos
+        cargarProductos();
+        break;
+      case '3':
+        // Salir del programa
+        return;
+      default:
+        error = true; // Establecer el indicador de error si la opción no es válida
+        break;
+    }
+  } while (true);
+}
+
+// Función para mostrar el perfil
+function mostrarPerfil() {
+  console.log(`Información del perfil para ${nombreUsuario}:`);
+  console.log(`Nombre: ${usuarios[indexUsuarioAutenticado].perfil.nombre}`);
+  console.log(`Rut: ${usuarios[indexUsuarioAutenticado].perfil.rut}`);
+  console.log(`Correo: ${usuarios[indexUsuarioAutenticado].perfil.correo}`);
+  console.log(`Dirección: ${usuarios[indexUsuarioAutenticado].perfil.direccion}`);
+  console.log("----------------------------------");
+
+  // Llamar a la función para gestionar cambios
+  gestionarCambios();
+}
+
+// Función para gestionar cambios en el perfil
+function gestionarCambios() {
+  // Preguntar si desea guardar los cambios
+  const guardarCambios = confirm('¿Desea guardar los datos de tu perfil?');
+
+  if (guardarCambios) {
+    // Mostrar mensaje de éxito en la consola
+    console.log('Datos guardados con éxito');
+
+    // Volver al menú de selección
+    mostrarMenu();
+  } else {
+    // Mostrar mensaje de éxito en la consola
+    console.log('Cambios descartados con éxito');
+
+    // Redirigir a la sección mostrarMenu()
+    redirigirAMostrarMenu();
+  }
+}
+
 
 // va a Llamar a la función de autenticación al cargar la página
 autenticarUsuario();
@@ -165,16 +269,26 @@ alert("Esto es Super WebPOS Ventas para continuar presione aceptar");
 // Solicitara datos al cliente
 pedir_datos_cliente();
 
-do {
-  // Solicitara cliente al usuarios
-  cargar_productos();
+let historialCompras = [];
+let totalCompra = 0; // Agregué esta variable para sumar el total de la compra
 
-  // Solicitara la cantidad del producto
-  cantidad = parseInt(prompt("¿cúantas cantidades del " + producto + " desea llevar?"));
+do {
+  // Solicitar productos al cliente
+  cargarProductos();
+
+  // Solicitar la cantidad del producto
+  cantidad = parseInt(prompt("¿Cuántas cantidades del " + producto + " desea llevar?"));
 
   console.log(producto);
   console.log(precio);
   console.log(cantidad);
+
+  // Almacenar la información de cada compra en el historial
+  historialCompras.push({
+    producto: productoSeleccionado,
+    precio: precio,
+    cantidad: cantidad
+  });
 
   // Sumo al total de la compra
   total_compra = total_compra + precio * cantidad;
@@ -198,20 +312,20 @@ alert(mensaje);
 // le va a Preguntar al usuario si desea cerrar el programa
 cerrarPrograma = confirm('¿Desea cerrar el programa?');
 
-// Si el usuario elige cancelar, se devuelve al home
+// Si el usuario elige cancelar, mostrar mensaje de cancelación
 if (!cerrarPrograma) {
-  alert('cancelando y cerrando programa');
-}
+  alert('Cancelando y cerrando el programa');
+} else {
+  // Mostrar todos los registros de compra en la consola
+  console.log(`Historial de compras para ${nombreUsuario}:`);
+  historialCompras.forEach((compra, index) => {
+    console.log(`Compra ${index + 1}:`);
+    console.log(`Producto: ${compra.producto}`);
+    console.log(`Precio: $${compra.precio.toFixed(2)}`);
+    console.log(`Cantidad: ${compra.cantidad}`);
+    console.log("----------------------------------");
+  });
 
-// Cuando damos a cerrar y sale el mensaje de despedida
-if (cerrarPrograma) {
-  console.log(`Último registro de compra para ${nombreUsuario}:`);
-  console.log(`Producto: ${productoSeleccionado}`);
-  console.log(`Precio: $${precio.toFixed(2)}`);
-  console.log(`Cantidad: ${cantidad}`);
-  console.log(`Total con IVA: $${total_con_iva.toFixed(2)}`);
-
-  // Aca Mostramos un mensaje de despedida solo si el usuario elige cerrar el programa
-  alert('Gracias por tu compra. ¡Hasta luego!');
-
+  // Mostrar mensaje de despedida solo si el usuario elige cerrar el programa
+  alert('¡Gracias por tu compra! ¡Hasta luego!');
 }
