@@ -269,15 +269,17 @@ function cargarProductos() {
 
 
 
+// Solicitar datos al cliente
+pedirDatosCliente();
+
 let historialCompras = [];
 let totalCompra = 0; // Agregué esta variable para sumar el total de la compra
 
 do {
-  // Solicitar productos al cliente
-  cargarProductos();
+ 
 
   // Solicitar la cantidad del producto
-  cantidad = parseInt(prompt("¿Cuántas cantidades del " + producto + " desea llevar?"));
+  let cantidad = parseInt(prompt("¿Cuántas cantidades del " + producto + " desea llevar?"));
 
   console.log(producto);
   console.log(precio);
