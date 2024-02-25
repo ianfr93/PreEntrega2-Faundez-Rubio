@@ -136,7 +136,7 @@ mostrarMenu();
 // Función para mostrar el menú
 function mostrarMenu() {
   while (true) {
-    let opcion = prompt('Selecciona una opción:\n1. Ir a mi perfil de usuario\n2. Ir al home');
+    let opcion = prompt('Selecciona una opción:\n1. Ir a mi perfil de usuario\n2. Ir al home\n3. Ver inventario');
 
     switch (opcion) {
       case '1':
@@ -146,12 +146,23 @@ function mostrarMenu() {
         realizarCompra();
         // Después de realizar la compra, salir del bucle
         return;
+      case '3':
+        verInventario();
+        break;
       default:
         alert('Opción incorrecta. Digite nuevamente para continuar en el sistema');
         break;
     }
   }
 }
+
+function verInventario() {
+  // Aquí puedes poner el código para mostrar el inventario
+  // Por ejemplo: alert('Mostrando inventario...');
+  // También puedes llamar a una función específica para manejar la lógica del inventario
+  // Por ejemplo: mostrarInventario();
+}
+
 // Función para mostrar el perfil
 function mostrarPerfil() {
   console.log(`Información del perfil para ${nombreUsuario}:`);
