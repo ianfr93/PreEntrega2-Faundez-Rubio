@@ -281,12 +281,12 @@ function realizarCompra() {
   const mensaje = `${nombreUsuario.toUpperCase()}, el total de tu compra (con IVA) fue de $${totalConIVA.toFixed(2)}`;
   alert(mensaje);
 
-   // Llamar a la función para volver al menú principal después de realizar la compra
-   volverAlMenuPrincipal(historialCompras);
-  }
-  
-  // Función para volver al menú principal
-function volverAlMenuPrincipal(historialCompras) {
+  // Llamar a la función para volver al menú principal después de realizar la compra
+  volverAlMenuPrincipal(historialCompras, totalCompra);
+}
+
+// Función para volver al menú principal
+function volverAlMenuPrincipal(historialCompras, totalCompra) {
   // Mostrar historial de compras en la consola
   console.log(`Historial de compras para ${nombreUsuario}:`);
   historialCompras.forEach((compra, index) => {
@@ -297,18 +297,16 @@ function volverAlMenuPrincipal(historialCompras) {
     console.log("----------------------------------");
   });
 
-  // Mensaje de agradecimiento
-  alert('¡Gracias por tu compra! ¡Hasta luego!');
+  // Preguntar al usuario si desea autenticarse nuevamente o salir del programa
+  const reiniciar = prompt('¿Desea autenticarse nuevamente? Escriba SI/NO');
 
-  // Reiniciar variables relacionadas con la compra
-  historialCompras = [];
-  totalCompra = 0;
-  // Puedes reiniciar otras variables según sea necesario
-
-  // Llamar a la función para autenticar al usuario y reiniciar el programa
-  autenticarUsuario();
+  if (reiniciar.toUpperCase() === 'SI') {
+    // Llamar a la función para autenticar al usuario y reiniciar el programa
+    autenticarUsuario();
+  } else {
+    // Mensaje de despedida
+    alert('Gracias por su compra ¡Hasta luego!');
+  }
 }
 
-// Después de realizar la compra, iniciar el proceso de autenticación y reiniciar el programa
-autenticarUsuario();
     
