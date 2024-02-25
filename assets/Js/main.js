@@ -1,4 +1,5 @@
 alert("HOLA! :) :) :) , Bienvenido a Megatron POS Web. Para continuar, inicie sesión");
+// Asegúrate de que esta línea esté ubicada solo una vez y antes de cualquier intento de acceso
 
 let usuarios = [
   {
@@ -247,7 +248,9 @@ function cargarProductos() {
   };
 }
 
-/// Función para realizar la compra
+
+
+// Función para realizar la compra
 function realizarCompra() {
   let historialCompras = [];
   let totalCompra = 0;
@@ -257,10 +260,6 @@ function realizarCompra() {
     const productoInfo = cargarProductos();
 
     let cantidad = parseInt(prompt(`¿Cuántas cantidades del ${productoInfo.producto} desea llevar?`));
-
-    console.log(productoInfo.producto);
-    console.log(productoInfo.precio);
-    console.log(cantidad);
 
     historialCompras.push({
       producto: productoInfo.producto,
@@ -277,30 +276,31 @@ function realizarCompra() {
     }
   } while (salir.toUpperCase() !== 'NO');
 
-
   const iva = totalCompra * 0.19;
   const totalConIVA = totalCompra + iva;
 
   const mensaje = `${nombreUsuario.toUpperCase()}, el total de tu compra (con IVA) fue de $${totalConIVA.toFixed(2)}`;
   alert(mensaje);
 
-// Mostrar historial de compras en la consola
-console.log(`Historial de compras para ${nombreUsuario}:`);
-historialCompras.forEach((compra, index) => {
-  console.log(`Compra ${index + 1}:`);
-  console.log(`Producto: ${compra.producto}`);
-  console.log(`Precio: $${compra.precio.toFixed(2)}`);
-  console.log(`Cantidad: ${compra.cantidad}`);
-  console.log("----------------------------------");
-});
+  // Mostrar historial de compras en la consola
+  console.log(`Historial de compras para ${nombreUsuario}:`);
+  historialCompras.forEach((compra, index) => {
+    console.log(`Compra ${index + 1}:`);
+    console.log(`Producto: ${compra.producto}`);
+    console.log(`Precio: $${compra.precio.toFixed(2)}`);
+    console.log(`Cantidad: ${compra.cantidad}`);
+    console.log("----------------------------------");
+  });
 
-// Mensaje de agradecimiento
-alert('¡Gracias por tu compra! ¡Hasta luego!');
+  // Mensaje de agradecimiento
+  alert('¡Gracias por tu compra! ¡Hasta luego!');
 
-// Volver al menú principal
-mostrarMenu();
+  // Llamar a la función para volver al menú principal
+  volverAlMenuPrincipal();
 }
 
-  
-
-
+// Función para volver al menú principal
+function volverAlMenuPrincipal() {
+  // Después de realizar la compra, volver al menú principal
+  mostrarMenu();
+}
