@@ -255,9 +255,9 @@ function cargarProductos() {
 function realizarCompra() {
   let historialCompras = [];
   let totalCompra = 0;
-  let salir;
+  let salir = 'SI'; // Inicializamos salir con 'SI' para entrar al bucle
 
-  do {
+  while (salir.toUpperCase() === 'SI') {
     const productoInfo = cargarProductos();
 
     let cantidad = parseInt(prompt(`¿Cuántas cantidades del ${productoInfo.producto} desea llevar?`));
@@ -276,10 +276,11 @@ function realizarCompra() {
 
     salir = prompt('¿Desea agregar otro producto al carrito de compras? Escriba SI/NO');
 
-    if (salir.toUpperCase() !== 'SI' && salir.toUpperCase() !== 'NO') {
+    while (salir.toUpperCase() !== 'SI' && salir.toUpperCase() !== 'NO') {
       alert('Error: La respuesta debe ser SI o NO. Por favor, vuelva a intentarlo.');
+      salir = prompt('¿Desea agregar otro producto al carrito de compras? Escriba SI/NO');
     }
-  } while (salir.toUpperCase() !== 'NO');
+  }
 
   const iva = totalCompra * 0.19;
   const totalConIVA = totalCompra + iva;
@@ -298,6 +299,3 @@ function realizarCompra() {
 
   alert('¡Gracias por tu compra! ¡Hasta luego!');
 }
-
-// Llamamos a la función para realizar la compra
-realizarCompra();
