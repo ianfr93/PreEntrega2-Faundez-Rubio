@@ -297,19 +297,14 @@ function volverAlMenuPrincipal(historialCompras, totalCompra) {
     console.log("----------------------------------");
   });
 
- // Preguntar al usuario si desea cerrar el programa
-const cerrarPrograma = prompt('¿Desea cerrar el programa? Escriba SI/NO');
+  // Preguntar al usuario si desea cerrar el programa
+  const cerrarPrograma = prompt('¿Desea cerrar el programa? Escriba SI/NO');
 
-if (cerrarPrograma.toUpperCase() === 'SI') {
-  // Mostrar mensaje de despedida antes de redirigir o cerrar la pestaña actual
-  alert('¡Gracias por su compra! ¡Hasta luego!');
-  
-  // Redirigir a una página en blanco después de un breve retraso (o puedes omitir esto si no quieres redirigir)
-  setTimeout(() => {
-    window.location.href = 'about:blank';
-  }, 100);
-} else {
-  // Llamar a la función para autenticar al usuario y reiniciar el programa solo si decide no cerrarlo
-  mostrarMenu();
-}
+  if (cerrarPrograma.trim().toUpperCase() === 'SI') {
+    // Mostrar mensaje de despedida
+    alert('¡Gracias por su compra! ¡Hasta luego!');
+  } else {
+    // Llamar a la función para autenticar al usuario y reiniciar el programa solo si decide no cerrarlo
+    mostrarMenu();
+  }
 }
