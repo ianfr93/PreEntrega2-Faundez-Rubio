@@ -247,7 +247,7 @@ function cargarProductos() {
   };
 }
 
-// Función para realizar la compra
+/// Función para realizar la compra
 function realizarCompra() {
   let historialCompras = [];
   let totalCompra = 0;
@@ -277,26 +277,29 @@ function realizarCompra() {
     }
   } while (salir.toUpperCase() !== 'NO');
 
+
   const iva = totalCompra * 0.19;
   const totalConIVA = totalCompra + iva;
 
   const mensaje = `${nombreUsuario.toUpperCase()}, el total de tu compra (con IVA) fue de $${totalConIVA.toFixed(2)}`;
   alert(mensaje);
 
-  console.log(`Historial de compras para ${nombreUsuario}:`);
-  historialCompras.forEach((compra, index) => {
-    console.log(`Compra ${index + 1}:`);
-    console.log(`Producto: ${compra.producto}`);
-    console.log(`Precio: $${compra.precio.toFixed(2)}`);
-    console.log(`Cantidad: ${compra.cantidad}`);
-    console.log("----------------------------------");
-  });
+// Mostrar historial de compras en la consola
+console.log(`Historial de compras para ${nombreUsuario}:`);
+historialCompras.forEach((compra, index) => {
+  console.log(`Compra ${index + 1}:`);
+  console.log(`Producto: ${compra.producto}`);
+  console.log(`Precio: $${compra.precio.toFixed(2)}`);
+  console.log(`Cantidad: ${compra.cantidad}`);
+  console.log("----------------------------------");
+});
 
+// Mensaje de agradecimiento
+alert('¡Gracias por tu compra! ¡Hasta luego!');
 
-  alert('¡Gracias por tu compra! ¡Hasta luego!');
- 
-  }
-  
+// Volver al menú principal
+mostrarMenu();
+}
 
   
 
