@@ -133,7 +133,6 @@ function pedirDatosCliente() {
 // Mostrar el menú principal
 mostrarMenu();
 
-
 // Función para mostrar el menú
 function mostrarMenu() {
   while (true) {
@@ -145,7 +144,8 @@ function mostrarMenu() {
         break;
       case '2':
         realizarCompra();
-        break;
+        // Después de realizar la compra, salir del bucle
+        return;
       default:
         alert('Opción incorrecta. Digite nuevamente para continuar en el sistema');
         break;
@@ -294,6 +294,10 @@ function realizarCompra() {
 
 
   alert('¡Gracias por tu compra! ¡Hasta luego!');
+ 
+  }
   
-}
+
+  
+
 
