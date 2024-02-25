@@ -150,6 +150,7 @@ function mostrarMenu() {
         break;
       case '2':
         cargarProductos();
+        realizarCompra();
         break;
       default:
         error = true;
@@ -191,10 +192,14 @@ function gestionarCambios() {
   }
 }
 
+
+
+
 // Función para cargar productos
 function cargarProductos() {
   let error;
-  let precio, productoSeleccionado; // Declarar las variables aquí
+
+  let productoSeleccionado; // Declara la variable a nivel global para acceder a ella fuera del bucle
   do {
     error = 0;
     let producto = parseInt(prompt("Ingrese el código de producto que quiere llevar" + "\n" +
@@ -297,5 +302,3 @@ function realizarCompra() {
   alert('¡Gracias por tu compra! ¡Hasta luego!');
 }
 
-// Llamamos a la función para realizar la compra
-realizarCompra();
