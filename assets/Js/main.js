@@ -175,16 +175,16 @@ function verInventario() {
   }
 
   // Crear instancias de la clase Producto
-  const producto1 = new Producto("Aceite Belmont 1lt", 4000, 100);
-  const producto2 = new Producto("Coca Cola 3lts", 3000, 300);
-  const producto3 = new Producto("Lavalozas Quix 1lt", 2850, 150);
-  const producto4 = new Producto("Leche Soprole Chocolate 1lt", 1200, 500);
+  const producto1 = new Producto("Aceite Belmont 1lt", 4000, 800);
+  const producto2 = new Producto("Coca Cola 3lts", 3000, 500);
+  const producto3 = new Producto("Lavalozas Quix 1lt", 2850, 700);
+  const producto4 = new Producto("Leche Soprole Chocolate 1lt", 1200, 1200);
   const producto5 = new Producto("Galletas Oreo Chocolate", 850, 80);
-  const producto6 = new Producto("Arroz Miraflores Granel", 1600, 350);
-  const producto7 = new Producto("Papel Higiénico Suave 4 rollos", 2000, 200);
-  const producto8 = new Producto("Manzanas Royal Gala (kg)", 3500, 120);
-  const producto9 = new Producto("Jabón Dove 100g", 1200, 80);
-  const producto10 = new Producto("Atún en lata 160g", 2500, 150);
+  const producto6 = new Producto("Arroz Miraflores Granel", 1600, 980);
+  const producto7 = new Producto("Papel Higiénico Suave 4 rollos", 2000, 450);
+  const producto8 = new Producto("Manzanas Royal Gala (kg)", 3500, 600);
+  const producto9 = new Producto("Jabón Dove 100g", 1200, 250);
+  const producto10 = new Producto("Atún en lata 160g", 2500, 560);
 
   // Ejemplos de ventas
   console.log(producto1.vender(20));
@@ -216,9 +216,6 @@ function verInventario() {
 
 // Llamar a la función para ver el inventario y realizar ventas
 verInventario();
-
-
-
 
 
 // Función para mostrar el perfil
@@ -254,9 +251,6 @@ function gestionarCambios() {
   }
 }
 
-
-
-
 // Función para cargar productos
 function cargarProductos() {
   let error;
@@ -270,7 +264,12 @@ function cargarProductos() {
       "3-Lavalozas Quix 1lt" + "\n" +
       "4-Leche Soprole Chocolate 1lt" + "\n" +
       "5-Galletas Oreo Chocolate" + "\n" +
-      "6-Arroz Miraflores Granel"));
+      "6-Arroz Miraflores Granel" + "\n" +
+      "7-Papel Higiénico Suave 4 rollos" + "\n" +
+      "8-Manzanas Royal Gala (kg)" + "\n" +
+      "9-Jabón Dove 100g" + "\n" +
+      "10-Atún en lata 160g"
+    ));
 
     switch (producto) {
       case 1:
@@ -303,6 +302,22 @@ function cargarProductos() {
         precio = 1600;
         productoSeleccionado = "Arroz Miraflores Granel";
         break;
+      case 7:
+        productoSeleccionado = "Papel Higiénico Suave 4 rollos";
+        precio = 2000;
+        break;
+      case 8:
+        productoSeleccionado = "Manzanas Royal Gala (kg)";
+        precio = 3500;
+        break;
+      case 9:
+        productoSeleccionado = "Jabón Dove 100g";
+        precio = 1200;
+        break;
+      case 10:
+        productoSeleccionado = "Atún en lata 160g";
+        precio = 2500;
+        break;
 
       default:
         alert('Opción incorrecta. Digite nuevamente para poder continuar con su compra');
@@ -315,6 +330,7 @@ function cargarProductos() {
     precio: precio
   };
 }
+
 function realizarCompra() {
   let historialCompras = [];
   let totalCompra = 0;
