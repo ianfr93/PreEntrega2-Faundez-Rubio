@@ -246,9 +246,6 @@ function cargarProductos() {
     precio: precio
   };
 }
-
-
-
 // Función para realizar la compra
 function realizarCompra() {
   let historialCompras = [];
@@ -273,7 +270,7 @@ function realizarCompra() {
     if (salir.toUpperCase() !== 'SI' && salir.toUpperCase() !== 'NO') {
       alert('Error: La respuesta debe ser SI o NO. Por favor, vuelva a intentarlo.');
     }
-  } while (salir.toUpperCase() !== 'NO');
+  } while (salir.toUpperCase() !== 'NO' && salir.toUpperCase() !== 'SI'); // No seguir si la respuesta es 'SI'
 
   const iva = totalCompra * 0.19;
   const totalConIVA = totalCompra + iva;
@@ -282,7 +279,9 @@ function realizarCompra() {
   alert(mensaje);
 
   // Llamar a la función para volver al menú principal después de realizar la compra
-  volverAlMenuPrincipal(historialCompras, totalCompra);
+  if (salir.toUpperCase() !== 'SI') {
+    volverAlMenuPrincipal(historialCompras, totalCompra);
+  }
 }
 
 // Función para volver al menú principal
@@ -311,4 +310,7 @@ function volverAlMenuPrincipal(historialCompras, totalCompra) {
     }
   } while (true); // Se ejecutará hasta que se rompa con 'break'
 }
+
+
+
 
