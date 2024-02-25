@@ -279,37 +279,33 @@ function realizarCompra() {
   alert(mensaje);
 
   // Llamar a la función para volver al menú principal después de realizar la compra
-  if (salir.trim().toUpperCase() !== 'SI') {
-    volverAlMenuPrincipal(historialCompras, totalCompra);
-  }
+  volverAlMenuPrincipal(historialCompras, totalCompra);
 }
 
 // Función para volver al menú principal
-function volverAlMenuPrincipal(historialCompras, totalCompra) {
-  do {
-    // Mostrar historial de compras en la consola
-    console.log(`Historial de compras para ${nombreUsuario}:`);
-    historialCompras.forEach((compra, index) => {
-      console.log(`Compra ${index + 1}:`);
-      console.log(`Producto: ${compra.producto}`);
-      console.log(`Precio: $${compra.precio.toFixed(2)}`);
-      console.log(`Cantidad: ${compra.cantidad}`);
-      console.log("----------------------------------");
-    });
+function volvermostrarMenu(historialCompras, totalCompra) {
+  // Mostrar historial de compras en la consola
+  console.log(`Historial de compras para ${nombreUsuario}:`);
+  historialCompras.forEach((compra, index) => {
+    console.log(`Compra ${index + 1}:`);
+    console.log(`Producto: ${compra.producto}`);
+    console.log(`Precio: $${compra.precio.toFixed(2)}`);
+    console.log(`Cantidad: ${compra.cantidad}`);
+    console.log("----------------------------------");
+  });
 
-    // Preguntar al usuario si desea cerrar el programa
-    const cerrarPrograma = prompt('¿Desea cerrar el programa? Escriba SI/NO');
+  // Preguntar al usuario si desea cerrar el programa
+  const cerrarPrograma = prompt('¿Desea cerrar el programa? Escriba SI/NO');
 
-    if (cerrarPrograma.trim().toUpperCase() === 'SI') {
-      // Mostrar mensaje de despedida
-      alert('¡Gracias por su compra! ¡Hasta luego!');
-      break; // Salir del bucle
-    } else {
-      // Salir de la función, no continuar el bucle
-      return;
-    }
-  } while (true); // Se ejecutará hasta que se rompa con 'break'
+  if (cerrarPrograma.trim().toUpperCase() === 'SI') {
+    // Mostrar mensaje de despedida
+    alert('¡Gracias por su compra! ¡Hasta luego!');
+ 
+  } else {
+    // Volver al menú principal si la respuesta no es 'SI'
+    volvermostrarMenu(historialCompras, totalCompra);
+  }
 }
 
-
+// Función para mostrar el menú principal
 
