@@ -299,7 +299,5 @@ function volvermostrarMenu(historialCompras, totalCompra) {
     // Mostrar mensaje de despedida
     alert('¡Gracias por su compra! ¡Hasta luego!');
 
-    // No es necesario llamar a la función para mostrar el menú aquí,
-    // ya que el flujo debería terminar aquí si el usuario decide cerrar el programa.
   }
 }
