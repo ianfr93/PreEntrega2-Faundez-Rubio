@@ -389,7 +389,7 @@ function volvermostrarMenu(historialCompras, totalCompra) {
 
   if (cerrarPrograma.trim().toUpperCase() === 'SI') {
    
-    alert('¡Gracias por su compra! ¡Hasta luego!');
+    alert('¡Gracias por su compra volviendo al menu para salir! ¡Hasta luego!');
 
   }
 }
