@@ -187,7 +187,7 @@ function gestionarCambios() {
     console.log('Cambios descartados con éxito');
 
     // Redirigir a la sección mostrarMenu()
-    redirigirAMostrarMenu();
+    mostrarMenu();
   }
 }
 
@@ -196,6 +196,7 @@ function gestionarCambios() {
 // Función para cargar productos
 function cargarProductos() {
   let error;
+  let precio, productoSeleccionado; // Declarar las variables aquí
   do {
     error = 0;
     let producto = parseInt(prompt("Ingrese el código de producto que quiere llevar" + "\n" +
