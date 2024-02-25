@@ -133,15 +133,10 @@ function pedirDatosCliente() {
 // Mostrar el menú principal
 mostrarMenu();
 
+
 // Función para mostrar el menú
 function mostrarMenu() {
-  let error = false;
-
-  do {
-    if (error) {
-      alert('Opción incorrecta. Digite nuevamente para continuar en el sistema');
-    }
-
+  while (true) {
     let opcion = prompt('Selecciona una opción:\n1. Ir a mi perfil de usuario\n2. Ir al home');
 
     switch (opcion) {
@@ -149,16 +144,14 @@ function mostrarMenu() {
         mostrarPerfil();
         break;
       case '2':
-        cargarProductos();
         realizarCompra();
         break;
       default:
-        error = true;
+        alert('Opción incorrecta. Digite nuevamente para continuar en el sistema');
         break;
     }
-  } while (!error);
+  }
 }
-
 // Función para mostrar el perfil
 function mostrarPerfil() {
   console.log(`Información del perfil para ${nombreUsuario}:`);
@@ -299,6 +292,9 @@ function realizarCompra() {
     console.log("----------------------------------");
   });
 
+
+
   alert('¡Gracias por tu compra! ¡Hasta luego!');
+  
 }
 
