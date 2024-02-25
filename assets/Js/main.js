@@ -133,25 +133,25 @@ function pedirDatosCliente() {
 // Mostrar el menú principal
 mostrarMenu();
 
-let programaAbierto = true;
+// Función para mostrar el menú
+function mostrarMenu() {
+  while (true) {
+    let opcion = prompt('Selecciona una opción:\n1. Ir a mi perfil de usuario\n2. Ir al home');
 
-do {
-  let opcion = prompt('Selecciona una opción:\n1. Ir a mi perfil de usuario\n2. Ir al home');
-
-  switch (opcion) {
-    case '1':
-      mostrarPerfil();
-      break;
-    case '2':
-      realizarCompra();
-      // Después de realizar la compra, cambiar la bandera para salir del bucle
-      programaAbierto = false;
-      break;
-    default:
-      alert('Opción incorrecta. Digite nuevamente para continuar en el sistema');
-      break;
+    switch (opcion) {
+      case '1':
+        mostrarPerfil();
+        break;
+      case '2':
+        realizarCompra();
+        // Después de realizar la compra, salir del bucle
+        return;
+      default:
+        alert('Opción incorrecta. Digite nuevamente para continuar en el sistema');
+        break;
+    }
   }
-} while (programaAbierto);
+}
 // Función para mostrar el perfil
 function mostrarPerfil() {
   console.log(`Información del perfil para ${nombreUsuario}:`);
@@ -305,7 +305,3 @@ function volvermostrarMenu(historialCompras, totalCompra) {
     // ya que el flujo volverá al menú automáticamente después de esta función.
   }
 }
-
-
-
-
