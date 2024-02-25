@@ -293,7 +293,6 @@ function realizarCompra() {
   });
 
 
-
   alert('¡Gracias por tu compra! ¡Hasta luego!');
   
 }
