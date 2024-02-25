@@ -160,9 +160,8 @@ function mostrarMenu() {
 }
 
 function verInventario() {
-  function Libro(titulo, autor, precio, stock) {
-    this.titulo = titulo;
-    this.autor = autor;
+  function Producto(nombre, precio, stock) {
+    this.nombre = nombre;
     this.precio = precio;
     this.stock = stock;
 
@@ -175,17 +174,33 @@ function verInventario() {
     };
   }
 
-  // Crear instancias de la clase Libro
-  const libro1 = new Libro("Harry Potter y la piedra filosofal", "JK Rowling", 12000, 10);
-  const libro2 = new Libro("Harry Potter 2", "JK Rowling", 15000, 15);
+  // Crear instancias de la clase Producto
+  const producto1 = new Producto("Aceite Belmont 1lt", 4000, 10);
+  const producto2 = new Producto("Coca Cola 3lts", 3000, 15);
+  const producto3 = new Producto("Lavalozas Quix 1lt", 2850, 20);
+  const producto4 = new Producto("Leche Soprole Chocolate 1lt", 1200, 12);
+  const producto5 = new Producto("Galletas Oreo Chocolate", 850, 18);
+  const producto6 = new Producto("Arroz Miraflores Granel", 1600, 25);
 
   // Ejemplos de ventas
-  console.log(libro1.vender(2));
-  console.log(libro2.vender(4));
+  console.log(producto1.vender(2));
+  console.log(producto2.vender(4));
+
+  // Puedes agregar más ejemplos de ventas aquí
+
+  // Mostrar inventario al final
+  console.log("Inventario después de ventas:");
+  console.log(producto1);
+  console.log(producto2);
+  console.log(producto3);
+  console.log(producto4);
+  console.log(producto5);
+  console.log(producto6);
 }
 
 // Llamar a la función para ver el inventario y realizar ventas
 verInventario();
+
 
 
 
