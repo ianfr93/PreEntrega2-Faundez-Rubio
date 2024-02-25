@@ -279,10 +279,9 @@ function realizarCompra() {
   alert(mensaje);
 
   // Llamar a la función para volver al menú principal después de realizar la compra
-  volverAlMenuPrincipal(historialCompras, totalCompra);
+  volvermostrarMenu(historialCompras, totalCompra);
 }
 
-// Función para volver al menú principal
 function volvermostrarMenu(historialCompras, totalCompra) {
   // Mostrar historial de compras en la consola
   console.log(`Historial de compras para ${nombreUsuario}:`);
@@ -300,12 +299,14 @@ function volvermostrarMenu(historialCompras, totalCompra) {
   if (cerrarPrograma.trim().toUpperCase() === 'SI') {
     // Mostrar mensaje de despedida
     alert('¡Gracias por su compra! ¡Hasta luego!');
- 
+    // Llamar a la función para volver al menú principal
+    mostrarMenu();
   } else {
-    // Volver al menú principal si la respuesta no es 'SI'
+    // Volver a la función para mostrar el menú si la respuesta no es 'SI'
     volvermostrarMenu(historialCompras, totalCompra);
   }
 }
 
-// Función para mostrar el menú principal
+
+
 
