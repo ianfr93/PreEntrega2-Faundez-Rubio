@@ -175,20 +175,28 @@ function verInventario() {
   }
 
   // Crear instancias de la clase Producto
-  const producto1 = new Producto("Aceite Belmont 1lt", 4000, 10);
-  const producto2 = new Producto("Coca Cola 3lts", 3000, 15);
-  const producto3 = new Producto("Lavalozas Quix 1lt", 2850, 20);
-  const producto4 = new Producto("Leche Soprole Chocolate 1lt", 1200, 12);
-  const producto5 = new Producto("Galletas Oreo Chocolate", 850, 18);
-  const producto6 = new Producto("Arroz Miraflores Granel", 1600, 25);
+  const producto1 = new Producto("Aceite Belmont 1lt", 4000, 100);
+  const producto2 = new Producto("Coca Cola 3lts", 3000, 300);
+  const producto3 = new Producto("Lavalozas Quix 1lt", 2850, 150);
+  const producto4 = new Producto("Leche Soprole Chocolate 1lt", 1200, 500);
+  const producto5 = new Producto("Galletas Oreo Chocolate", 850, 80);
+  const producto6 = new Producto("Arroz Miraflores Granel", 1600, 350);
+  const producto7 = new Producto("Papel Higiénico Suave 4 rollos", 2000, 200);
+  const producto8 = new Producto("Manzanas Royal Gala (kg)", 3500, 120);
+  const producto9 = new Producto("Jabón Dove 100g", 1200, 80);
+  const producto10 = new Producto("Atún en lata 160g", 2500, 150);
 
   // Ejemplos de ventas
-  console.log(producto1.vender(2));
-  console.log(producto2.vender(4));
-  console.log(producto3.vender(2));
-  console.log(producto4.vender(4));
-  console.log(producto5.vender(2));
-  console.log(producto6.vender(4));
+  console.log(producto1.vender(20));
+  console.log(producto2.vender(100));
+  console.log(producto3.vender(50));
+  console.log(producto4.vender(10));
+  console.log(producto5.vender(12));
+  console.log(producto6.vender(30));
+  console.log(producto7.vender(12));
+  console.log(producto8.vender(5));
+  console.log(producto9.vender(45));
+  console.log(producto10.vender(9));
 
   // Puedes agregar más ejemplos de ventas aquí
 
@@ -200,10 +208,15 @@ function verInventario() {
   console.log(producto4);
   console.log(producto5);
   console.log(producto6);
+  console.log(producto7);
+  console.log(producto8);
+  console.log(producto9);
+  console.log(producto10);
 }
 
 // Llamar a la función para ver el inventario y realizar ventas
 verInventario();
+
 
 
 
