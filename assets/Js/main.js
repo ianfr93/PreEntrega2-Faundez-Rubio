@@ -136,7 +136,7 @@ mostrarMenu();
 // Función para mostrar el menú
 function mostrarMenu() {
   while (true) {
-    let opcion = prompt('Selecciona una opción:\n1. Ir a mi perfil de usuario\n2. Ir al home\n3. Ver inventario');
+    let opcion = prompt('Selecciona una opción:\n1. Ir a mi perfil de usuario\n2. Ir al home\n3. Ver inventario\n4. Salir');
 
     switch (opcion) {
       case '1':
@@ -149,6 +149,9 @@ function mostrarMenu() {
       case '3':
         verInventario();
         break;
+      case '4':
+        alert('Saliendo del sistema. ¡Hasta luego!');
+        return;
       default:
         alert('Opción incorrecta. Digite nuevamente para continuar en el sistema');
         break;
@@ -157,11 +160,34 @@ function mostrarMenu() {
 }
 
 function verInventario() {
-  // Aquí puedes poner el código para mostrar el inventario
-  // Por ejemplo: alert('Mostrando inventario...');
-  // También puedes llamar a una función específica para manejar la lógica del inventario
-  // Por ejemplo: mostrarInventario();
+  function Libro(titulo, autor, precio, stock) {
+    this.titulo = titulo;
+    this.autor = autor;
+    this.precio = precio;
+    this.stock = stock;
+
+    this.vender = (cantidad) => {
+      // Reducir el stock
+      this.stock -= cantidad;
+
+      // Calcular el precio total de la venta
+      return this.precio * cantidad;
+    };
+  }
+
+  // Crear instancias de la clase Libro
+  const libro1 = new Libro("Harry Potter y la piedra filosofal", "JK Rowling", 12000, 10);
+  const libro2 = new Libro("Harry Potter 2", "JK Rowling", 15000, 15);
+
+  // Ejemplos de ventas
+  console.log(libro1.vender(2));
+  console.log(libro2.vender(4));
 }
+
+// Llamar a la función para ver el inventario y realizar ventas
+verInventario();
+
+
 
 // Función para mostrar el perfil
 function mostrarPerfil() {
