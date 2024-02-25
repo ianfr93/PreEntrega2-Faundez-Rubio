@@ -287,24 +287,28 @@ function realizarCompra() {
 
 // Función para volver al menú principal
 function volverAlMenuPrincipal(historialCompras, totalCompra) {
-  // Mostrar historial de compras en la consola
-  console.log(`Historial de compras para ${nombreUsuario}:`);
-  historialCompras.forEach((compra, index) => {
-    console.log(`Compra ${index + 1}:`);
-    console.log(`Producto: ${compra.producto}`);
-    console.log(`Precio: $${compra.precio.toFixed(2)}`);
-    console.log(`Cantidad: ${compra.cantidad}`);
-    console.log("----------------------------------");
-  });
+  do {
+    // Mostrar historial de compras en la consola
+    console.log(`Historial de compras para ${nombreUsuario}:`);
+    historialCompras.forEach((compra, index) => {
+      console.log(`Compra ${index + 1}:`);
+      console.log(`Producto: ${compra.producto}`);
+      console.log(`Precio: $${compra.precio.toFixed(2)}`);
+      console.log(`Cantidad: ${compra.cantidad}`);
+      console.log("----------------------------------");
+    });
 
-  // Preguntar al usuario si desea cerrar el programa
-  const cerrarPrograma = prompt('¿Desea cerrar el programa? Escriba SI/NO');
+    // Preguntar al usuario si desea cerrar el programa
+    const cerrarPrograma = prompt('¿Desea cerrar el programa? Escriba SI/NO');
 
-  if (cerrarPrograma.trim().toUpperCase() === 'SI') {
-    // Mostrar mensaje de despedida
-    alert('¡Gracias por su compra! ¡Hasta luego!');
-  } else {
-    // Llamar a la función para autenticar al usuario y reiniciar el programa solo si decide no cerrarlo
-    mostrarMenu();
-  }
+    if (cerrarPrograma.trim().toUpperCase() === 'SI') {
+      // Mostrar mensaje de despedida
+      alert('¡Gracias por su compra! ¡Hasta luego!');
+      break; // Salir del bucle
+    } else {
+      // Volver al menú principal
+      mostrarMenu();
+    }
+  } while (true); // Se ejecutará hasta que se rompa con 'break'
 }
+
