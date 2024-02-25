@@ -185,6 +185,10 @@ function verInventario() {
   // Ejemplos de ventas
   console.log(producto1.vender(2));
   console.log(producto2.vender(4));
+  console.log(producto3.vender(2));
+  console.log(producto4.vender(4));
+  console.log(producto5.vender(2));
+  console.log(producto6.vender(4));
 
   // Puedes agregar más ejemplos de ventas aquí
 
