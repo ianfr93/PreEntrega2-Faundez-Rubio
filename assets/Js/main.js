@@ -144,7 +144,7 @@ function mostrarMenu() {
         break;
       case '2':
         realizarCompra();
-        // Después de realizar la compra, salir del bucle
+    
         return;
       case '3':
         verInventario();
@@ -186,7 +186,7 @@ function verInventario() {
   const producto9 = new Producto("Jabón Dove 100g", 1200, 250);
   const producto10 = new Producto("Atún en lata 160g", 2500, 560);
 
-  // Ejemplos de ventas
+  // ventas ejemplo son cantidades con eso me va a dar los resultados 
   console.log(producto1.vender(20));
   console.log(producto2.vender(100));
   console.log(producto3.vender(50));
@@ -198,9 +198,8 @@ function verInventario() {
   console.log(producto9.vender(45));
   console.log(producto10.vender(9));
 
-  // Puedes agregar más ejemplos de ventas aquí
-
-  // Mostrar inventario al final
+ 
+ // Mostrar inventario al final
   console.log("Inventario después de ventas:");
   console.log(producto1);
   console.log(producto2);
@@ -233,17 +232,17 @@ function mostrarPerfil() {
 
 // Función para gestionar cambios en el perfil
 function gestionarCambios() {
-  // Preguntar si desea guardar los cambios
+  // va a Preguntarme si desea guardar los cambios
   const guardarCambios = confirm('¿Desea guardar los datos de tu perfil?');
 
   if (guardarCambios) {
     // Mostrar mensaje de éxito en la consola
     console.log('Datos guardados con éxito');
 
-    // Volver al menú de selección
+ 
     mostrarMenu();
   } else {
-    // Mostrar mensaje de éxito en la consola
+   
     console.log('Cambios descartados con éxito');
 
     // Redirigir a la sección mostrarMenu()
