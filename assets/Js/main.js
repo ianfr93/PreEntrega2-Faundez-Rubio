@@ -253,10 +253,7 @@ function gestionarCambios() {
 
 // Función para cargar productos
 function cargarProductos() {
-  let container = document.getElementById("productos-container");
-      container.innerHTML = ""; // Limpiar el contenedor
-
-  let error;
+let error;
 
   let productoSeleccionado; // Declara la variable a nivel global para acceder a ella fuera del bucle
   do {
@@ -326,14 +323,7 @@ function cargarProductos() {
         alert('Opción incorrecta. Digite nuevamente para poder continuar con su compra');
         error = 1;
     }
-
- // Crear y agregar un elemento HTML para mostrar el producto seleccionado
- let productoCard = document.createElement("div");
- productoCard.className = "producto-card";
- productoCard.textContent = `Producto: ${productoSeleccionado}\nPrecio: ${precio} CLP`;
- container.appendChild(productoCard);
-
-  } while (error == 1);
+} while (error == 1);
 
   return {
     producto: productoSeleccionado,
