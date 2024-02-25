@@ -286,23 +286,29 @@ function realizarCompra() {
   }
   
   // Función para volver al menú principal
-  function volverAlMenuPrincipal(historialCompras) {
-    // Mostrar historial de compras en la consola
-    console.log(`Historial de compras para ${nombreUsuario}:`);
-    historialCompras.forEach((compra, index) => {
-      console.log(`Compra ${index + 1}:`);
-      console.log(`Producto: ${compra.producto}`);
-      console.log(`Precio: $${compra.precio.toFixed(2)}`);
-      console.log(`Cantidad: ${compra.cantidad}`);
-      console.log("----------------------------------");
-    });
-  
-    // Mensaje de agradecimiento
-    alert('¡Gracias por tu compra! ¡Hasta luego!');
-  
-     // Cerrar la ventana actual (puede no funcionar en todos los navegadores)
-  window.close();
-}
-  
-  // Después de realizar la compra, iniciar el proceso de autenticación y reiniciar el programa
+function volverAlMenuPrincipal(historialCompras) {
+  // Mostrar historial de compras en la consola
+  console.log(`Historial de compras para ${nombreUsuario}:`);
+  historialCompras.forEach((compra, index) => {
+    console.log(`Compra ${index + 1}:`);
+    console.log(`Producto: ${compra.producto}`);
+    console.log(`Precio: $${compra.precio.toFixed(2)}`);
+    console.log(`Cantidad: ${compra.cantidad}`);
+    console.log("----------------------------------");
+  });
+
+  // Mensaje de agradecimiento
+  alert('¡Gracias por tu compra! ¡Hasta luego!');
+
+  // Reiniciar variables relacionadas con la compra
+  historialCompras = [];
+  totalCompra = 0;
+  // Puedes reiniciar otras variables según sea necesario
+
+  // Llamar a la función para autenticar al usuario y reiniciar el programa
   autenticarUsuario();
+}
+
+// Después de realizar la compra, iniciar el proceso de autenticación y reiniciar el programa
+autenticarUsuario();
+    
