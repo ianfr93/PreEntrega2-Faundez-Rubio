@@ -298,10 +298,8 @@ function volvermostrarMenu(historialCompras, totalCompra) {
   if (cerrarPrograma.trim().toUpperCase() === 'SI') {
     // Mostrar mensaje de despedida
     alert('¡Gracias por su compra! ¡Hasta luego!');
-    // Llamar a la función para volver al menú principal
-    mostrarMenu();
-  } else {
-    // No es necesario llamar a la función para mostrar el menú aquí, 
-    // ya que el flujo volverá al menú automáticamente después de esta función.
+
+    // No es necesario llamar a la función para mostrar el menú aquí,
+    // ya que el flujo debería terminar aquí si el usuario decide cerrar el programa.
   }
 }
