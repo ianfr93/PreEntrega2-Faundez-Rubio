@@ -300,9 +300,9 @@ function realizarCompra() {
     // Mensaje de agradecimiento
     alert('¡Gracias por tu compra! ¡Hasta luego!');
   
-    // Llamar a la función para autenticar al usuario y reiniciar el programa
-    autenticarUsuario();
-  }
+     // Cerrar la ventana actual (puede no funcionar en todos los navegadores)
+  window.close();
+}
   
   // Después de realizar la compra, iniciar el proceso de autenticación y reiniciar el programa
   autenticarUsuario();
