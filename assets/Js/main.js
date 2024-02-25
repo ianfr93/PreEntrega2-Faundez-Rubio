@@ -267,10 +267,10 @@ function realizarCompra() {
 
     salir = prompt('¿Desea agregar otro producto al carrito de compras? Escriba SI/NO');
 
-    if (salir.toUpperCase() !== 'SI' && salir.toUpperCase() !== 'NO') {
+    if (salir.trim().toUpperCase() !== 'SI' && salir.trim().toUpperCase() !== 'NO') {
       alert('Error: La respuesta debe ser SI o NO. Por favor, vuelva a intentarlo.');
     }
-  } while (salir.toUpperCase() !== 'NO' && salir.toUpperCase() !== 'SI'); // No seguir si la respuesta es 'SI'
+  } while (salir.trim().toUpperCase() === 'SI'); // Continuar solo si la respuesta es 'SI'
 
   const iva = totalCompra * 0.19;
   const totalConIVA = totalCompra + iva;
@@ -279,7 +279,7 @@ function realizarCompra() {
   alert(mensaje);
 
   // Llamar a la función para volver al menú principal después de realizar la compra
-  if (salir.toUpperCase() !== 'SI') {
+  if (salir.trim().toUpperCase() !== 'SI') {
     volverAlMenuPrincipal(historialCompras, totalCompra);
   }
 }
@@ -305,12 +305,11 @@ function volverAlMenuPrincipal(historialCompras, totalCompra) {
       alert('¡Gracias por su compra! ¡Hasta luego!');
       break; // Salir del bucle
     } else {
-      // Volver al menú principal
-      mostrarMenu();
+      // Salir de la función, no continuar el bucle
+      return;
     }
   } while (true); // Se ejecutará hasta que se rompa con 'break'
 }
-
 
 
 
