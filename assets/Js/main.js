@@ -351,6 +351,13 @@ function realizarCompra() {
 
     salir = prompt('¿Desea agregar otro producto al carrito de compras? Escriba SI/NO');
 
+    if (salir === null) {
+      // El usuario ha presionado "Cancelar de esta manera se devuelve a menu principal"
+      alert('Compra cancelada. Volviendo al menú principal.');
+      mostrarMenu();
+      return; 
+    }
+
     if (salir.trim().toUpperCase() !== 'SI' && salir.trim().toUpperCase() !== 'NO') {
       alert('Error: La respuesta debe ser SI o NO. Por favor, vuelva a intentarlo.');
     }
@@ -362,12 +369,13 @@ function realizarCompra() {
   const mensaje = `${nombreUsuario.toUpperCase()}, el total de tu compra (con IVA) fue de $${totalConIVA.toFixed(2)}`;
   alert(mensaje);
 
-  // Llamar a la función para volver al menú principal después de realizar la compra
+  // aca lo que hace es Llamar a la función para volver al menú principal después de realizar la compra
   volvermostrarMenu(historialCompras, totalCompra);
 }
 
 function volvermostrarMenu(historialCompras, totalCompra) {
-  // Mostrar historial de compras en la consola
+  
+  // Mostrar historial de compras en la consola para el usuario registrado
   console.log(`Historial de compras para ${nombreUsuario}:`);
   historialCompras.forEach((compra, index) => {
     console.log(`Compra ${index + 1}:`);
@@ -377,11 +385,11 @@ function volvermostrarMenu(historialCompras, totalCompra) {
     console.log("----------------------------------");
   });
 
-  // Preguntar al usuario si desea cerrar el programa
+  // va a Preguntar al usuario si desea cerrar el programa
   const cerrarPrograma = prompt('¿Desea cerrar el programa? Escriba SI/NO');
 
   if (cerrarPrograma.trim().toUpperCase() === 'SI') {
-    // Mostrar mensaje de despedida
+   
     alert('¡Gracias por su compra! ¡Hasta luego!');
 
   }
