@@ -148,10 +148,7 @@ function mostrarMenu() {
   }
 }
 
-function verInventario() {
-  console.log("Inventario actualizado:");
-  productos.forEach(producto => console.log(producto));
-}
+
 
 class Producto {
   constructor(nombre, precio, stock) {
@@ -289,7 +286,10 @@ function cargarProductos() {
     precio: productoSeleccionado.precio
   };
 }
-
+function verInventario() {
+  console.log("Inventario actualizado:");
+  productos.forEach(producto => console.log(producto));
+}
 function realizarCompra() {
   let historialCompras = [];
   let totalCompra = 0;
