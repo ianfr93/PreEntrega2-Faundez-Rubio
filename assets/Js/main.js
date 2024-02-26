@@ -1,5 +1,4 @@
 alert("HOLA! :) :) :) , Bienvenido a Megatron POS Web. Para continuar, inicie sesión");
-// Asegúrate de que esta línea esté ubicada solo una vez y antes de cualquier intento de acceso
 
 let usuarios = [{
     usuario: "usuario1",
@@ -68,10 +67,10 @@ let intentosRestantes = 4;
 let indexUsuarioAutenticado;
 let seleccionCaja;
 
-// Función para autenticar al usuario
 function autenticarUsuario() {
   nombreUsuario = prompt("Ingrese su nombre de usuario");
   let contraseña = prompt("Ingrese su contraseña");
+
   let usuarioValido = usuarios.find((user, index) => {
     if (user.usuario === nombreUsuario && user.contraseña === contraseña) {
       indexUsuarioAutenticado = index;
@@ -94,16 +93,11 @@ function autenticarUsuario() {
   }
 }
 
-// Llamar a la función de autenticación al cargar la página
 autenticarUsuario();
-
-// Mostrar mensaje de bienvenida después de la autenticación
 alert("Esto es Megatron WebPOS Ventas. Para continuar, presione aceptar");
-
-// Solicitar datos al cliente y seleccionar caja
 pedirDatosCliente();
+mostrarMenu();
 
-// Función para pedir datos al cliente
 function pedirDatosCliente() {
   let error;
   do {
@@ -130,10 +124,6 @@ function pedirDatosCliente() {
   } while (error === 1);
 }
 
-// Función para mostrar el menú principal
-mostrarMenu();
-
-// Función para mostrar el menú
 function mostrarMenu() {
   while (true) {
     let opcion = prompt('Selecciona una opción:\n1. Ir a mi perfil de usuario\n2. Ir al home\n3. Ver inventario\n4. Salir');
@@ -144,7 +134,7 @@ function mostrarMenu() {
         break;
       case '2':
         realizarCompra();
-        return;
+        break;
       case '3':
         verInventario();
         break;
@@ -157,7 +147,12 @@ function mostrarMenu() {
     }
   }
 }
-// mostrar el inventario
+
+function verInventario() {
+  console.log("Inventario actualizado:");
+  productos.forEach(producto => console.log(producto));
+}
+
 class Producto {
   constructor(nombre, precio, stock) {
     this.nombre = nombre;
@@ -166,15 +161,11 @@ class Producto {
   }
 
   vender(cantidad) {
-    // Reducir el stock
     this.stock -= cantidad;
-
-    // Calcular el precio total de la venta
     return this.precio * cantidad;
   }
 }
 
-// Crear un arreglo de instancias de la clase Producto
 const productos = [
   new Producto("Aceite Belmont 1lt", 4000, 800),
   new Producto("Coca Cola 3lts", 3000, 500),
@@ -188,13 +179,6 @@ const productos = [
   new Producto("Atún en lata 160g", 2500, 560),
 ];
 
-// Función para mostrar el inventario
-function verInventario() {
-  console.log("Inventario actualizado:");
-  productos.forEach(producto => console.log(producto));
-}
-
-// Ventas con cantidades ejemplo 
 console.log(productos[0].vender(20));
 console.log(productos[1].vender(100));
 console.log(productos[2].vender(50));
@@ -206,17 +190,11 @@ console.log(productos[7].vender(5));
 console.log(productos[8].vender(45));
 console.log(productos[9].vender(9));
 
-// Mostrará inventario después de efectuar ventas
 console.log("Inventario después de ventas:");
 productos.forEach(producto => console.log(producto));
 
-// Llamará a la función para ver el inventario y realizar ventas
 verInventario();
 
-
-
-
-// Función para mostrar el perfil
 function mostrarPerfil() {
   console.log(`Información del perfil para ${nombreUsuario}:`);
   console.log(`Nombre: ${usuarios[indexUsuarioAutenticado].perfil.nombre}`);
@@ -225,34 +203,25 @@ function mostrarPerfil() {
   console.log(`Dirección: ${usuarios[indexUsuarioAutenticado].perfil.direccion}`);
   console.log("----------------------------------");
 
-  // Llamar a la función para gestionar cambios
   gestionarCambios();
 }
 
-// Función para gestionar cambios en el perfil
 function gestionarCambios() {
-  // va a Preguntarme si desea guardar los cambios
   const guardarCambios = confirm('¿Desea guardar los datos de tu perfil?');
 
   if (guardarCambios) {
-    // Mostrar mensaje de éxito en la consola
     console.log('Datos guardados con éxito');
-
-
     mostrarMenu();
   } else {
-
     console.log('Cambios descartados con éxito');
-
-    // Redirigir a la sección mostrarMenu()
     mostrarMenu();
   }
 }
 
-// Función para cargar productos
 function cargarProductos() {
   let error;
-  let productoSeleccionado; // Declara la variable a nivel global para acceder a ella fuera del bucle
+  let productoSeleccionado;
+
   do {
     error = 0;
     let producto = parseInt(prompt("Ingrese el código de producto que quiere llevar" + "\n" +
@@ -313,7 +282,7 @@ function cargarProductos() {
         alert('Opción incorrecta. Digite nuevamente para poder continuar con su compra');
         error = 1;
     }
-  } while (error == 1);
+  } while (error === 1);
 
   return {
     producto: productoSeleccionado.nombre,
@@ -321,7 +290,6 @@ function cargarProductos() {
   };
 }
 
-// Función para realizar la compra
 function realizarCompra() {
   let historialCompras = [];
   let totalCompra = 0;
@@ -343,7 +311,6 @@ function realizarCompra() {
     salir = prompt('¿Desea agregar otro producto al carrito de compras? Escriba SI/NO');
 
     if (salir === null) {
-      // El usuario ha presionado "Cancelar de esta manera se devuelve a menu principal"
       alert('Compra cancelada. Volviendo al menú principal.');
       mostrarMenu();
       return;
@@ -352,7 +319,7 @@ function realizarCompra() {
     if (salir.trim().toUpperCase() !== 'SI' && salir.trim().toUpperCase() !== 'NO') {
       alert('Error: La respuesta debe ser SI o NO. Por favor, vuelva a intentarlo.');
     }
-  } while (salir.trim().toUpperCase() === 'SI'); // Continuar solo si la respuesta es 'SI'
+  } while (salir.trim().toUpperCase() === 'SI');
 
   const iva = totalCompra * 0.19;
   const totalConIVA = totalCompra + iva;
@@ -360,16 +327,11 @@ function realizarCompra() {
   const mensaje = `El total de tu compra (con IVA) fue de $${totalConIVA.toFixed(2)}`;
   alert(mensaje);
 
-  // Llama a la función para actualizar el inventario después de la compra
   actualizarInventario(historialCompras);
-
-  // Llama a la función para mostrar el inventario después de las ventas
   verInventario();
-
-  // Llama a la función para volver al menú principal después de realizar la compra
   volvermostrarMenu(historialCompras, totalCompra);
 }
-// Función para actualizar el inventario después de la compra
+
 function actualizarInventario(historialCompras) {
   historialCompras.forEach((compra) => {
     const producto = productos.find((p) => p.nombre === compra.producto);
@@ -378,9 +340,8 @@ function actualizarInventario(historialCompras) {
     }
   });
 }
-function volvermostrarMenu(historialCompras, totalCompra) {
 
-  // Mostrar historial de compras en la consola para el usuario registrado
+function volvermostrarMenu(historialCompras, totalCompra) {
   console.log(`Historial de compras para ${nombreUsuario}:`);
   historialCompras.forEach((compra, index) => {
     console.log(`Compra ${index + 1}:`);
@@ -390,12 +351,11 @@ function volvermostrarMenu(historialCompras, totalCompra) {
     console.log("----------------------------------");
   });
 
-  // va a Preguntar al usuario si desea cerrar el programa
   const cerrarPrograma = prompt('¿Desea cerrar el programa? Escriba SI/NO');
 
   if (cerrarPrograma.trim().toUpperCase() === 'SI') {
-
-    alert('¡Gracias por su compra volviendo al menu para salir! ¡Hasta luego!');
-
+    alert('¡Gracias por su compra! ¡Hasta luego!');
+  } else {
+    mostrarMenu();
   }
 }
