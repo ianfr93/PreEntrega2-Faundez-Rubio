@@ -159,45 +159,43 @@ function verInventario() {
   console.log("Inventario actualizado:");
   productos.forEach(producto => console.log(producto));
 }
+
 // Función para mostrar el menú principal
 function mostrarMenu() {
-  let opcion = prompt('Selecciona una opción:\n1. Ir a mi perfil de usuario\n2. Ir al home\n3. Ver inventario\n4. Salir');
+  while (true) {
+    let opcion = prompt('Selecciona una opción:\n1. Ir a mi perfil de usuario\n2. Ir al home\n3. Ver inventario\n4. Salir');
 
-  if (opcion === null) {
-    // Si el usuario hace clic en Cancelar, tratamos como si hubiera seleccionado salir
-    alert('Saliendo del sistema. ¡Hasta luego!');
-    return;
-  } else if (opcion === '') {
-    // Si el usuario ingresa una cadena vacía, le informamos que la opción es incorrecta y salimos de la función
-    alert('Opción incorrecta. Digite nuevamente para continuar en el sistema');
-    return;
-  }
-
-  switch (opcion) {
-    case '1':
-      mostrarPerfil();
+    if (opcion === null) {
+      // Si el usuario hace clic en Cancelar, tratamos como si hubiera seleccionado salir
+      alert('Saliendo del sistema. ¡Hasta luego!');
       break;
-    case '2':
-      realizarCompra();
-      break;
-    case '3':
-      verInventario();
-      break;
-    case '4':
-      if (window.confirm('¿Estás seguro de que deseas salir del sistema?')) {
-        alert('Saliendo del sistema. ¡Hasta luego!');
-        return;
-      }
-      break;
-    default:
+    } else if (opcion === '') {
+      // Si el usuario ingresa una cadena vacía, le informamos que la opción es incorrecta y continuamos el bucle
       alert('Opción incorrecta. Digite nuevamente para continuar en el sistema');
-      break;
+    } else {
+      switch (opcion) {
+        case '1':
+          mostrarPerfil();
+          break;
+        case '2':
+          realizarCompra();
+          break;
+        case '3':
+          verInventario();
+          break;
+        case '4':
+          if (window.confirm('¿Estás seguro de que deseas salir del sistema?')) {
+            alert('Saliendo del sistema. ¡Hasta luego!');
+            break;
+          }
+          break;
+        default:
+          alert('Opción incorrecta. Digite nuevamente para continuar en el sistema');
+          break;
+      }
+    }
   }
-
-  // Si llegamos aquí, volvemos a llamar a la función para mostrar el menú
-  mostrarMenu();
 }
-
 
 
 
