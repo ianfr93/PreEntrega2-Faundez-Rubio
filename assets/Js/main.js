@@ -126,6 +126,10 @@ function pedirDatosCliente() {
   } while (error === 1);
 }
 
+function verInventario() {
+  console.log("Inventario actualizado:");
+  productos.forEach(producto => console.log(producto));
+}
 class Producto {
   constructor(nombre, precio, stock) {
     this.nombre = nombre;
@@ -152,10 +156,7 @@ const productos = [
   new Producto("Atún en lata 160g", 2500, 560),
 ];
 
-function verInventario() {
-  console.log("Inventario actualizado:");
-  productos.forEach(producto => console.log(producto));
-}
+
 
 function mostrarMenu() {
   while (true) {
