@@ -376,19 +376,16 @@ function volvermostrarMenu(historialCompras, totalCompra) {
       if (respuesta === 'SI') {
         alert('¡Gracias por su compra! ¡Hasta luego!');
         // Salir del bucle y del programa
-        window.location.href = './index.html';  // Redirigir a la página principal
         break;
       } else if (respuesta === 'NO') {
         // Volver al menú principal
         mostrarMenu();
-        break;  // Agregamos este break para evitar que el bucle se repita innecesariamente
       } else {
         alert('Respuesta no válida. Por favor, escriba SI o NO.');
       }
     } else {
       // Si el usuario hace clic en Cancelar, tratamos como si hubiera seleccionado NO
       mostrarMenu();
-      break;  // Agregamos este break para evitar que el bucle se repita innecesariamente
     }
   }
 }
