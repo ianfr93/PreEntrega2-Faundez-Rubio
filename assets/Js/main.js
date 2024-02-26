@@ -1,6 +1,7 @@
 alert("HOLA! :) :) :) , Bienvenido a Megatron POS Web. Para continuar, inicie sesión");
 
-let usuarios = [{
+let usuarios = [
+  {
     usuario: "usuario1",
     contraseña: "contraseña1",
     perfil: {
@@ -68,13 +69,11 @@ let indexUsuarioAutenticado;
 let seleccionCaja;
 
 class Producto {
-  constructor(nombre, precio, stock, categoria) {
+  constructor(nombre, precio, stock) {
     this.nombre = nombre;
     this.precio = precio;
     this.stock = stock;
-    this.categoria = categoria;
   }
-
 
   vender(cantidad) {
     this.stock -= cantidad;
@@ -179,7 +178,7 @@ function mostrarMenu() {
           mostrarPerfil();
           break;
         case '2':
-          mostrarMenuCategorias(); 
+          realizarCompra();
           break;
         case '3':
           verInventario();
@@ -187,7 +186,7 @@ function mostrarMenu() {
         case '4':
           if (window.confirm('¿Estás seguro de que deseas salir del sistema?')) {
             alert('Saliendo del sistema. ¡Hasta luego!');
-            return; // Salir de la función, lo que terminará la ejecución.
+            return;  // Salir de la función, lo que terminará la ejecución.
           }
           break;
         default:
@@ -198,50 +197,9 @@ function mostrarMenu() {
   }
 }
 
-// Nueva función para mostrar el menú de categorías
-function mostrarMenuCategorias() {
-  console.log("Categorías disponibles:");
-  console.log("1. Alimentos");
-  console.log("2. Bebidas");
-  console.log("3. Artículos de limpieza");
-  console.log("4. Ver todos");
 
-  let categoriaSeleccionada = prompt("Selecciona una categoría (1-4):");
 
-  switch (categoriaSeleccionada) {
-    case '1':
-      mostrarProductosCategoria('Alimentos');
-      break;
-    case '2':
-      mostrarProductosCategoria('Bebidas');
-      break;
-    case '3':
-      mostrarProductosCategoria('Artículos de limpieza');
-      break;
-    case '4':
-      mostrarTodosLosProductos();
-      break;
-    default:
-      alert("Opción no válida. Volviendo al menú principal.");
-      mostrarMenu();
-      break;
-  }
-}
 
-// Nueva función para mostrar productos por categoría
-function mostrarProductosCategoria(categoria) {
-  console.log(`Productos en la categoría ${categoria}:`);
-  const productosCategoria = productos.filter(producto => producto.categoria === categoria);
-  productosCategoria.forEach(producto => console.log(producto));
-  mostrarMenu();
-}
-
-// Nueva función para mostrar todos los productos
-function mostrarTodosLosProductos() {
-  console.log("Todos los productos:");
-  productos.forEach(producto => console.log(producto));
-  mostrarMenu();
-}
 
 
 // Función para mostrar el perfil del usuario
