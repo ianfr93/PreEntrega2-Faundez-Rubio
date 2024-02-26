@@ -183,8 +183,9 @@ function mostrarMenu() {
           verInventario();
           break;
         case '4':
-          alert('Saliendo del sistema. ¡Hasta luego!');
-          seguirEnSistema = false; // Cambiar la variable a false antes de salir del bucle
+          if (window.confirm('¿Estás seguro de que deseas salir del sistema?')) {
+            seguirEnSistema = false;
+          }
           break;
         default:
           alert('Opción incorrecta. Digite nuevamente para continuar en el sistema');
