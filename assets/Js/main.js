@@ -172,7 +172,7 @@ function mostrarMenu() {
       alert('Saliendo del sistema. ¡Hasta luego!');
       salir = true;
       // Agrega la siguiente línea para detener la ejecución de la función
-      return;
+      break;
     } else if (opcion === '') {
       // Si el usuario ingresa una cadena vacía, le informamos que la opción es incorrecta
       alert('Opción incorrecta. Digite nuevamente para continuar en el sistema');
@@ -192,7 +192,7 @@ function mostrarMenu() {
             alert('Saliendo del sistema. ¡Hasta luego!');
             salir = true;
             // Agrega la siguiente línea para detener la ejecución de la función
-            return;
+            break;
           }
           break;
         default:
