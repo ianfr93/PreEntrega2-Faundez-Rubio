@@ -160,61 +160,56 @@ function mostrarMenu() {
 }
 
 function verInventario() {
-  function Producto(nombre, precio, stock) {
-    this.nombre = nombre;
-    this.precio = precio;
-    this.stock = stock;
+  class Producto {
+    constructor(nombre, precio, stock) {
+      this.nombre = nombre;
+      this.precio = precio;
+      this.stock = stock;
+    }
 
-    this.vender = (cantidad) => {
+    vender(cantidad) {
       // Reducir el stock
       this.stock -= cantidad;
 
       // Calcular el precio total de la venta
       return this.precio * cantidad;
-    };
+    }
   }
 
-  // Crear instancias de la clase Producto
-  const producto1 = new Producto("Aceite Belmont 1lt", 4000, 800);
-  const producto2 = new Producto("Coca Cola 3lts", 3000, 500);
-  const producto3 = new Producto("Lavalozas Quix 1lt", 2850, 700);
-  const producto4 = new Producto("Leche Soprole Chocolate 1lt", 1200, 1200);
-  const producto5 = new Producto("Galletas Oreo Chocolate", 850, 80);
-  const producto6 = new Producto("Arroz Miraflores Granel", 1600, 980);
-  const producto7 = new Producto("Papel Higiénico Suave 4 rollos", 2000, 450);
-  const producto8 = new Producto("Manzanas Royal Gala (kg)", 3500, 600);
-  const producto9 = new Producto("Jabón Dove 100g", 1200, 250);
-  const producto10 = new Producto("Atún en lata 160g", 2500, 560);
+  // Crear un arreglo de instancias de la clase Producto
+  const productos = [
+    new Producto("Aceite Belmont 1lt", 4000, 800),
+    new Producto("Coca Cola 3lts", 3000, 500),
+    new Producto("Lavalozas Quix 1lt", 2850, 700),
+    new Producto("Leche Soprole Chocolate 1lt", 1200, 1200),
+    new Producto("Galletas Oreo Chocolate", 850, 80),
+    new Producto("Arroz Miraflores Granel", 1600, 980),
+    new Producto("Papel Higiénico Suave 4 rollos", 2000, 450),
+    new Producto("Manzanas Royal Gala (kg)", 3500, 600),
+    new Producto("Jabón Dove 100g", 1200, 250),
+    new Producto("Atún en lata 160g", 2500, 560),
+  ];
 
-  // ventas ejemplo son cantidades con eso me va a dar los resultados 
-  console.log(producto1.vender(20));
-  console.log(producto2.vender(100));
-  console.log(producto3.vender(50));
-  console.log(producto4.vender(10));
-  console.log(producto5.vender(12));
-  console.log(producto6.vender(30));
-  console.log(producto7.vender(12));
-  console.log(producto8.vender(5));
-  console.log(producto9.vender(45));
-  console.log(producto10.vender(9));
+  // Ventas con cantidades ejemplo 
+  console.log(productos[0].vender(20));
+  console.log(productos[1].vender(100));
+  console.log(productos[2].vender(50));
+  console.log(productos[3].vender(10));
+  console.log(productos[4].vender(12));
+  console.log(productos[5].vender(30));
+  console.log(productos[6].vender(12));
+  console.log(productos[7].vender(5));
+  console.log(productos[8].vender(45));
+  console.log(productos[9].vender(9));
 
- 
- // Mostrar inventario al final
+  // Mostrara inventario después de efectuar ventas
   console.log("Inventario después de ventas:");
-  console.log(producto1);
-  console.log(producto2);
-  console.log(producto3);
-  console.log(producto4);
-  console.log(producto5);
-  console.log(producto6);
-  console.log(producto7);
-  console.log(producto8);
-  console.log(producto9);
-  console.log(producto10);
+  productos.forEach(producto => console.log(producto));
 }
 
-// Llamar a la función para ver el inventario y realizar ventas
+// aca va a Llamar a la función para ver el inventario y realizar ventas
 verInventario();
+
 
 
 // Función para mostrar el perfil
