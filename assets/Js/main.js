@@ -130,7 +130,7 @@ function pedirDatosCliente() {
   } while (error === 1);
 }
 
-// Mostrar el menú principal
+// Función para mostrar el menú principal
 mostrarMenu();
 
 // Función para mostrar el menú
@@ -144,7 +144,6 @@ function mostrarMenu() {
         break;
       case '2':
         realizarCompra();
-
         return;
       case '3':
         verInventario();
@@ -158,57 +157,62 @@ function mostrarMenu() {
     }
   }
 }
-
-function verInventario() {
-  class Producto {
-    constructor(nombre, precio, stock) {
-      this.nombre = nombre;
-      this.precio = precio;
-      this.stock = stock;
-    }
-
-    vender(cantidad) {
-      // Reducir el stock
-      this.stock -= cantidad;
-
-      // Calcular el precio total de la venta
-      return this.precio * cantidad;
-    }
+// mostrar el inventario
+class Producto {
+  constructor(nombre, precio, stock) {
+    this.nombre = nombre;
+    this.precio = precio;
+    this.stock = stock;
   }
 
-  // Crear un arreglo de instancias de la clase Producto
-  const productos = [
-    new Producto("Aceite Belmont 1lt", 4000, 800),
-    new Producto("Coca Cola 3lts", 3000, 500),
-    new Producto("Lavalozas Quix 1lt", 2850, 700),
-    new Producto("Leche Soprole Chocolate 1lt", 1200, 1200),
-    new Producto("Galletas Oreo Chocolate", 850, 80),
-    new Producto("Arroz Miraflores Granel", 1600, 980),
-    new Producto("Papel Higiénico Suave 4 rollos", 2000, 450),
-    new Producto("Manzanas Royal Gala (kg)", 3500, 600),
-    new Producto("Jabón Dove 100g", 1200, 250),
-    new Producto("Atún en lata 160g", 2500, 560),
-  ];
+  vender(cantidad) {
+    // Reducir el stock
+    this.stock -= cantidad;
 
-  // Ventas con cantidades ejemplo 
-  console.log(productos[0].vender(20));
-  console.log(productos[1].vender(100));
-  console.log(productos[2].vender(50));
-  console.log(productos[3].vender(10));
-  console.log(productos[4].vender(12));
-  console.log(productos[5].vender(30));
-  console.log(productos[6].vender(12));
-  console.log(productos[7].vender(5));
-  console.log(productos[8].vender(45));
-  console.log(productos[9].vender(9));
+    // Calcular el precio total de la venta
+    return this.precio * cantidad;
+  }
+}
 
-  // Mostrara inventario después de efectuar ventas
-  console.log("Inventario después de ventas:");
+// Crear un arreglo de instancias de la clase Producto
+const productos = [
+  new Producto("Aceite Belmont 1lt", 4000, 800),
+  new Producto("Coca Cola 3lts", 3000, 500),
+  new Producto("Lavalozas Quix 1lt", 2850, 700),
+  new Producto("Leche Soprole Chocolate 1lt", 1200, 1200),
+  new Producto("Galletas Oreo Chocolate", 850, 80),
+  new Producto("Arroz Miraflores Granel", 1600, 980),
+  new Producto("Papel Higiénico Suave 4 rollos", 2000, 450),
+  new Producto("Manzanas Royal Gala (kg)", 3500, 600),
+  new Producto("Jabón Dove 100g", 1200, 250),
+  new Producto("Atún en lata 160g", 2500, 560),
+];
+
+// Función para mostrar el inventario
+function verInventario() {
+  console.log("Inventario actualizado:");
   productos.forEach(producto => console.log(producto));
 }
 
-// aca va a Llamar a la función para ver el inventario y realizar ventas
+// Ventas con cantidades ejemplo 
+console.log(productos[0].vender(20));
+console.log(productos[1].vender(100));
+console.log(productos[2].vender(50));
+console.log(productos[3].vender(10));
+console.log(productos[4].vender(12));
+console.log(productos[5].vender(30));
+console.log(productos[6].vender(12));
+console.log(productos[7].vender(5));
+console.log(productos[8].vender(45));
+console.log(productos[9].vender(9));
+
+// Mostrará inventario después de efectuar ventas
+console.log("Inventario después de ventas:");
+productos.forEach(producto => console.log(producto));
+
+// Llamará a la función para ver el inventario y realizar ventas
 verInventario();
+
 
 
 
@@ -248,7 +252,6 @@ function gestionarCambios() {
 // Función para cargar productos
 function cargarProductos() {
   let error;
-
   let productoSeleccionado; // Declara la variable a nivel global para acceder a ella fuera del bucle
   do {
     error = 0;
@@ -268,51 +271,44 @@ function cargarProductos() {
     switch (producto) {
       case 1:
         alert('Tu producto se agregó de manera exitosa');
-        precio = 4000;
-        productoSeleccionado = "Aceite Belmont 1lt";
+        productoSeleccionado = productos[0];
         break;
       case 2:
         alert('Tu producto se agregó de manera exitosa');
-        precio = 3000;
-        productoSeleccionado = "Coca Cola 3lts";
+        productoSeleccionado = productos[1];
         break;
       case 3:
         alert('Tu producto se agregó de manera exitosa');
-        precio = 2850;
-        productoSeleccionado = "Lavalozas Quix 1lt";
+        productoSeleccionado = productos[2];
         break;
       case 4:
         alert('Tu producto se agregó de manera exitosa');
-        precio = 1200;
-        productoSeleccionado = "Leche Soprole Chocolate 1lt";
+        productoSeleccionado = productos[3];
         break;
       case 5:
         alert('Tu producto se agregó de manera exitosa');
-        precio = 850;
-        productoSeleccionado = "Galletas Oreo Chocolate";
+        productoSeleccionado = productos[4];
         break;
       case 6:
         alert('Tu producto se agregó de manera exitosa');
-        precio = 1600;
-        productoSeleccionado = "Arroz Miraflores Granel";
+        productoSeleccionado = productos[5];
         break;
       case 7:
-        productoSeleccionado = "Papel Higiénico Suave 4 rollos";
-        precio = 2000;
+        alert('Tu producto se agregó de manera exitosa');
+        productoSeleccionado = productos[6];
         break;
       case 8:
-        productoSeleccionado = "Manzanas Royal Gala (kg)";
-        precio = 3500;
+        alert('Tu producto se agregó de manera exitosa');
+        productoSeleccionado = productos[7];
         break;
       case 9:
-        productoSeleccionado = "Jabón Dove 100g";
-        precio = 1200;
+        alert('Tu producto se agregó de manera exitosa');
+        productoSeleccionado = productos[8];
         break;
       case 10:
-        productoSeleccionado = "Atún en lata 160g";
-        precio = 2500;
+        alert('Tu producto se agregó de manera exitosa');
+        productoSeleccionado = productos[9];
         break;
-
       default:
         alert('Opción incorrecta. Digite nuevamente para poder continuar con su compra');
         error = 1;
@@ -320,11 +316,12 @@ function cargarProductos() {
   } while (error == 1);
 
   return {
-    producto: productoSeleccionado,
-    precio: precio
+    producto: productoSeleccionado.nombre,
+    precio: productoSeleccionado.precio
   };
 }
 
+// Función para realizar la compra
 function realizarCompra() {
   let historialCompras = [];
   let totalCompra = 0;
@@ -360,13 +357,27 @@ function realizarCompra() {
   const iva = totalCompra * 0.19;
   const totalConIVA = totalCompra + iva;
 
-  const mensaje = `${nombreUsuario.toUpperCase()}, el total de tu compra (con IVA) fue de $${totalConIVA.toFixed(2)}`;
+  const mensaje = `El total de tu compra (con IVA) fue de $${totalConIVA.toFixed(2)}`;
   alert(mensaje);
 
-  // aca lo que hace es Llamar a la función para volver al menú principal después de realizar la compra
+  // Llama a la función para actualizar el inventario después de la compra
+  actualizarInventario(historialCompras);
+
+  // Llama a la función para mostrar el inventario después de las ventas
+  verInventario();
+
+  // Llama a la función para volver al menú principal después de realizar la compra
   volvermostrarMenu(historialCompras, totalCompra);
 }
-
+// Función para actualizar el inventario después de la compra
+function actualizarInventario(historialCompras) {
+  historialCompras.forEach((compra) => {
+    const producto = productos.find((p) => p.nombre === compra.producto);
+    if (producto) {
+      producto.vender(compra.cantidad);
+    }
+  });
+}
 function volvermostrarMenu(historialCompras, totalCompra) {
 
   // Mostrar historial de compras en la consola para el usuario registrado
