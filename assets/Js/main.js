@@ -370,14 +370,22 @@ function volvermostrarMenu(historialCompras, totalCompra) {
 
     const cerrarPrograma = prompt('¿Desea cerrar el programa? Escriba SI/NO');
 
-    if (cerrarPrograma.trim().toUpperCase() === 'SI') {
-      alert('¡Gracias por su compra! ¡Hasta luego!');
-      // Salir del bucle y del programa
-      break;
+    if (cerrarPrograma !== null) {
+      const respuesta = cerrarPrograma.trim().toUpperCase();
+
+      if (respuesta === 'SI') {
+        alert('¡Gracias por su compra! ¡Hasta luego!');
+        // Salir del bucle y del programa
+        break;
+      } else if (respuesta === 'NO') {
+        // Volver al menú principal
+        mostrarMenu();
+      } else {
+        alert('Respuesta no válida. Por favor, escriba SI o NO.');
+      }
     } else {
-      // Volver al menú principal
+      // Si el usuario hace clic en Cancelar, tratamos como si hubiera seleccionado NO
       mostrarMenu();
     }
   }
 }
-
