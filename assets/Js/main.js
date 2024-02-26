@@ -335,6 +335,7 @@ function actualizarInventario(historialCompras) {
     }
   });
 }
+
 // Función para volver a mostrar el menú con el historial de compras
 function volvermostrarMenu(historialCompras, totalCompra) {
   console.log(`Historial de compras para ${nombreUsuario}:`);
@@ -354,10 +355,11 @@ function volvermostrarMenu(historialCompras, totalCompra) {
     return;
   }
 
-  // Volver al menú
-  mostrarMenu();
+  // No llames directamente a mostrarMenu(), vuelve al menú principal desde aquí
+  volvermostrarMenu(historialCompras, totalCompra);
 }
 
 // Llamar a la función inicial para mostrar el menú
 mostrarMenu();
+
 
