@@ -162,7 +162,9 @@ function verInventario() {
 
 // Función para mostrar el menú principal
 function mostrarMenu() {
-  while (true) {
+  let seguirEnSistema = true;
+
+  while (seguirEnSistema) {
     let opcion = prompt('Selecciona una opción:\n1. Ir a mi perfil de usuario\n2. Ir al home\n3. Ver inventario\n4. Salir');
 
     switch (opcion) {
@@ -177,13 +179,15 @@ function mostrarMenu() {
         break;
       case '4':
         alert('Saliendo del sistema. ¡Hasta luego!');
-        break
+        seguirEnSistema = false; 
+        break;
       default:
         alert('Opción incorrecta. Digite nuevamente para continuar en el sistema');
         break;
     }
   }
 }
+
 
 // Función para mostrar el perfil del usuario
 function mostrarPerfil() {
