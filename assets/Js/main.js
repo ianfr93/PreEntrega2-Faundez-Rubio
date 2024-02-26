@@ -337,7 +337,7 @@ function actualizarInventario(historialCompras) {
 }
 
 // Función para volver a mostrar el menú con el historial de compras
-function volvermostrarMenu(historialCompras, totalCompra) {
+function volvermostrarMenu(historialCompras, totalCompra, mostrarMenuFunc) {
   console.log(`Historial de compras para ${nombreUsuario}:`);
   historialCompras.forEach((compra, index) => {
     console.log(`Compra ${index + 1}:`);
@@ -355,7 +355,10 @@ function volvermostrarMenu(historialCompras, totalCompra) {
     return;
   }
 
-  // Volver al menú solo si el usuario no elige cerrar el programa
-  mostrarMenu();
+  // Volver al menú utilizando la función pasada como argumento
+  mostrarMenuFunc();
 }
+
+// Llamar a la función inicial para mostrar el menú
+mostrarMenu();
 
