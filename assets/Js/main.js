@@ -202,6 +202,7 @@ function mostrarMenuCategorias() {
   console.log("1. Alimentos");
   console.log("2. Bebidas");
   console.log("3. Artículos de limpieza");
+
   let categoriaSeleccionada = prompt("Selecciona una categoría (1-3):");
 
   switch (categoriaSeleccionada) {
@@ -224,9 +225,19 @@ function mostrarMenuCategorias() {
 // Nueva función para mostrar productos de una categoría específica
 function mostrarProductosCategoria(categoria) {
   const productosCategoria = productos.filter(producto => producto.categoria === categoria);
-  console.log(`Productos de la categoría "${categoria}":`);
-  productosCategoria.forEach(producto => console.log(producto));
+
+  if (productosCategoria.length === 0) {
+    console.log(`No hay productos en la categoría "${categoria}".`);
+  } else {
+    console.log(`Productos de la categoría "${categoria}":`);
+    productosCategoria.forEach(producto => console.log(producto));
+  }
+
+  // Después de mostrar los productos, volver al menú principal
+  mostrarMenu();
 }
+
+
 
 // Función para mostrar el perfil del usuario
 function mostrarPerfil() {
