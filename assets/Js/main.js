@@ -1,6 +1,7 @@
 alert("HOLA! :) :) :) , Bienvenido a Megatron POS Web. Para continuar, inicie sesión");
 
-let usuarios = [{
+let usuarios = [
+  {
     usuario: "usuario1",
     contraseña: "contraseña1",
     perfil: {
@@ -62,74 +63,11 @@ let usuarios = [{
   }
 ];
 
-
-
 let nombreUsuario;
 let intentosRestantes = 4;
 let indexUsuarioAutenticado;
 let seleccionCaja;
 
-function autenticarUsuario() {
-  nombreUsuario = prompt("Ingrese su nombre de usuario");
-  let contraseña = prompt("Ingrese su contraseña");
-
-  let usuarioValido = usuarios.find((user, index) => {
-    if (user.usuario === nombreUsuario && user.contraseña === contraseña) {
-      indexUsuarioAutenticado = index;
-      return true;
-    }
-    return false;
-  });
-
-  if (!usuarioValido) {
-    alert(`Nombre de usuario o contraseña incorrectos. Intentos restantes: ${intentosRestantes}`);
-    intentosRestantes--;
-
-    if (intentosRestantes > 0) {
-      autenticarUsuario();
-    } else {
-      alert("¡Se han agotado los intentos! Reinicie la sesión para intentar nuevamente.");
-      intentosRestantes = 4;
-      autenticarUsuario();
-    }
-  }
-}
-// Llamar a la función de autenticación al cargar la página
-autenticarUsuario();
-alert("Esto es Megatron WebPOS Ventas. Para continuar, presione aceptar");
-pedirDatosCliente();
-mostrarMenu();
-
-function pedirDatosCliente() {
-  let error;
-  do {
-    error = 0;
-    seleccionCaja = prompt('Seleccione un tipo de caja para continuar' + '\n' +
-      '1-caja-tienda-1' + '\n' +
-      '2-caja-tienda-2' + '\n' +
-      '3-caja-tienda-3');
-
-    switch (seleccionCaja) {
-      case '1':
-        seleccionCaja = "caja-tienda-1";
-        break;
-      case '2':
-        seleccionCaja = "caja-tienda-2";
-        break;
-      case '3':
-        seleccionCaja = "caja-tienda-3";
-        break;
-      default:
-        alert('Opción incorrecta. Digite nuevamente para abrir una caja válida');
-        error = 1;
-    }
-  } while (error === 1);
-}
-
-function verInventario() {
-  console.log("Inventario actualizado:");
-  productos.forEach(producto => console.log(producto));
-}
 class Producto {
   constructor(nombre, precio, stock) {
     this.nombre = nombre;
@@ -156,8 +94,73 @@ const productos = [
   new Producto("Atún en lata 160g", 2500, 560),
 ];
 
+// Función para autenticar al usuario
+function autenticarUsuario() {
+  nombreUsuario = prompt("Ingrese su nombre de usuario");
+  let contraseña = prompt("Ingrese su contraseña");
 
+  let usuarioValido = usuarios.find((user, index) => {
+    if (user.usuario === nombreUsuario && user.contraseña === contraseña) {
+      indexUsuarioAutenticado = index;
+      return true;
+    }
+    return false;
+  });
 
+  if (!usuarioValido) {
+    alert(`Nombre de usuario o contraseña incorrectos. Intentos restantes: ${intentosRestantes}`);
+    intentosRestantes--;
+
+    if (intentosRestantes > 0) {
+      autenticarUsuario();
+    } else {
+      alert("¡Se han agotado los intentos! Reinicie la sesión para intentar nuevamente.");
+      intentosRestantes = 4;
+      autenticarUsuario();
+    }
+  }
+}
+
+// Llamar a la función de autenticación al cargar la página
+autenticarUsuario();
+alert("Esto es Megatron WebPOS Ventas. Para continuar, presione aceptar");
+pedirDatosCliente();
+mostrarMenu();
+
+// Función para solicitar datos del cliente
+function pedirDatosCliente() {
+  let error;
+  do {
+    error = 0;
+    seleccionCaja = prompt('Seleccione un tipo de caja para continuar' + '\n' +
+      '1-caja-tienda-1' + '\n' +
+      '2-caja-tienda-2' + '\n' +
+      '3-caja-tienda-3');
+
+    switch (seleccionCaja) {
+      case '1':
+        seleccionCaja = "caja-tienda-1";
+        break;
+      case '2':
+        seleccionCaja = "caja-tienda-2";
+        break;
+      case '3':
+        seleccionCaja = "caja-tienda-3";
+        break;
+      default:
+        alert('Opción incorrecta. Digite nuevamente para abrir una caja válida');
+        error = 1;
+    }
+  } while (error === 1);
+}
+
+// Función para mostrar el inventario
+function verInventario() {
+  console.log("Inventario actualizado:");
+  productos.forEach(producto => console.log(producto));
+}
+
+// Función para mostrar el menú principal
 function mostrarMenu() {
   while (true) {
     let opcion = prompt('Selecciona una opción:\n1. Ir a mi perfil de usuario\n2. Ir al home\n3. Ver inventario\n4. Salir');
@@ -182,8 +185,7 @@ function mostrarMenu() {
   }
 }
 
-
-
+// Función para mostrar el perfil del usuario
 function mostrarPerfil() {
   console.log(`Información del perfil para ${nombreUsuario}:`);
   console.log(`Nombre: ${usuarios[indexUsuarioAutenticado].perfil.nombre}`);
@@ -195,6 +197,7 @@ function mostrarPerfil() {
   gestionarCambios();
 }
 
+// Función para gestionar cambios en el perfil
 function gestionarCambios() {
   const guardarCambios = confirm('¿Desea guardar los datos de tu perfil?');
 
@@ -207,6 +210,7 @@ function gestionarCambios() {
   }
 }
 
+// Función para cargar productos
 function cargarProductos() {
   let error;
   let productoSeleccionado;
@@ -279,6 +283,7 @@ function cargarProductos() {
   };
 }
 
+// Función para realizar una compra
 function realizarCompra() {
   let historialCompras = [];
   let totalCompra = 0;
@@ -321,6 +326,7 @@ function realizarCompra() {
   volvermostrarMenu(historialCompras, totalCompra);
 }
 
+// Función para actualizar el inventario
 function actualizarInventario(historialCompras) {
   historialCompras.forEach((compra) => {
     const producto = productos.find((p) => p.nombre === compra.producto);
@@ -330,6 +336,7 @@ function actualizarInventario(historialCompras) {
   });
 }
 
+// Función para volver a mostrar el menú con el historial de compras
 function volvermostrarMenu(historialCompras, totalCompra) {
   console.log(`Historial de compras para ${nombreUsuario}:`);
   historialCompras.forEach((compra, index) => {
