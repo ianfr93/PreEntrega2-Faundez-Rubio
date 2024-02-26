@@ -352,28 +352,10 @@ function volvermostrarMenu(historialCompras, totalCompra) {
   if (cerrarPrograma.trim().toUpperCase() === 'SI') {
     alert('¡Gracias por su compra! ¡Hasta luego!');
     // Salir del programa
-    return true;
-  } else {
-    // No hacer nada aquí, simplemente continúa la ejecución del programa
-    return false;
+    return;
   }
-}
 
-
-// Ejemplo de cómo podrías usar estas funciones
-function iniciarPrograma() {
-  let continuarEjecutando = true;
-
-  while (continuarEjecutando) {
-    // Mostrar historial y gestionar cierre
-    continuarEjecutando = !gestionarCierrePrograma(historialCompras);
-
-    // Si el usuario no eligió cerrar, mostrar el menú principal
-    if (continuarEjecutando) {
-      mostrarMenu();
-    }
-  }
-  // Iniciar el programa
-iniciarPrograma();
+  // Volver al menú solo si el usuario no elige cerrar el programa
+  mostrarMenu();
 }
 
