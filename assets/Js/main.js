@@ -351,11 +351,13 @@ function volvermostrarMenu(historialCompras, totalCompra) {
 
   if (cerrarPrograma.trim().toUpperCase() === 'SI') {
     alert('¡Gracias por su compra! ¡Hasta luego!');
-    // Salir del programa
-    return;
+    // Configura la bandera para detener la ejecución del programa
+    continuarEjecutando = false;
   }
 
-  // Volver al menú solo si el usuario no elige cerrar el programa
-  mostrarMenu();
+  // Volver al menú solo si el usuario no elige cerrar el programa y la bandera es verdadera
+  if (continuarEjecutando) {
+    mostrarMenu();
+  }
 }
 
