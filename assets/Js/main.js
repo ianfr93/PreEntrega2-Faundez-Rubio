@@ -184,7 +184,7 @@ function mostrarMenu() {
           break;
         case '4':
           alert('Saliendo del sistema. ¡Hasta luego!');
-          seguirEnSistema = false;
+          seguirEnSistema = false; // Cambiar la variable a false antes de salir del bucle
           break;
         default:
           alert('Opción incorrecta. Digite nuevamente para continuar en el sistema');
