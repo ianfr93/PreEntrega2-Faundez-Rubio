@@ -167,8 +167,8 @@ function mostrarMenu() {
   while (seguirEnSistema) {
     let opcion = prompt('Selecciona una opción:\n1. Ir a mi perfil de usuario\n2. Ir al home\n3. Ver inventario\n4. Salir');
 
-    if (opcion === null) {
-      // Si el usuario hace clic en Cancelar, tratamos como si hubiera seleccionado salir
+    if (opcion === null || opcion === '') {
+      // Si el usuario hace clic en Cancelar o ingresa una cadena vacía, tratamos como si hubiera seleccionado salir
       alert('Saliendo del sistema. ¡Hasta luego!');
       seguirEnSistema = false;
     } else {
@@ -193,6 +193,7 @@ function mostrarMenu() {
     }
   }
 }
+
 
 
 // Función para mostrar el perfil del usuario
