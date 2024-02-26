@@ -336,11 +336,8 @@ function actualizarInventario(historialCompras) {
   });
 }
 
-// Declarar la variable fuera de la función
-let continuarEjecutando = true;
-
 // Función para volver a mostrar el menú con el historial de compras
-function volvermostrarMenu(historialCompras, totalCompra, continuarEjecutando) {
+function volvermostrarMenu(historialCompras, totalCompra) {
   console.log(`Historial de compras para ${nombreUsuario}:`);
   historialCompras.forEach((compra, index) => {
     console.log(`Compra ${index + 1}:`);
@@ -354,16 +351,11 @@ function volvermostrarMenu(historialCompras, totalCompra, continuarEjecutando) {
 
   if (cerrarPrograma.trim().toUpperCase() === 'SI') {
     alert('¡Gracias por su compra! ¡Hasta luego!');
-    // Configura la bandera para detener la ejecución del programa
-    continuarEjecutando = false;
+    // Salir del programa
+    return;
   }
 
-  // Volver al menú solo si el usuario no elige cerrar el programa y la bandera es verdadera
-  if (continuarEjecutando) {
-    mostrarMenu();
-  }
+  // Volver al menú solo si el usuario no elige cerrar el programa
+  mostrarMenu();
 }
-
-// Llamar a la función con la variable continuarEjecutando
-volvermostrarMenu(historialCompras, totalCompra, continuarEjecutando);
 
