@@ -177,7 +177,7 @@ function mostrarMenu() {
         break;
       case '4':
         alert('Saliendo del sistema. ¡Hasta luego!');
-        return;
+        break
       default:
         alert('Opción incorrecta. Digite nuevamente para continuar en el sistema');
         break;
@@ -338,23 +338,28 @@ function actualizarInventario(historialCompras) {
 
 // Función para volver a mostrar el menú con el historial de compras
 function volvermostrarMenu(historialCompras, totalCompra) {
-  console.log(`Historial de compras para ${nombreUsuario}:`);
-  historialCompras.forEach((compra, index) => {
-    console.log(`Compra ${index + 1}:`);
-    console.log(`Producto: ${compra.producto}`);
-    console.log(`Precio: $${compra.precio.toFixed(2)}`);
-    console.log(`Cantidad: ${compra.cantidad}`);
-    console.log("----------------------------------");
-  });
+  while (true) {
+    console.log(`Historial de compras para ${nombreUsuario}:`);
+    historialCompras.forEach((compra, index) => {
+      console.log(`Compra ${index + 1}:`);
+      console.log(`Producto: ${compra.producto}`);
+      console.log(`Precio: $${compra.precio.toFixed(2)}`);
+      console.log(`Cantidad: ${compra.cantidad}`);
+      console.log("----------------------------------");
+    });
 
-  const cerrarPrograma = prompt('¿Desea cerrar el programa? Escriba SI/NO');
+    const cerrarPrograma = prompt('¿Desea cerrar el programa? Escriba SI/NO');
 
-  if (cerrarPrograma.trim().toUpperCase() === 'SI') {
-    alert('¡Gracias por su compra! ¡Hasta luego!');
-    // Volver al menú principal
-    mostrarMenu();
-  } else {
-    // No llames directamente a mostrarMenu(), vuelve al menú principal desde aquí
-    volvermostrarMenu(historialCompras, totalCompra);
+    if (cerrarPrograma.trim().toUpperCase() === 'SI') {
+      alert('¡Gracias por su compra! ¡Hasta luego!');
+      // Salir del bucle y del programa
+      break;
+    } else {
+      // Volver al menú principal
+      mostrarMenu();
+    }
   }
 }
+
+// Llamar a la función inicial para mostrar el menú
+mostrarMenu();
