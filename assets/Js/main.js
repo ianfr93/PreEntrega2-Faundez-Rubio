@@ -373,7 +373,7 @@ function iniciarPrograma() {
       mostrarMenu();
     }
   }
+  // Iniciar el programa
+iniciarPrograma();
 }
 
-// Iniciar el programa
-iniciarPrograma();
