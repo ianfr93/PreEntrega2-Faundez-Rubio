@@ -351,7 +351,11 @@ function volvermostrarMenu(historialCompras, totalCompra) {
 
   if (cerrarPrograma.trim().toUpperCase() === 'SI') {
     alert('¡Gracias por su compra! ¡Hasta luego!');
+    // Cierra el programa inmediatamente
+    process.exit();
   } else {
+    // Vuelve a mostrar el menú
     mostrarMenu();
   }
 }
+
