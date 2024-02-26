@@ -94,6 +94,13 @@ const productos = [
   new Producto("Atún en lata 160g", 2500, 560),
 ];
 
+// Define las categorías y agrupa los productos
+const categorias = [
+  { nombre: "Bebidas", productos: [productos[1], productos[3], productos[7], productos[9]] },
+  { nombre: "Alimentos", productos: [productos[0], productos[2], productos[4], productos[5]] },
+  { nombre: "Higiene", productos: [productos[6], productos[8]] }
+];
+
 // Función para autenticar al usuario
 function autenticarUsuario() {
   nombreUsuario = prompt("Ingrese su nombre de usuario");
@@ -156,10 +163,13 @@ function pedirDatosCliente() {
 
 // Función para mostrar el inventario
 function verInventario() {
-  console.log("Inventario actualizado:");
-  productos.forEach(producto => console.log(producto));
-}
+  console.log("Inventario actualizado por categorías:");
 
+  categorias.forEach(categoria => {
+    console.log(`\n${categoria.nombre}:`);
+    categoria.productos.forEach(producto => console.log(producto));
+  });
+}
 // Función para mostrar el menú principal
 function mostrarMenu() {
   while (true) {
