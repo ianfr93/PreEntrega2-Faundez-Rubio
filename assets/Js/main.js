@@ -197,11 +197,6 @@ function mostrarMenu() {
   }
 }
 
-
-
-
-
-
 // Función para mostrar el perfil del usuario
 function mostrarPerfil() {
   console.log(`Información del perfil para ${nombreUsuario}:`);
