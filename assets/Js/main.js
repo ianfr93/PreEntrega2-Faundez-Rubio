@@ -236,6 +236,13 @@ function mostrarProductosCategoria(categoria) {
   mostrarMenu();
 }
 
+// Nueva función para mostrar todos los productos
+function mostrarTodosLosProductos() {
+  console.log("Todos los productos:");
+  productos.forEach(producto => console.log(producto));
+  mostrarMenu();
+}
+
 
 // Función para mostrar el perfil del usuario
 function mostrarPerfil() {
