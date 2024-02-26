@@ -62,6 +62,21 @@ let usuarios = [{
   }
 ];
 
+let producto = [      
+  new Producto("Aceite Belmont 1lt", 4000, 800),
+  new Producto("Aceite Belmont 1lt", 4000, 800),
+  new Producto("Coca Cola 3lts", 3000, 500),
+  new Producto("Lavalozas Quix 1lt", 2850, 700),
+  new Producto("Leche Soprole Chocolate 1lt", 1200, 1200),
+  new Producto("Galletas Oreo Chocolate", 850, 80),
+  new Producto("Arroz Miraflores Granel", 1600, 980),
+  new Producto("Papel Higiénico Suave 4 rollos", 2000, 450),
+  new Producto("Manzanas Royal Gala (kg)", 3500, 600),
+  new Producto("Jabón Dove 100g", 1200, 250),
+  new Producto("Atún en lata 160g", 2500, 560),
+
+];
+
 let nombreUsuario;
 let intentosRestantes = 4;
 let indexUsuarioAutenticado;
