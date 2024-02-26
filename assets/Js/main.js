@@ -1,7 +1,6 @@
 alert("HOLA! :) :) :) , Bienvenido a Megatron POS Web. Para continuar, inicie sesión");
 
-let usuarios = [
-  {
+let usuarios = [{
     usuario: "usuario1",
     contraseña: "contraseña1",
     perfil: {
@@ -178,7 +177,7 @@ function mostrarMenu() {
           mostrarPerfil();
           break;
         case '2':
-          realizarCompra();
+          mostrarMenuCategorias(); // Cambio aquí
           break;
         case '3':
           verInventario();
@@ -186,7 +185,7 @@ function mostrarMenu() {
         case '4':
           if (window.confirm('¿Estás seguro de que deseas salir del sistema?')) {
             alert('Saliendo del sistema. ¡Hasta luego!');
-            return;  // Salir de la función, lo que terminará la ejecución.
+            return; // Salir de la función, lo que terminará la ejecución.
           }
           break;
         default:
@@ -195,6 +194,38 @@ function mostrarMenu() {
       }
     }
   }
+}
+
+// Nueva función para mostrar el menú de categorías
+function mostrarMenuCategorias() {
+  console.log("Categorías disponibles:");
+  console.log("1. Alimentos");
+  console.log("2. Bebidas");
+  console.log("3. Artículos de limpieza");
+  let categoriaSeleccionada = prompt("Selecciona una categoría (1-3):");
+
+  switch (categoriaSeleccionada) {
+    case '1':
+      mostrarProductosCategoria('Alimentos');
+      break;
+    case '2':
+      mostrarProductosCategoria('Bebidas');
+      break;
+    case '3':
+      mostrarProductosCategoria('Artículos de limpieza');
+      break;
+    default:
+      alert("Opción no válida. Volviendo al menú principal.");
+      mostrarMenu();
+      break;
+  }
+}
+
+// Nueva función para mostrar productos de una categoría específica
+function mostrarProductosCategoria(categoria) {
+  const productosCategoria = productos.filter(producto => producto.categoria === categoria);
+  console.log(`Productos de la categoría "${categoria}":`);
+  productosCategoria.forEach(producto => console.log(producto));
 }
 
 // Función para mostrar el perfil del usuario
