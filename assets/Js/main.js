@@ -162,16 +162,12 @@ function verInventario() {
 
 // Función para mostrar el menú principal
 function mostrarMenu() {
-  let salir = false;
-
-  while (!salir) {
+  while (true) {
     let opcion = prompt('Selecciona una opción:\n1. Ir a mi perfil de usuario\n2. Ir al home\n3. Ver inventario\n4. Salir');
 
     if (opcion === null) {
       // Si el usuario hace clic en Cancelar, tratamos como si hubiera seleccionado salir
       alert('Saliendo del sistema. ¡Hasta luego!');
-      salir = true;
-      // Agrega la siguiente línea para detener la ejecución de la función
       break;
     } else if (opcion === '') {
       // Si el usuario ingresa una cadena vacía, le informamos que la opción es incorrecta
@@ -190,9 +186,7 @@ function mostrarMenu() {
         case '4':
           if (window.confirm('¿Estás seguro de que deseas salir del sistema?')) {
             alert('Saliendo del sistema. ¡Hasta luego!');
-            salir = true;
-            // Agrega la siguiente línea para detener la ejecución de la función
-            break;
+            return;  // Salir de la función, lo que terminará la ejecución.
           }
           break;
         default:
