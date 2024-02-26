@@ -336,8 +336,11 @@ function actualizarInventario(historialCompras) {
   });
 }
 
+// Declarar la variable fuera de la función
+let continuarEjecutando = true;
+
 // Función para volver a mostrar el menú con el historial de compras
-function volvermostrarMenu(historialCompras, totalCompra) {
+function volvermostrarMenu(historialCompras, totalCompra, continuarEjecutando) {
   console.log(`Historial de compras para ${nombreUsuario}:`);
   historialCompras.forEach((compra, index) => {
     console.log(`Compra ${index + 1}:`);
@@ -360,4 +363,7 @@ function volvermostrarMenu(historialCompras, totalCompra) {
     mostrarMenu();
   }
 }
+
+// Llamar a la función con la variable continuarEjecutando
+volvermostrarMenu(historialCompras, totalCompra, continuarEjecutando);
 
