@@ -162,9 +162,8 @@ function verInventario() {
 // Función para mostrar el menú principal
 function mostrarMenu() {
   let seguirEnSistema = true;
-  let intentos = 0;
 
-  while (seguirEnSistema && intentos < 0) {
+  while (seguirEnSistema) {
     let opcion = prompt('Selecciona una opción:\n1. Ir a mi perfil de usuario\n2. Ir al home\n3. Ver inventario\n4. Salir');
 
     if (opcion === null) {
@@ -188,8 +187,6 @@ function mostrarMenu() {
         case '4':
           if (window.confirm('¿Estás seguro de que deseas salir del sistema?')) {
             seguirEnSistema = false;
-          } else {
-            intentos++;
           }
           break;
         default:
