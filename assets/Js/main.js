@@ -189,8 +189,8 @@ function mostrarMenu() {
           if (window.confirm('¿Estás seguro de que deseas salir del sistema?')) {
             alert('Saliendo del sistema. ¡Hasta luego!');
             salir = true;
-            // Redirigir al HTML principal después de salir del sistema
-            window.location.href = './index.html';
+            // Redirigir al js principal después de salir del sistema
+            window.location.href = './main.js';
           }
           break;
         default:
