@@ -162,7 +162,7 @@ function verInventario() {
 // Función para mostrar el menú principal
 function mostrarMenu() {
   let seguirEnSistema = true;
-  let intentos = 0;
+  let intentos = 1;
 
   while (seguirEnSistema && intentos < 0) {
     let opcion = prompt('Selecciona una opción:\n1. Ir a mi perfil de usuario\n2. Ir al home\n3. Ver inventario\n4. Salir');
