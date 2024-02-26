@@ -190,7 +190,7 @@ function mostrarMenu() {
             alert('Saliendo del sistema. ¡Hasta luego!');
             salir = true;
             // Redirigir al js principal después de salir del sistema
-            window.location.href = './main.js';
+            window.location.href = './index.html';
           }
           break;
         default:
