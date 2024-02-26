@@ -228,10 +228,11 @@ function mostrarMenuCategorias() {
   }
 }
 
-// Nueva función para mostrar todos los productos
-function mostrarTodosLosProductos() {
-  console.log("Todos los productos:");
-  productos.forEach(producto => console.log(producto));
+// Nueva función para mostrar productos por categoría
+function mostrarProductosCategoria(categoria) {
+  console.log(`Productos en la categoría ${categoria}:`);
+  const productosCategoria = productos.filter(producto => producto.categoria === categoria);
+  productosCategoria.forEach(producto => console.log(producto));
   mostrarMenu();
 }
 
