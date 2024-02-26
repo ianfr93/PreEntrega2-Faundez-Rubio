@@ -381,5 +381,3 @@ function volvermostrarMenu(historialCompras, totalCompra) {
   }
 }
 
-// Llamar a la función inicial para mostrar el menú
-mostrarMenu();
