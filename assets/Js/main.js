@@ -191,6 +191,8 @@ function mostrarMenu() {
             salir = true;
             // Redirigir al js principal después de salir del sistema
             window.location.href = './index.html';
+            // Agrega la siguiente línea para detener la ejecución de la función
+            return;
           }
           break;
         default:
@@ -200,6 +202,7 @@ function mostrarMenu() {
     }
   }
 }
+
 
 
 
