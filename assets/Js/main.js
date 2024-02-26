@@ -68,11 +68,13 @@ let indexUsuarioAutenticado;
 let seleccionCaja;
 
 class Producto {
-  constructor(nombre, precio, stock) {
+  constructor(nombre, precio, stock, categoria) {
     this.nombre = nombre;
     this.precio = precio;
     this.stock = stock;
+    this.categoria = categoria;
   }
+
 
   vender(cantidad) {
     this.stock -= cantidad;
@@ -177,7 +179,7 @@ function mostrarMenu() {
           mostrarPerfil();
           break;
         case '2':
-          mostrarMenuCategorias(); // Cambio aquí
+          mostrarMenuCategorias(); 
           break;
         case '3':
           verInventario();
@@ -202,8 +204,9 @@ function mostrarMenuCategorias() {
   console.log("1. Alimentos");
   console.log("2. Bebidas");
   console.log("3. Artículos de limpieza");
+  console.log("4. Ver todos");
 
-  let categoriaSeleccionada = prompt("Selecciona una categoría (1-3):");
+  let categoriaSeleccionada = prompt("Selecciona una categoría (1-4):");
 
   switch (categoriaSeleccionada) {
     case '1':
@@ -215,6 +218,9 @@ function mostrarMenuCategorias() {
     case '3':
       mostrarProductosCategoria('Artículos de limpieza');
       break;
+    case '4':
+      mostrarTodosLosProductos();
+      break;
     default:
       alert("Opción no válida. Volviendo al menú principal.");
       mostrarMenu();
@@ -222,21 +228,12 @@ function mostrarMenuCategorias() {
   }
 }
 
-// Nueva función para mostrar productos de una categoría específica
-function mostrarProductosCategoria(categoria) {
-  const productosCategoria = productos.filter(producto => producto.categoria === categoria);
-
-  if (productosCategoria.length === 0) {
-    console.log(`No hay productos en la categoría "${categoria}".`);
-  } else {
-    console.log(`Productos de la categoría "${categoria}":`);
-    productosCategoria.forEach(producto => console.log(producto));
-  }
-
-  // Después de mostrar los productos, volver al menú principal
+// Nueva función para mostrar todos los productos
+function mostrarTodosLosProductos() {
+  console.log("Todos los productos:");
+  productos.forEach(producto => console.log(producto));
   mostrarMenu();
 }
-
 
 
 // Función para mostrar el perfil del usuario
