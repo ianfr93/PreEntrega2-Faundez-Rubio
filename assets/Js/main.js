@@ -148,8 +148,6 @@ function mostrarMenu() {
   }
 }
 
-
-
 class Producto {
   constructor(nombre, precio, stock) {
     this.nombre = nombre;
@@ -176,21 +174,10 @@ const productos = [
   new Producto("Atún en lata 160g", 2500, 560),
 ];
 
-console.log(productos[0].vender(20));
-console.log(productos[1].vender(100));
-console.log(productos[2].vender(50));
-console.log(productos[3].vender(10));
-console.log(productos[4].vender(12));
-console.log(productos[5].vender(30));
-console.log(productos[6].vender(12));
-console.log(productos[7].vender(5));
-console.log(productos[8].vender(45));
-console.log(productos[9].vender(9));
-
-console.log("Inventario después de ventas:");
-productos.forEach(producto => console.log(producto));
-
-verInventario();
+function verInventario() {
+  console.log("Inventario actualizado:");
+  productos.forEach(producto => console.log(producto));
+}
 
 function mostrarPerfil() {
   console.log(`Información del perfil para ${nombreUsuario}:`);
@@ -286,10 +273,7 @@ function cargarProductos() {
     precio: productoSeleccionado.precio
   };
 }
-function verInventario() {
-  console.log("Inventario actualizado:");
-  productos.forEach(producto => console.log(producto));
-}
+
 function realizarCompra() {
   let historialCompras = [];
   let totalCompra = 0;
