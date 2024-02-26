@@ -160,7 +160,6 @@ function verInventario() {
   productos.forEach(producto => console.log(producto));
 }
 
-// Función para mostrar el menú principal
 function mostrarMenu() {
   let seguirEnSistema = true;
 
