@@ -167,23 +167,29 @@ function mostrarMenu() {
   while (seguirEnSistema) {
     let opcion = prompt('Selecciona una opción:\n1. Ir a mi perfil de usuario\n2. Ir al home\n3. Ver inventario\n4. Salir');
 
-    switch (opcion) {
-      case '1':
-        mostrarPerfil();
-        break;
-      case '2':
-        realizarCompra();
-        break;
-      case '3':
-        verInventario();
-        break;
-      case '4':
-        alert('Saliendo del sistema. ¡Hasta luego!');
-        seguirEnSistema = false; 
-        break;
-      default:
-        alert('Opción incorrecta. Digite nuevamente para continuar en el sistema');
-        break;
+    if (opcion === null) {
+      // Si el usuario hace clic en Cancelar, tratamos como si hubiera seleccionado salir
+      alert('Saliendo del sistema. ¡Hasta luego!');
+      seguirEnSistema = false;
+    } else {
+      switch (opcion) {
+        case '1':
+          mostrarPerfil();
+          break;
+        case '2':
+          realizarCompra();
+          break;
+        case '3':
+          verInventario();
+          break;
+        case '4':
+          alert('Saliendo del sistema. ¡Hasta luego!');
+          seguirEnSistema = false;
+          break;
+        default:
+          alert('Opción incorrecta. Digite nuevamente para continuar en el sistema');
+          break;
+      }
     }
   }
 }
