@@ -144,7 +144,7 @@ function mostrarMenu() {
         break;
       case '2':
         realizarCompra();
-    
+
         return;
       case '3':
         verInventario();
@@ -234,10 +234,10 @@ function gestionarCambios() {
     // Mostrar mensaje de éxito en la consola
     console.log('Datos guardados con éxito');
 
- 
+
     mostrarMenu();
   } else {
-   
+
     console.log('Cambios descartados con éxito');
 
     // Redirigir a la sección mostrarMenu()
@@ -247,7 +247,7 @@ function gestionarCambios() {
 
 // Función para cargar productos
 function cargarProductos() {
-let error;
+  let error;
 
   let productoSeleccionado; // Declara la variable a nivel global para acceder a ella fuera del bucle
   do {
@@ -317,7 +317,7 @@ let error;
         alert('Opción incorrecta. Digite nuevamente para poder continuar con su compra');
         error = 1;
     }
-} while (error == 1);
+  } while (error == 1);
 
   return {
     producto: productoSeleccionado,
@@ -349,7 +349,7 @@ function realizarCompra() {
       // El usuario ha presionado "Cancelar de esta manera se devuelve a menu principal"
       alert('Compra cancelada. Volviendo al menú principal.');
       mostrarMenu();
-      return; 
+      return;
     }
 
     if (salir.trim().toUpperCase() !== 'SI' && salir.trim().toUpperCase() !== 'NO') {
@@ -368,7 +368,7 @@ function realizarCompra() {
 }
 
 function volvermostrarMenu(historialCompras, totalCompra) {
-  
+
   // Mostrar historial de compras en la consola para el usuario registrado
   console.log(`Historial de compras para ${nombreUsuario}:`);
   historialCompras.forEach((compra, index) => {
@@ -383,7 +383,7 @@ function volvermostrarMenu(historialCompras, totalCompra) {
   const cerrarPrograma = prompt('¿Desea cerrar el programa? Escriba SI/NO');
 
   if (cerrarPrograma.trim().toUpperCase() === 'SI') {
-   
+
     alert('¡Gracias por su compra volviendo al menu para salir! ¡Hasta luego!');
 
   }
