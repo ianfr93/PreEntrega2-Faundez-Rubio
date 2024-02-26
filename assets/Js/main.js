@@ -171,6 +171,10 @@ function mostrarMenu() {
       // Si el usuario hace clic en Cancelar, tratamos como si hubiera seleccionado salir
       alert('Saliendo del sistema. ¡Hasta luego!');
       salir = true;
+      // Cerrar la ventana después de 1 segundo (1000 milisegundos)
+      setTimeout(() => {
+        window.close();
+      }, 1000);
     } else if (opcion === '') {
       // Si el usuario ingresa una cadena vacía, le informamos que la opción es incorrecta
       alert('Opción incorrecta. Digite nuevamente para continuar en el sistema');
@@ -189,6 +193,10 @@ function mostrarMenu() {
           if (window.confirm('¿Estás seguro de que deseas salir del sistema?')) {
             alert('Saliendo del sistema. ¡Hasta luego!');
             salir = true;
+            // Cerrar la ventana después de 1 segundo (1000 milisegundos)
+            setTimeout(() => {
+              window.close();
+            }, 1000);
           }
           break;
         default:
