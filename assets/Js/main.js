@@ -227,10 +227,10 @@ function realizarBusqueda() {
 
   switch (opcion) {
     case '1':
-      let productoEncontrado = cargarProductos();
+      let productoEncontrado = cargarProductos(); 
       if (productoEncontrado) {
         console.log(`Producto encontrado: ${productoEncontrado.producto}, Precio: $${productoEncontrado.precio.toFixed(2)}`);
-        realizarCompra(); // O realiza alguna acción específica con el producto encontrado
+        realizarCompra(); 
       }
       break;
     case '2':
