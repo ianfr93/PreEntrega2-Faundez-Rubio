@@ -115,8 +115,7 @@ function agregarCliente(nombre, apellido, email, direccion) {
 
 // Método para generar y enviar una boleta o factura al cliente
 function generarYEnviarFactura(cliente, historialCompras, totalCompra) {
-  // Aquí implementarías la lógica para generar la boleta o factura
-  // y enviarla al correo electrónico del cliente.
+
 
   // Por ahora, solo imprimiremos un mensaje de ejemplo.
   console.log(`Se ha enviado la boleta a ${cliente.email}`);
@@ -394,6 +393,13 @@ function volvermostrarMenu(historialCompras, totalCompra) {
     console.log(`Cantidad: ${compra.cantidad}`);
     console.log("----------------------------------");
   });
+// Solicitar información del cliente
+let nombreCliente = prompt("Ingrese el nombre del cliente");
+let apellidoCliente = prompt("Ingrese el apellido del cliente");
+let correoCliente = prompt("Ingrese el correo del cliente");
+
+// Agregar cliente a la lista
+agregarCliente(nombreCliente, apellidoCliente, correoCliente, '');
 
   // Mensaje antes de volver al menú principal
   console.log('¡Gracias por su compra! Volviendo al menú principal...');
