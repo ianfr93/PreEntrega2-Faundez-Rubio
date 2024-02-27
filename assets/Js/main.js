@@ -272,8 +272,7 @@ function cargarProductos() {
       "7-Papel Higiénico Suave 4 rollos" + "\n" +
       "8-Manzanas Royal Gala (kg)" + "\n" +
       "9-Jabón Dove 100g" + "\n" +
-      "10-Atún en lata 160g" + "\n" +
-      "0-Cancelar compra" 
+      "10-Atún en lata 160g"
     ));
 
     switch (producto) {
