@@ -181,12 +181,7 @@ function mostrarMenu() {
     let opcion = prompt('Selecciona una opción:\n1. Ir a mi perfil de usuario\n2. Ir al home\n3. Ver inventario\n4. Salir');
 
     if (opcion === null) {
-      if (confirmarSalida) {
-        alert('Saliendo del sistema. ¡Hasta luego!');
-        break;
-      } else {
-        alert('Para salir, confirma nuevamente seleccionando la opción "Salir".');
-      }
+      alert('Opción incorrecta. Digite nuevamente para continuar en el sistema');
     } else if (opcion === '') {
       alert('Opción incorrecta. Digite nuevamente para continuar en el sistema');
     } else {
@@ -203,7 +198,6 @@ function mostrarMenu() {
           break;
         case '4':
           if (window.confirm('¿Estás seguro de que deseas salir del sistema?')) {
-            alert('Saliendo del sistema. ¡Hasta luego!');
             confirmarSalida = true;
           }
           break;
@@ -211,6 +205,11 @@ function mostrarMenu() {
           alert('Opción incorrecta. Digite nuevamente para continuar en el sistema');
           break;
       }
+    }
+
+    if (confirmarSalida) {
+      alert('Saliendo del sistema. ¡Hasta luego!');
+      break;
     }
   }
 }
