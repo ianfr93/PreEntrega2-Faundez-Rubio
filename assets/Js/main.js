@@ -123,6 +123,10 @@ function autenticarUsuario() {
 
 // Llamar a la función de autenticación al cargar la página
 autenticarUsuario();
+
+// Después de autenticar al usuario
+alert("¡Bienvenido de nuevo, " + usuarios[indexUsuarioAutenticado].perfil.nombre + "!");
+
 alert("Esto es Megatron WebPOS Ventas. Para continuar, presione aceptar");
 pedirDatosCliente();
 mostrarMenu();
