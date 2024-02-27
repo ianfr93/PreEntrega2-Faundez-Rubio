@@ -393,26 +393,19 @@ function volvermostrarMenu(historialCompras, totalCompra) {
     console.log(`Cantidad: ${compra.cantidad}`);
     console.log("----------------------------------");
   });
-// Solicitar información del cliente
-let nombreCliente = prompt("Ingrese el nombre del cliente");
-let apellidoCliente = prompt("Ingrese el apellido del cliente");
-let correoCliente = prompt("Ingrese el correo del cliente");
 
-// Agregar cliente a la lista
-agregarCliente(nombreCliente, apellidoCliente, correoCliente, '');
-
-  // Mensaje antes de volver al menú principal
-  console.log('¡Gracias por su compra! Volviendo al menú principal...');
+  // Solicitar información del cliente
+  let nombreCliente = prompt("Ingrese el nombre y apellido del cliente");
+  let apellidoCliente = '';  // No hay información de apellido en el prompt original
+  let correoCliente = prompt("Ingrese el correo del cliente");
 
   // Agregar cliente a la lista
-  agregarCliente(
-    usuarios[indexUsuarioAutenticado].perfil.nombre,
-    usuarios[indexUsuarioAutenticado].perfil.apellido,
-    usuarios[indexUsuarioAutenticado].perfil.correo,
-    usuarios[indexUsuarioAutenticado].perfil.direccion
-  );
+  agregarCliente(nombreCliente, apellidoCliente, correoCliente, '');
 
   // Generar y enviar factura
   let cliente = listaClientes[listaClientes.length - 1];
   generarYEnviarFactura(cliente, historialCompras, totalCompra);
+  
+  // Mensaje antes de volver al menú principal
+  console.log('¡Gracias por su compra! Volviendo al menú principal...');
 }
