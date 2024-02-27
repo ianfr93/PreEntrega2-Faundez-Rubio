@@ -94,6 +94,34 @@ const productos = [
   new Producto("Atún en lata 160g", 2500, 560),
 ];
 
+// Define la clase Cliente
+class Cliente {
+  constructor(nombre, apellido, email, direccion) {
+    this.nombre = nombre;
+    this.apellido = apellido;
+    this.email = email;
+    this.direccion = direccion;
+  }
+}
+
+// Lista de clientes
+let listaClientes = [];
+
+// Método para agregar un cliente a la lista
+function agregarCliente(nombre, apellido, email, direccion) {
+  let cliente = new Cliente(nombre, apellido, email, direccion);
+  listaClientes.push(cliente);
+}
+
+// Método para generar y enviar una boleta o factura al cliente
+function generarYEnviarFactura(cliente, historialCompras, totalCompra) {
+  // Aquí implementarías la lógica para generar la boleta o factura
+  // y enviarla al correo electrónico del cliente.
+
+  // Por ahora, solo imprimiremos un mensaje de ejemplo.
+  console.log(`Se ha enviado la boleta a ${cliente.email}`);
+}
+
 // Función para autenticar al usuario
 function autenticarUsuario() {
   nombreUsuario = prompt("Ingrese su nombre de usuario");
@@ -164,7 +192,6 @@ function verInventario() {
   productos.forEach(producto => console.log(producto));
 }
 
-
 // Función para mostrar el perfil del usuario
 function mostrarPerfilUsuario(usuario) {
   console.log(`Información del perfil para ${usuario.usuario}:`);
@@ -217,7 +244,6 @@ function mostrarMenu() {
     }
   }
 }
-
 
 // Función para gestionar cambios en el perfil
 function gestionarCambios() {
@@ -372,5 +398,15 @@ function volvermostrarMenu(historialCompras, totalCompra) {
   // Mensaje antes de volver al menú principal
   console.log('¡Gracias por su compra! Volviendo al menú principal...');
 
-}
+  // Agregar cliente a la lista
+  agregarCliente(
+    usuarios[indexUsuarioAutenticado].perfil.nombre,
+    usuarios[indexUsuarioAutenticado].perfil.apellido,
+    usuarios[indexUsuarioAutenticado].perfil.correo,
+    usuarios[indexUsuarioAutenticado].perfil.direccion
+  );
 
+  // Generar y enviar factura
+  let cliente = listaClientes[listaClientes.length - 1];
+  generarYEnviarFactura(cliente, historialCompras, totalCompra);
+}
