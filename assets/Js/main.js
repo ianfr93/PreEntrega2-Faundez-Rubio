@@ -324,8 +324,8 @@ function cargarProductos() {
   } while (error === 1);
 
   return {
-    producto: productoSeleccionado ? productoSeleccionado.nombre : null,
-    precio: productoSeleccionado ? productoSeleccionado.precio : null
+    producto: productoSeleccionado.nombre,
+    precio: productoSeleccionado.precio
   };
 }
 
