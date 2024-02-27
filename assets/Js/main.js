@@ -94,7 +94,7 @@ const productos = [
   new Producto("Atún en lata 160g", 2500, 560),
 ];
 
-// Función para autenticar al usuario
+// Función para autenticar usuario
 function autenticarUsuario() {
   nombreUsuario = prompt("Ingrese su nombre de usuario");
   let contraseña = prompt("Ingrese su contraseña");
