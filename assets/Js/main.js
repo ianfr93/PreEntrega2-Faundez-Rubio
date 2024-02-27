@@ -198,7 +198,7 @@ function mostrarMenu() {
         case '4':
           if (window.confirm('¿Estás seguro de que deseas salir del sistema?')) {
             alert('Saliendo del sistema. ¡Hasta luego!');
-            return;
+            setTimeout(() => { return; }, 100); // Agregar una pequeña pausa
           }
           break;
         default:
