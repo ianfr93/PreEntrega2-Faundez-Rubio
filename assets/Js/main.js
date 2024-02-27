@@ -365,4 +365,7 @@ function volvermostrarMenu(historialCompras, totalCompra) {
     console.log("----------------------------------");
   });
 
+  // Mensaje antes de volver al menú principal
+  console.log('¡Gracias por su compra! Volviendo al menú principal...');
+
 }
