@@ -390,11 +390,13 @@ agregarCliente("Juan", "Perez", "juan@gmail.com", "Dirección de Juan");
 
 // Luego, después de realizar una compra, puedes llamar a la función para generar y enviar la factura
 // con el cliente correspondiente, historial de compras y total de la compra.
-generarYEnviarFactura(listaClientes[0], historialCompras, totalCompra);
+
 
 
 // Función para volver a mostrar el menú con el historial de compras
 function volvermostrarMenu(historialCompras, totalCompra) {
+
+  generarYEnviarFactura(listaClientes[0], historialCompras, totalCompra);
   console.log(`Historial de compras para ${nombreUsuario}:`);
   historialCompras.forEach((compra, index) => {
     console.log(`Compra ${index + 1}:`);
