@@ -398,6 +398,7 @@ function volvermostrarMenu(historialCompras, totalCompra) {
 
   // Solicitar información del cliente
   let nombreCliente = prompt("Ingrese el nombre y apellido del cliente");
+  let apellidoCliente = '';
   let correoCliente = prompt("Ingrese el correo del cliente");
 
   // Agregar cliente a la lista
