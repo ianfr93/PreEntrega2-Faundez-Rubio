@@ -398,5 +398,5 @@ function finalizarCompra() {
   usuarios[indexUsuarioAutenticado].carrito = [];
 
   alert('¡Gracias por su compra! ¡Hasta luego!');
-  mostrarMenu();
+
 }
