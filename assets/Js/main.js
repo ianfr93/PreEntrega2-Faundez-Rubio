@@ -147,7 +147,6 @@ function autenticarUsuario() {
   }
 }
 
-// Llamar a la función de autenticación al cargar la página
 autenticarUsuario();
 
 // Después de autenticar al usuario
@@ -273,7 +272,8 @@ function cargarProductos() {
       "7-Papel Higiénico Suave 4 rollos" + "\n" +
       "8-Manzanas Royal Gala (kg)" + "\n" +
       "9-Jabón Dove 100g" + "\n" +
-      "10-Atún en lata 160g"
+      "10-Atún en lata 160g" + "\n" +
+      "0-Cancelar compra" 
     ));
 
     switch (producto) {
@@ -324,8 +324,8 @@ function cargarProductos() {
   } while (error === 1);
 
   return {
-    producto: productoSeleccionado.nombre,
-    precio: productoSeleccionado.precio
+    producto: productoSeleccionado ? productoSeleccionado.nombre : null,
+    precio: productoSeleccionado ? productoSeleccionado.precio : null
   };
 }
 
@@ -394,9 +394,10 @@ function volvermostrarMenu(historialCompras, totalCompra) {
   });
 
   // Mensaje antes de solicitar información del cliente
-  alert("Se enviará la boleta al correo electrónico proporcionado.Por favor indique los siguientes datos");
+  alert("Se enviará la boleta al correo electrónico proporcionado. Por favor, indique los siguientes datos.");
 
   // Solicitar información del cliente
+  // Debera escribir cualquier nombre,apellido y un correo para que muestre mensaje en console
   let nombreCliente = prompt("Ingrese el nombre y apellido del cliente");
   let apellidoCliente = '';
   let correoCliente = prompt("Ingrese el correo del cliente");
