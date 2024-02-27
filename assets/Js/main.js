@@ -359,27 +359,4 @@ function volvermostrarMenu(historialCompras, totalCompra) {
     console.log("----------------------------------");
   });
 
-  const cerrarPrograma = prompt('¿Desea cerrar el programa? Escriba SI/NO');
-
-  if (cerrarPrograma !== null) {
-    const respuesta = cerrarPrograma.trim().toUpperCase();
-
-    if (respuesta === 'SI') {
-      alert('¡Gracias por su compra! ¡Hasta luego!');
-      // Salir del programa (no volver a mostrar el menú)
-      return;
-    } else if (respuesta === 'NO') {
-      // No hacer nada aquí para evitar recursión innecesaria
-    } else {
-      alert('Respuesta no válida. Por favor, escriba SI o NO.');
-      // Volver a mostrar el menú en caso de respuesta no válida
-      volvermostrarMenu(historialCompras, totalCompra);
-      return; // Asegurarse de salir después de llamar a la función recursiva
-    }
-  } else {
-    // Si el usuario hace clic en Cancelar, tratamos como si hubiera seleccionado NO
-  }
-
-  // Volver al menú principal después de procesar la respuesta del usuario
-  mostrarMenu();
 }
