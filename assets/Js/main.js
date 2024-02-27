@@ -197,6 +197,11 @@ function mostrarMenu() {
   }
 }
 
+
+
+
+
+
 // Función para mostrar el perfil del usuario
 function mostrarPerfil() {
   console.log(`Información del perfil para ${nombreUsuario}:`);
@@ -295,17 +300,6 @@ function cargarProductos() {
   };
 }
 
-// Función para actualizar el inventario después de una compra
-function actualizarInventario(historialCompras) {
-  historialCompras.forEach(compra => {
-    const productoEnInventario = productos.find(producto => producto.nombre === compra.producto);
-
-    if (productoEnInventario) {
-      productoEnInventario.stock -= compra.cantidad;
-    }
-  });
-}
-
 // Función para realizar una compra
 function realizarCompra() {
   let historialCompras = [];
@@ -344,59 +338,51 @@ function realizarCompra() {
   const mensaje = `El total de tu compra (con IVA) fue de $${totalConIVA.toFixed(2)}`;
   alert(mensaje);
 
-  // Agregar el historial de compras al carrito de compras
-  if (!usuarios[indexUsuarioAutenticado].carrito) {
-    usuarios[indexUsuarioAutenticado].carrito = [];
-  }
-
-  usuarios[indexUsuarioAutenticado].carrito.push(...historialCompras);
-
-  // Actualizar el inventario
   actualizarInventario(historialCompras);
   verInventario();
-
-  // Mostrar el carrito de compras y opciones adicionales
-  mostrarCarritoCompra();
+  volvermostrarMenu(historialCompras, totalCompra);
 }
 
-// Función para mostrar el carrito de compras
-function mostrarCarritoCompra() {
-  console.log("Carrito de compras:");
-  const carrito = usuarios[indexUsuarioAutenticado].carrito;
-
-  carrito.forEach((compra, index) => {
-    console.log(`Compra ${index + 1}:`);
-    console.log(`Producto: ${compra.producto}`);
-    console.log(`Precio: $${compra.precio.toFixed(2)}`);
-    console.log(`Cantidad: ${compra.cantidad}`);
-    console.log("----------------------------------");
+// Función para actualizar el inventario
+function actualizarInventario(historialCompras) {
+  historialCompras.forEach((compra) => {
+    const producto = productos.find((p) => p.nombre === compra.producto);
+    if (producto) {
+      producto.vender(compra.cantidad);
+    }
   });
-
-  const opciones = prompt('¿Qué desea hacer ahora?\n1. Continuar comprando\n2. Finalizar compra');
-
-  switch (opciones) {
-    case '1':
-      realizarCompra(); // Puedes ajustar esto según lo que desees hacer al continuar comprando.
-      break;
-    case '2':
-      finalizarCompra();
-      break;
-    default:
-      alert('Opción no válida. Volviendo al menú principal.');
-      mostrarMenu();
-      break;
-  }
 }
 
-// Función para finalizar la compra y volver al menú principal
-function finalizarCompra() {
-  const carrito = usuarios[indexUsuarioAutenticado].carrito;
+// Función para volver a mostrar el menú con el historial de compras
+function volvermostrarMenu(historialCompras, totalCompra) {
+  while (true) {
+    console.log(`Historial de compras para ${nombreUsuario}:`);
+    historialCompras.forEach((compra, index) => {
+      console.log(`Compra ${index + 1}:`);
+      console.log(`Producto: ${compra.producto}`);
+      console.log(`Precio: $${compra.precio.toFixed(2)}`);
+      console.log(`Cantidad: ${compra.cantidad}`);
+      console.log("----------------------------------");
+    });
 
-  // Realizar acciones adicionales si es necesario antes de volver al menú principal
+    const cerrarPrograma = prompt('¿Desea cerrar el programa? Escriba SI/NO');
 
-  // Limpiar el carrito
-  usuarios[indexUsuarioAutenticado].carrito = [];
+    if (cerrarPrograma !== null) {
+      const respuesta = cerrarPrograma.trim().toUpperCase();
 
-  alert('¡Gracias por su compra! ¡Hasta luego!');
-
+      if (respuesta === 'SI') {
+        alert('¡Gracias por su compra! ¡Hasta luego!');
+        // Salir del bucle y del programa
+        break;
+      } else if (respuesta === 'NO') {
+        // Volver al menú principal
+        mostrarMenu();
+      } else {
+        alert('Respuesta no válida. Por favor, escriba SI o NO.');
+      }
+    } else {
+      // Si el usuario hace clic en Cancelar, tratamos como si hubiera seleccionado NO
+      mostrarMenu();
+    }
+  }
 }
