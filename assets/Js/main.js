@@ -160,22 +160,34 @@ function verInventario() {
   productos.forEach(producto => console.log(producto));
 }
 
+
+// Función para mostrar el perfil del usuario
+function mostrarPerfilUsuario(usuario) {
+  console.log(`Información del perfil para ${usuario.usuario}:`);
+  console.log(`Nombre: ${usuario.perfil.nombre}`);
+  console.log(`Rut: ${usuario.perfil.rut}`);
+  console.log(`Correo: ${usuario.perfil.correo}`);
+  console.log(`Dirección: ${usuario.perfil.direccion}`);
+  console.log("----------------------------------");
+
+  gestionarCambios();
+}
+
 // Función para mostrar el menú principal
 function mostrarMenu() {
   while (true) {
     let opcion = prompt('Selecciona una opción:\n1. Ir a mi perfil de usuario\n2. Ir al home\n3. Ver inventario\n4. Salir');
 
     if (opcion === null) {
-      // Si el usuario hace clic en Cancelar, tratamos como si hubiera seleccionado salir
       alert('Saliendo del sistema. ¡Hasta luego!');
       break;
     } else if (opcion === '') {
-      // Si el usuario ingresa una cadena vacía, le informamos que la opción es incorrecta
       alert('Opción incorrecta. Digite nuevamente para continuar en el sistema');
     } else {
       switch (opcion) {
         case '1':
-          mostrarPerfil();
+          // Llamada a la función de mostrarPerfilUsuario con el usuario actual
+          mostrarPerfilUsuario(usuarios[indexUsuarioAutenticado]);
           break;
         case '2':
           realizarCompra();
@@ -186,7 +198,7 @@ function mostrarMenu() {
         case '4':
           if (window.confirm('¿Estás seguro de que deseas salir del sistema?')) {
             alert('Saliendo del sistema. ¡Hasta luego!');
-            return;  // Salir de la función, lo que terminará la ejecución.
+            return;
           }
           break;
         default:
@@ -195,23 +207,6 @@ function mostrarMenu() {
       }
     }
   }
-}
-
-
-
-
-
-
-// Función para mostrar el perfil del usuario
-function mostrarPerfil() {
-  console.log(`Información del perfil para ${nombreUsuario}:`);
-  console.log(`Nombre: ${usuarios[indexUsuarioAutenticado].perfil.nombre}`);
-  console.log(`Rut: ${usuarios[indexUsuarioAutenticado].perfil.rut}`);
-  console.log(`Correo: ${usuarios[indexUsuarioAutenticado].perfil.correo}`);
-  console.log(`Dirección: ${usuarios[indexUsuarioAutenticado].perfil.direccion}`);
-  console.log("----------------------------------");
-
-  gestionarCambios();
 }
 
 // Función para gestionar cambios en el perfil
