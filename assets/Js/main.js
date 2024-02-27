@@ -377,7 +377,7 @@ function volvermostrarMenu(historialCompras, totalCompra) {
       volvermostrarMenu(historialCompras, totalCompra);
     }
   } else {
-    // Si el usuario hace clic en Cancelar, tratamos como si hubiera seleccionado NO
+    // Si el usuario hace clic en Cancelar, tratamos como si hubiera seleccionado no
     mostrarMenu();
   }
 }
