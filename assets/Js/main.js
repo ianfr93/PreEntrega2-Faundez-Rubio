@@ -175,12 +175,18 @@ function mostrarPerfilUsuario(usuario) {
 
 // Función para mostrar el menú principal
 function mostrarMenu() {
+  let confirmarSalida = false;
+
   while (true) {
     let opcion = prompt('Selecciona una opción:\n1. Ir a mi perfil de usuario\n2. Ir al home\n3. Ver inventario\n4. Salir');
 
     if (opcion === null) {
-      alert('Saliendo del sistema. ¡Hasta luego!');
-      break;
+      if (confirmarSalida) {
+        alert('Saliendo del sistema. ¡Hasta luego!');
+        break;
+      } else {
+        alert('Para salir, confirma nuevamente seleccionando la opción "Salir".');
+      }
     } else if (opcion === '') {
       alert('Opción incorrecta. Digite nuevamente para continuar en el sistema');
     } else {
@@ -198,7 +204,7 @@ function mostrarMenu() {
         case '4':
           if (window.confirm('¿Estás seguro de que deseas salir del sistema?')) {
             alert('Saliendo del sistema. ¡Hasta luego!');
-            setTimeout(() => { return; }, 100); // Agregar una pequeña pausa
+            confirmarSalida = true;
           }
           break;
         default:
@@ -208,6 +214,7 @@ function mostrarMenu() {
     }
   }
 }
+
 
 // Función para gestionar cambios en el perfil
 function gestionarCambios() {
