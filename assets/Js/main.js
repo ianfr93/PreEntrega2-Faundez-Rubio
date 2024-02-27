@@ -69,7 +69,8 @@ let indexUsuarioAutenticado;
 let seleccionCaja;
 
 class Producto {
-  constructor(nombre, precio, stock) {
+  constructor(categoria, nombre, precio, stock) {
+    this.categoria = categoria;
     this.nombre = nombre;
     this.precio = precio;
     this.stock = stock;
@@ -167,7 +168,9 @@ function verInventario() {
 
   categorias.forEach(categoria => {
     console.log(`\n${categoria.nombre}:`);
-    categoria.productos.forEach(producto => console.log(producto));
+    categoria.productos.forEach(producto => {
+      console.log(`Nombre: ${producto.nombre}, Precio: $${producto.precio}, Stock: ${producto.stock}`);
+    });
   });
 }
 // Función para mostrar el menú principal
@@ -322,12 +325,13 @@ function realizarCompra() {
     let cantidad = parseInt(prompt(`¿Cuántas cantidades del ${productoInfo.producto} desea llevar?`));
 
     historialCompras.push({
-      producto: productoInfo.producto,
-      precio: productoInfo.precio,
-      cantidad: cantidad
+      producto: productoSeleccionado.nombre,
+      precio: productoSeleccionado.precio,
+      cantidad: cantidad,
+      categoria: productoSeleccionado.categoria,
     });
 
-    totalCompra = totalCompra + productoInfo.precio * cantidad;
+    totalCompra = totalCompra + productoSeleccionado.precio * cantidad;
 
     salir = prompt('¿Desea agregar otro producto al carrito de compras? Escriba SI/NO');
 
