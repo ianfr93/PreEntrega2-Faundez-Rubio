@@ -350,34 +350,34 @@ function actualizarInventario(historialCompras) {
 
 // Función para volver a mostrar el menú con el historial de compras
 function volvermostrarMenu(historialCompras, totalCompra) {
-  while (true) {
-    console.log(`Historial de compras para ${nombreUsuario}:`);
-    historialCompras.forEach((compra, index) => {
-      console.log(`Compra ${index + 1}:`);
-      console.log(`Producto: ${compra.producto}`);
-      console.log(`Precio: $${compra.precio.toFixed(2)}`);
-      console.log(`Cantidad: ${compra.cantidad}`);
-      console.log("----------------------------------");
-    });
+  console.log(`Historial de compras para ${nombreUsuario}:`);
+  historialCompras.forEach((compra, index) => {
+    console.log(`Compra ${index + 1}:`);
+    console.log(`Producto: ${compra.producto}`);
+    console.log(`Precio: $${compra.precio.toFixed(2)}`);
+    console.log(`Cantidad: ${compra.cantidad}`);
+    console.log("----------------------------------");
+  });
 
-    const cerrarPrograma = prompt('¿Desea cerrar el programa? Escriba SI/NO');
+  const cerrarPrograma = prompt('¿Desea cerrar el programa? Escriba SI/NO');
 
-    if (cerrarPrograma !== null) {
-      const respuesta = cerrarPrograma.trim().toUpperCase();
+  if (cerrarPrograma !== null) {
+    const respuesta = cerrarPrograma.trim().toUpperCase();
 
-      if (respuesta === 'SI') {
-        alert('¡Gracias por su compra! ¡Hasta luego!');
-        // Salir del bucle y del programa
-        break;
-      } else if (respuesta === 'NO') {
-        // Volver al menú principal
-        mostrarMenu();
-      } else {
-        alert('Respuesta no válida. Por favor, escriba SI o NO.');
-      }
+    if (respuesta === 'SI') {
+      alert('¡Gracias por su compra! ¡Hasta luego!');
+      // Salir del programa (no volver a mostrar el menú)
+      return;
+    } else if (respuesta === 'NO') {
+      // Volver al menú principal
+      mostrarMenu();
     } else {
-      // Si el usuario hace clic en Cancelar, tratamos como si hubiera seleccionado NO
+      alert('Respuesta no válida. Por favor, escriba SI o NO.');
+      // Volver a mostrar el menú en caso de respuesta no válida
       mostrarMenu();
     }
+  } else {
+    // Si el usuario hace clic en Cancelar, tratamos como si hubiera seleccionado NO
+    mostrarMenu();
   }
 }
