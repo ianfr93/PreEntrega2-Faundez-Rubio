@@ -1,4 +1,4 @@
-alert("HOLA! :) :) :) , Bienvenido a Megatron POS Web. Para continuar, inicie sesión");
+alert("¡Hola! 😊 Bienvenido a Megatron POS Web. Para continuar, inicie sesión");
 
 let usuarios = [
   {
