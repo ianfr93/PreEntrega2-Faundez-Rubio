@@ -1,7 +1,6 @@
 alert("¡Hola! 😊 Bienvenido a Megatron POS Web. Para continuar, inicie sesión");
 
-let usuarios = [
-  {
+let usuarios = [{
     usuario: "usuario1",
     contraseña: "contraseña1",
     perfil: {
@@ -394,9 +393,11 @@ function volvermostrarMenu(historialCompras, totalCompra) {
     console.log("----------------------------------");
   });
 
+  // Mensaje antes de solicitar información del cliente
+  alert("Se enviará la boleta al correo electrónico proporcionado.Por favor indique los siguientes datos");
+
   // Solicitar información del cliente
   let nombreCliente = prompt("Ingrese el nombre y apellido del cliente");
-  let apellidoCliente = '';  // No hay información de apellido en el prompt original
   let correoCliente = prompt("Ingrese el correo del cliente");
 
   // Agregar cliente a la lista
@@ -405,7 +406,7 @@ function volvermostrarMenu(historialCompras, totalCompra) {
   // Generar y enviar factura
   let cliente = listaClientes[listaClientes.length - 1];
   generarYEnviarFactura(cliente, historialCompras, totalCompra);
-  
+
   // Mensaje antes de volver al menú principal
   console.log('¡Gracias por su compra! Volviendo al menú principal...');
 }
