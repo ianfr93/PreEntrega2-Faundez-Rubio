@@ -359,10 +359,8 @@ function actualizarInventario(historialCompras) {
 }
 
 // Función para volver a mostrar el menú con el historial de compras
-function volvermostrarMenu(usuarioIndex, historialCompras, totalCompra) {
-  const nombreUsuario = usuarios[usuarioIndex].perfil.nombre;
-
-  console.log(`Historial de compras para usuario ${usuarioIndex + 1} - ${nombreUsuario}:`);
+function volvermostrarMenu(historialCompras, totalCompra) {
+  console.log(`Historial de compras para ${nombreUsuario}:`);
   historialCompras.forEach((compra, index) => {
     console.log(`Compra ${index + 1}:`);
     console.log(`Producto: ${compra.producto}`);
@@ -373,5 +371,5 @@ function volvermostrarMenu(usuarioIndex, historialCompras, totalCompra) {
 
   // Mensaje antes de volver al menú principal
   console.log('¡Gracias por su compra! Volviendo al menú principal...');
- 
+
 }
