@@ -374,7 +374,7 @@ function volvermostrarMenu(historialCompras, totalCompra) {
     } else {
       alert('Respuesta no válida. Por favor, escriba SI o NO.');
       // Volver a mostrar el menú en caso de respuesta no válida
-      mostrarMenu();
+      volvermostrarMenu(historialCompras, totalCompra);
     }
   } else {
     // Si el usuario hace clic en Cancelar, tratamos como si hubiera seleccionado NO
