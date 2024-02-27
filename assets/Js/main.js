@@ -94,7 +94,7 @@ const productos = [
   new Producto("Atún en lata 160g", 2500, 560),
 ];
 
-// Función para autenticar usuario
+// Función para autenticar al usuario
 function autenticarUsuario() {
   nombreUsuario = prompt("Ingrese su nombre de usuario");
   let contraseña = prompt("Ingrese su contraseña");
@@ -197,57 +197,7 @@ function mostrarMenu() {
   }
 }
 
-// Código del carrito de compras
-let carrito = [];
 
-let seleccion = prompt("Hola, ¿desea comprar algún producto? (si o no)");
-
-while (seleccion !== "si" && seleccion !== "no") {
-  alert("Por favor, ingrese si o no");
-  seleccion = prompt("¿Desea realizar una compra?");
-}
-
-if (seleccion === "si") {
-  alert("A continuación le mostramos nuestros productos");
-  let todosLosProductos = productos.map(
-    (producto) => `${producto.nombre} - $${producto.precio} - Stock: ${producto.stock}`
-  );
-  alert(todosLosProductos.join("\n"));
-} else if (seleccion === "no") {
-  alert("Gracias por visitar nuestro sitio, hasta pronto!!");
-}
-
-while (seleccion !== "no") {
-  let nombreProducto = prompt("Ingrese el nombre del producto que desea agregar al carrito");
-  let producto = productos.find((p) => p.nombre.toLowerCase() === nombreProducto.toLowerCase());
-
-  if (producto) {
-    let cantidad = parseInt(prompt(`¿Cuántas unidades de ${nombreProducto} desea comprar?`));
-
-    if (cantidad <= producto.stock) {
-      carrito.push({ producto, cantidad });
-      console.log(carrito);
-      producto.stock -= cantidad; // Actualizar el stock del producto
-    } else {
-      alert("Lo sentimos, no hay suficiente stock para esa cantidad");
-    }
-  } else {
-    alert("Lo sentimos, no tenemos ese producto");
-  }
-
-  seleccion = prompt("¿Desea seguir comprando??");
-
-  while (seleccion === "no") {
-    alert("Gracias por la compra! hasta pronto");
-    carrito.forEach((item) => {
-      console.log(`Producto: ${item.producto.nombre}, Cantidad: ${item.cantidad}, Total a pagar por tu compra $${item.cantidad * item.producto.precio}`);
-    });
-    break;
-  }
-}
-
-const total = carrito.reduce((acc, item) => acc + item.cantidad * item.producto.precio, 0);
-console.log(`El total a pagar por su compra es: $${total}`);
 
 
 
