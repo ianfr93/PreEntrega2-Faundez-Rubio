@@ -358,32 +358,10 @@ function actualizarInventario(historialCompras) {
   });
 }
 
-// Función para enviar correo electrónico
-function sendEmail(destinatario, asunto, cuerpo) {
-  // Aquí deberías implementar el código para enviar un correo electrónico.
-  // Puedes utilizar bibliotecas como nodemailer o servicios de envío de correos electrónicos.
-  console.log(`Enviando correo electrónico a ${destinatario} con asunto: ${asunto}`);
-  console.log(`Cuerpo del correo: ${cuerpo}`);
-  // Código de envío de correo electrónico aquí
-}
-
-// Función para enviar boleta o factura por correo electrónico
-function enviarBoletaFactura(correoCliente, historialCompras, totalCompra) {
-
-  let cuerpoCorreo = `¡Gracias por tu compra!\n\nHistorial de compras:\n`;
-  historialCompras.forEach((compra, index) => {
-    cuerpoCorreo += `Compra ${index + 1}:\n`;
-    cuerpoCorreo += `Producto: ${compra.producto}\n`;
-    cuerpoCorreo += `Precio: $${compra.precio.toFixed(2)}\n`;
-    cuerpoCorreo += `Cantidad: ${compra.cantidad}\n\n`;
-  });
-  cuerpoCorreo += `Total de la compra: $${totalCompra.toFixed(2)}`;
-
-  // Llamar a la función de enviar correo electrónico
-  sendEmail(correoCliente, 'Boleta de compra', cuerpoCorreo);
-}
 
 
+
+// Función para volver a mostrar el menú con el historial de compras
 function volvermostrarMenu(historialCompras, totalCompra) {
   console.log(`Historial de compras para ${nombreUsuario}:`);
   historialCompras.forEach((compra, index) => {
@@ -394,12 +372,46 @@ function volvermostrarMenu(historialCompras, totalCompra) {
     console.log("----------------------------------");
   });
 
-  // Llama a la función enviarBoletaFactura con la información necesaria
-  enviarBoletaFactura(usuarios[indexUsuarioAutenticado].perfil.correo, historialCompras, totalCompra);
-
   // Mensaje antes de volver al menú principal
   console.log('¡Gracias por su compra! Volviendo al menú principal...');
+
 }
 
+// Define la clase Cliente
+class Cliente {
+  constructor(nombre, apellido, email, direccion) {
+    this.nombre = nombre;
+    this.apellido = apellido;
+    this.email = email;
+    this.direccion = direccion;
+  }
+}
 
+// Lista de clientes
+let listaClientes = [];
 
+// Método para agregar un cliente a la lista
+function agregarCliente(nombre, apellido, email, direccion) {
+  let cliente = new Cliente(nombre, apellido, email, direccion);
+  listaClientes.push(cliente);
+}
+
+// Método para generar y enviar una boleta o factura al cliente
+function generarYEnviarFactura(cliente, historialCompras, totalCompra) {
+  // Aquí implementarías la lógica para generar la boleta o factura
+  // y enviarla al correo electrónico del cliente.
+
+  // Por ahora, solo imprimiremos un mensaje de ejemplo.
+  console.log(`Se ha enviado la boleta a ${cliente.email}`);
+}
+
+// ... Tu código existente ...
+
+// Llamar al método para agregar un cliente (puedes hacerlo en cualquier parte del código)
+agregarCliente("Juan", "Perez", "juan@gmail.com", "Dirección de Juan");
+
+// Luego, después de realizar una compra, puedes llamar a la función para generar y enviar la factura
+// con el cliente correspondiente, historial de compras y total de la compra.
+generarYEnviarFactura(listaClientes[0], historialCompras, totalCompra);
+
+// ... Tu código existente ...
