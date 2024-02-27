@@ -69,8 +69,7 @@ let indexUsuarioAutenticado;
 let seleccionCaja;
 
 class Producto {
-  constructor(categoria, nombre, precio, stock) {
-    this.categoria = categoria;
+  constructor(nombre, precio, stock) {
     this.nombre = nombre;
     this.precio = precio;
     this.stock = stock;
@@ -93,13 +92,6 @@ const productos = [
   new Producto("Manzanas Royal Gala (kg)", 3500, 600),
   new Producto("Jabón Dove 100g", 1200, 250),
   new Producto("Atún en lata 160g", 2500, 560),
-];
-
-// Define las categorías y agrupa los productos
-const categorias = [
-  { nombre: "Bebidas", productos: [productos[1], productos[3], productos[7], productos[9]] },
-  { nombre: "Alimentos", productos: [productos[0], productos[2], productos[4], productos[5]] },
-  { nombre: "Higiene", productos: [productos[6], productos[8]] }
 ];
 
 // Función para autenticar al usuario
@@ -164,15 +156,10 @@ function pedirDatosCliente() {
 
 // Función para mostrar el inventario
 function verInventario() {
-  console.log("Inventario actualizado por categorías:");
-
-  categorias.forEach(categoria => {
-    console.log(`\n${categoria.nombre}:`);
-    categoria.productos.forEach(producto => {
-      console.log(`Nombre: ${producto.nombre}, Precio: $${producto.precio}, Stock: ${producto.stock}`);
-    });
-  });
+  console.log("Inventario actualizado:");
+  productos.forEach(producto => console.log(producto));
 }
+
 // Función para mostrar el menú principal
 function mostrarMenu() {
   while (true) {
@@ -325,13 +312,12 @@ function realizarCompra() {
     let cantidad = parseInt(prompt(`¿Cuántas cantidades del ${productoInfo.producto} desea llevar?`));
 
     historialCompras.push({
-      producto: productoSeleccionado.nombre,
-      precio: productoSeleccionado.precio,
-      cantidad: cantidad,
-      categoria: productoSeleccionado.categoria,
+      producto: productoInfo.producto,
+      precio: productoInfo.precio,
+      cantidad: cantidad
     });
 
-    totalCompra = totalCompra + productoSeleccionado.precio * cantidad;
+    totalCompra = totalCompra + productoInfo.precio * cantidad;
 
     salir = prompt('¿Desea agregar otro producto al carrito de compras? Escriba SI/NO');
 
