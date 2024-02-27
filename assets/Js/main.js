@@ -1,6 +1,7 @@
 alert("HOLA! :) :) :) , Bienvenido a Megatron POS Web. Para continuar, inicie sesión");
 
-let usuarios = [{
+let usuarios = [
+  {
     usuario: "usuario1",
     contraseña: "contraseña1",
     perfil: {
@@ -67,8 +68,6 @@ let intentosRestantes = 4;
 let indexUsuarioAutenticado;
 let seleccionCaja;
 
-
-
 class Producto {
   constructor(nombre, precio, stock) {
     this.nombre = nombre;
@@ -94,50 +93,6 @@ const productos = [
   new Producto("Jabón Dove 100g", 1200, 250),
   new Producto("Atún en lata 160g", 2500, 560),
 ];
-
-
-
-class Categoria {
-  constructor(nombre, productos) {
-    this.nombre = nombre;
-    this.productos = productos;
-  }
-}
-
-const categorias = [
-  new Categoria("Ver todos los productos", productos),
-  new Categoria("Lácteos", productos.slice(3, 4)),
-  new Categoria("Bebidas", productos.slice(0, 2)),
-  new Categoria("Perfumería", productos.slice(8, 9)),
-  new Categoria("Frutas y Verduras", productos.slice(7, 8)),
-  new Categoria("Aseo y Limpieza", productos.slice(6, 7)),
-  new Categoria("Dulces y Galletas", productos.slice(4, 5)),
-  new Categoria("Conservas", productos.slice(9, 10)),
-  new Categoria("Alimentos", productos.slice(5, 6)),
-];
-
-function mostrarMenuCategorias() {
-  console.log("Seleccione una categoría:");
-
-  categorias.forEach((categoria, index) => {
-    console.log(`${index + 1}. ${categoria.nombre}`);
-  });
-
-  const opcion = parseInt(prompt("Ingrese el número de la categoría que desea ver:"));
-
-  if (opcion >= 1 && opcion <= categorias.length) {
-    const categoriaSeleccionada = categorias[opcion - 1];
-    mostrarProductosPorCategoria(categoriaSeleccionada);
-  } else {
-    alert("Opción incorrecta. Por favor, ingrese un número válido.");
-    mostrarMenuCategorias();
-  }
-}
-
-function mostrarProductosPorCategoria(categoria) {
-  console.log(`Productos en la categoría "${categoria.nombre}":`);
-  categoria.productos.forEach(producto => console.log(producto));
-}
 
 // Función para autenticar al usuario
 function autenticarUsuario() {
@@ -205,10 +160,10 @@ function verInventario() {
   productos.forEach(producto => console.log(producto));
 }
 
-// Función para mostrar el menú principal con categorías
+// Función para mostrar el menú principal
 function mostrarMenu() {
   while (true) {
-    let opcion = prompt('Selecciona una opción:\n1. Ir a mi perfil de usuario\n2. Ir al home\n3. Ver inventario\n4. Mostrar Categorías\n5. Salir');
+    let opcion = prompt('Selecciona una opción:\n1. Ir a mi perfil de usuario\n2. Ir al home\n3. Ver inventario\n4. Salir');
 
     if (opcion === null) {
       // Si el usuario hace clic en Cancelar, tratamos como si hubiera seleccionado salir
@@ -229,12 +184,9 @@ function mostrarMenu() {
           verInventario();
           break;
         case '4':
-          mostrarMenuCategorias();
-          break;
-        case '5':
           if (window.confirm('¿Estás seguro de que deseas salir del sistema?')) {
             alert('Saliendo del sistema. ¡Hasta luego!');
-            return; // Salir de la función, lo que terminará la ejecución.
+            return;  // Salir de la función, lo que terminará la ejecución.
           }
           break;
         default:
@@ -244,6 +196,7 @@ function mostrarMenu() {
     }
   }
 }
+
 
 
 
