@@ -94,33 +94,6 @@ const productos = [
   new Producto("Atún en lata 160g", 2500, 560),
 ];
 
-// Define la clase Cliente
-class Cliente {
-  constructor(nombre, apellido, email, direccion) {
-    this.nombre = nombre;
-    this.apellido = apellido;
-    this.email = email;
-    this.direccion = direccion;
-  }
-}
-
-// Lista de clientes
-let listaClientes = [];
-
-// Método para agregar un cliente a la lista
-function agregarCliente(nombre, apellido, email, direccion) {
-  let cliente = new Cliente(nombre, apellido, email, direccion);
-  listaClientes.push(cliente);
-}
-
-// Método para generar y enviar una boleta o factura al cliente
-function generarYEnviarFactura(cliente, historialCompras, totalCompra) {
- 
-  // Por ahora, solo imprimiremos un mensaje de ejemplo.
-  console.log(`Se ha enviado la boleta a ${cliente.email}`);
-}
-
-
 // Función para autenticar al usuario
 function autenticarUsuario() {
   nombreUsuario = prompt("Ingrese su nombre de usuario");
@@ -385,18 +358,8 @@ function actualizarInventario(historialCompras) {
   });
 }
 
-// Llamar al método para agregar un cliente (puedes hacerlo en cualquier parte del código)
-agregarCliente("Juan", "Perez", "juan@gmail.com", "Dirección de Juan");
-
-// Luego, después de realizar una compra, puedes llamar a la función para generar y enviar la factura
-// con el cliente correspondiente, historial de compras y total de la compra.
-
-
-
 // Función para volver a mostrar el menú con el historial de compras
 function volvermostrarMenu(historialCompras, totalCompra) {
-
-  generarYEnviarFactura(listaClientes[0], historialCompras, totalCompra);
   console.log(`Historial de compras para ${nombreUsuario}:`);
   historialCompras.forEach((compra, index) => {
     console.log(`Compra ${index + 1}:`);
