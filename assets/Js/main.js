@@ -242,7 +242,7 @@ function mostrarMenu() {
   }
 }
 
-// Función para gestionar cambios en el perfil
+// Función para gestionar cambios en el Perfil
 function gestionarCambios() {
   const guardarCambios = confirm('¿Desea guardar los datos de tu perfil?');
 
