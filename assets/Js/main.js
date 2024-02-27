@@ -197,11 +197,6 @@ function mostrarMenu() {
   }
 }
 
-
-
-
-
-
 // Función para mostrar el perfil del usuario
 function mostrarPerfil() {
   console.log(`Información del perfil para ${nombreUsuario}:`);
@@ -298,6 +293,17 @@ function cargarProductos() {
     producto: productoSeleccionado.nombre,
     precio: productoSeleccionado.precio
   };
+}
+
+// Función para actualizar el inventario después de una compra
+function actualizarInventario(historialCompras) {
+  historialCompras.forEach(compra => {
+    const productoEnInventario = productos.find(producto => producto.nombre === compra.producto);
+
+    if (productoEnInventario) {
+      productoEnInventario.stock -= compra.cantidad;
+    }
+  });
 }
 
 // Función para realizar una compra
