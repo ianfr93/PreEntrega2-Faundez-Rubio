@@ -358,7 +358,32 @@ function actualizarInventario(historialCompras) {
   });
 }
 
-// Función para volver a mostrar el menú con el historial de compras
+// Función para enviar correo electrónico
+function sendEmail(destinatario, asunto, cuerpo) {
+  // Aquí deberías implementar el código para enviar un correo electrónico.
+  // Puedes utilizar bibliotecas como nodemailer o servicios de envío de correos electrónicos.
+  console.log(`Enviando correo electrónico a ${destinatario} con asunto: ${asunto}`);
+  console.log(`Cuerpo del correo: ${cuerpo}`);
+  // Código de envío de correo electrónico aquí
+}
+
+// Función para enviar boleta o factura por correo electrónico
+function enviarBoletaFactura(correoCliente, historialCompras, totalCompra) {
+
+  let cuerpoCorreo = `¡Gracias por tu compra!\n\nHistorial de compras:\n`;
+  historialCompras.forEach((compra, index) => {
+    cuerpoCorreo += `Compra ${index + 1}:\n`;
+    cuerpoCorreo += `Producto: ${compra.producto}\n`;
+    cuerpoCorreo += `Precio: $${compra.precio.toFixed(2)}\n`;
+    cuerpoCorreo += `Cantidad: ${compra.cantidad}\n\n`;
+  });
+  cuerpoCorreo += `Total de la compra: $${totalCompra.toFixed(2)}`;
+
+  // Llamar a la función de enviar correo electrónico
+  sendEmail(correoCliente, 'Boleta de compra', cuerpoCorreo);
+}
+
+
 function volvermostrarMenu(historialCompras, totalCompra) {
   console.log(`Historial de compras para ${nombreUsuario}:`);
   historialCompras.forEach((compra, index) => {
@@ -369,8 +394,12 @@ function volvermostrarMenu(historialCompras, totalCompra) {
     console.log("----------------------------------");
   });
 
+  // Llama a la función enviarBoletaFactura con la información necesaria
+  enviarBoletaFactura(usuarios[indexUsuarioAutenticado].perfil.correo, historialCompras, totalCompra);
+
   // Mensaje antes de volver al menú principal
   console.log('¡Gracias por su compra! Volviendo al menú principal...');
-
 }
+
+
 
