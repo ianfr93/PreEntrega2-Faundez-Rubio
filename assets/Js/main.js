@@ -371,5 +371,41 @@ function volvermostrarMenu(historialCompras, totalCompra) {
 
   // Mensaje antes de volver al menú principal
   console.log('¡Gracias por su compra! Volviendo al menú principal...');
+  
 
+}
+// Función para buscar productos por nombre
+function buscarProductos(termino) {
+  return productos.filter(producto => producto.nombre.toLowerCase().includes(termino.toLowerCase()));
+}
+
+// Función para cargar productos permitiendo búsqueda
+function cargarProductos() {
+  let terminoBusqueda = prompt("Ingrese el nombre o parte del nombre del producto que desea buscar:");
+  let productosEncontrados = buscarProductos(terminoBusqueda);
+
+  if (productosEncontrados.length === 0) {
+    alert('No se encontraron productos que coincidan con la búsqueda.');
+    return null;
+  }
+
+  // Muestra los productos encontrados y permite al usuario seleccionar uno
+  console.log("Productos encontrados:");
+  productosEncontrados.forEach((producto, index) => {
+    console.log(`${index + 1}. ${producto.nombre}`);
+  });
+
+  let seleccionProducto = parseInt(prompt("Seleccione el producto deseado por su índice:"));
+
+  if (isNaN(seleccionProducto) || seleccionProducto < 1 || seleccionProducto > productosEncontrados.length) {
+    alert('Selección no válida. Volviendo al menú principal.');
+    return null;
+  }
+
+  let productoSeleccionado = productosEncontrados[seleccionProducto - 1];
+
+  return {
+    producto: productoSeleccionado.nombre,
+    precio: productoSeleccionado.precio
+  };
 }
